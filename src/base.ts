@@ -27,6 +27,9 @@ export class BaseApi {
   }
 
   protected async request<T> (region: Regions, path: string, params?: IParams): Promise<T> {
+    if (!this.key) {
+      throw new Error('Riot api key not found')
+    }
     // Url params
     params = params || {}
     params.region = region.toLowerCase()

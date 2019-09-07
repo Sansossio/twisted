@@ -1,0 +1,27 @@
+{
+  "name": "riot-games-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "lint:fix": "tslint --project tsconfig.json --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/request-promise": "^4.1.44",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "nodemon": "^1.19.2",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.19.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}

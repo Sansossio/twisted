@@ -1,6 +1,5 @@
-import { RiotApi } from '../src/riot'
+import { RiotApi, Regions } from '../src'
 import { apiKey } from './apiKey'
-import { Regions } from '../src/enum/regions'
 import { SummonerBy } from '../src/endpoints/Summoner/Summoner.endpoint';
 
 const api = new RiotApi(apiKey)

@@ -4,6 +4,8 @@ import { ChampionRotationV3DTO } from './DTO/Champion/ChampionRotation.DTO'
 import { ChampionRotationEndpoint } from './endpoints/Champion/ChampionRotation.endpoint'
 import { SummonerBy, SummonerEndpoint } from './endpoints/Summoner/Summoner.endpoint'
 import { SummonerV4DTO } from './dto/Summoner/Summoner.dto'
+import { LolStatusDTO } from './dto/Status/LolStatus.dto'
+import { LolStatusEndpoint } from './endpoints/LolStatus/LolStatus.endpoint'
 
 export class RiotApi extends BaseApi {
   /**
@@ -32,5 +34,14 @@ export class RiotApi extends BaseApi {
       by
     }
     return this.request(region, path, params)
+  }
+
+  /**
+   * Lol status by server
+   * @param region Riot region
+   */
+  public async getLolStatus (region: Regions)
+  : Promise<LolStatusDTO> {
+    return this.request(region, LolStatusEndpoint.path)
   }
 }

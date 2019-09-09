@@ -10,7 +10,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint && npm test"
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
     }
   },
   "keywords": [],

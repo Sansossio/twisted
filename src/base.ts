@@ -1,5 +1,6 @@
 import rp from 'request-promise'
 import { Regions } from './enum/regions'
+import { NotKeyFound } from './errors'
 
 interface IParams {
   [key: string]: string | number
@@ -28,7 +29,7 @@ export class BaseApi {
 
   protected async request<T> (region: Regions, path: string, params?: IParams): Promise<T> {
     if (!this.key) {
-      throw new Error('Riot api key not found')
+      throw new NotKeyFound()
     }
     // Url params
     params = params || {}

@@ -1,6 +1,6 @@
 import rp from 'request-promise'
-import { Regions } from './enum/regions'
-import { ApiKeyNotFound } from './errors'
+import { Regions } from '../enum/regions'
+import { ApiKeyNotFound } from '../errors'
 
 interface IParams {
   [key: string]: string | number

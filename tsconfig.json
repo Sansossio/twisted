@@ -4,7 +4,8 @@
     "module": "commonjs",
     "lib": ["es2017", "es7", "es6", "dom"],
     "declaration": true,
-    "outDir": "dist",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "strictPropertyInitialization": false,
@@ -12,6 +13,8 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "test",
+    "example"
   ]
 }

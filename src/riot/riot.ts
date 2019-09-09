@@ -1,12 +1,15 @@
-import { Regions, FindSummonerBy } from './'
+import { Regions, FindSummonerBy } from '..'
 import { BaseApi } from './base'
-import { ChampionRotationV3DTO } from './DTO/Champion/ChampionRotation.DTO'
-import { ChampionRotationEndpoint } from './endpoints/Champion/ChampionRotation.endpoint'
-import { SummonerEndpoint } from './endpoints/Summoner/Summoner.endpoint'
-import { SummonerV4DTO } from './dto/Summoner/Summoner.dto'
-import { LolStatusDTO } from './dto/Status/LolStatus.dto'
-import { LolStatusEndpoint } from './endpoints/LolStatus/LolStatus.endpoint'
+import { ChampionRotationV3DTO } from '../DTO/Champion/ChampionRotation.DTO'
+import { ChampionRotationEndpoint } from '../endpoints/Champion/ChampionRotation.endpoint'
+import { SummonerEndpoint } from '../endpoints/Summoner/Summoner.endpoint'
+import { SummonerV4DTO } from '../dto/Summoner/Summoner.dto'
+import { LolStatusDTO } from '../dto/Status/LolStatus.dto'
+import { LolStatusEndpoint } from '../endpoints/LolStatus/LolStatus.endpoint'
 
+/**
+ * Riot Games api wrap
+ */
 export class RiotApi extends BaseApi {
   /**
    * Get champion rotation

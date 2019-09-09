@@ -1,6 +1,6 @@
 import rp from 'request-promise'
 import { Regions } from './enum/regions'
-import { NotKeyFound } from './errors'
+import { ApiKeyNotFound } from './errors'
 
 interface IParams {
   [key: string]: string | number
@@ -10,7 +10,7 @@ export class BaseApi {
   private readonly apiUrl = 'https://$(region).api.riotgames.com/lol'
 
   constructor (
-    private readonly key: string
+    private readonly key?: string
   ) {}
 
   private urlParams (path: string, params: IParams) {
@@ -29,7 +29,7 @@ export class BaseApi {
 
   protected async request<T> (region: Regions, path: string, params?: IParams): Promise<T> {
     if (!this.key) {
-      throw new NotKeyFound()
+      throw new ApiKeyNotFound()
     }
     // Url params
     params = params || {}

@@ -5,18 +5,29 @@
   "main": "index.js",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "lint:fix": "tslint --project tsconfig.json --fix"
+    "lint:fix": "tslint --project tsconfig.json --fix",
+    "test": "mocha -r ts-node/register test/**.test.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.2.1",
     "@types/dotenv": "^6.1.1",
     "@types/http-status-codes": "^1.2.0",
+    "@types/mocha": "^5.2.7",
     "@types/request-promise": "^4.1.44",
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/parser": "^2.1.0",
+    "chai": "^4.2.0",
     "dotenv": "^8.1.0",
+    "husky": "^3.0.5",
+    "mocha": "^6.2.0",
     "nodemon": "^1.19.2",
     "ts-node": "^8.3.0",
     "tslint": "^5.19.0",

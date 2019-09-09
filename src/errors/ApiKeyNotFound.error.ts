@@ -1,17 +1,18 @@
 import * as HttpCodes from 'http-status-codes'
-import { IErrors } from './'
+import { IErrors } from '.'
 
 const message = 'Api key not found'
 
 /**
- * Not key found class
+ * Not api key found
  */
-export class NotKeyFound extends Error implements IErrors {
+export class ApiKeyNotFound extends Error implements IErrors {
   readonly status = HttpCodes.NOT_IMPLEMENTED
-  readonly message = message
+  readonly name = 'ApiKeyNotFound'
 
   // This isn't a useless constructor because this error doesn't need a message parameter
   constructor () {
-    super()
+    super(message)
+    Object.setPrototypeOf(this, ApiKeyNotFound.prototype)
   }
 }

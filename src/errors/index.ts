@@ -1,2 +1,2 @@
-export * from './NotKeyFound.error'
+export * from './ApiKeyNotFound.error'
 export * from './base'

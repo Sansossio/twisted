@@ -1,8 +1,8 @@
-import { Regions } from './enum/regions'
+import { Regions, FindSummonerBy } from './'
 import { BaseApi } from './base'
 import { ChampionRotationV3DTO } from './DTO/Champion/ChampionRotation.DTO'
 import { ChampionRotationEndpoint } from './endpoints/Champion/ChampionRotation.endpoint'
-import { SummonerBy, SummonerEndpoint } from './endpoints/Summoner/Summoner.endpoint'
+import { SummonerEndpoint } from './endpoints/Summoner/Summoner.endpoint'
 import { SummonerV4DTO } from './dto/Summoner/Summoner.dto'
 import { LolStatusDTO } from './dto/Status/LolStatus.dto'
 import { LolStatusEndpoint } from './endpoints/LolStatus/LolStatus.endpoint'
@@ -23,10 +23,10 @@ export class RiotApi extends BaseApi {
    * @param value Value to find
    * @param region Riot region
    */
-  public async getSummoner (by: SummonerBy, value: string, region: Regions)
+  public async getSummoner (by: FindSummonerBy, value: string, region: Regions)
   : Promise<SummonerV4DTO> {
     let path = SummonerEndpoint.path
-    if (by === SummonerBy.ID) {
+    if (by === FindSummonerBy.ID) {
       path = path.replace('/$(by)/', '')
     }
     const params = {

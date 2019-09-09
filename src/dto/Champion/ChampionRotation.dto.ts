@@ -5,13 +5,13 @@ export class ChampionRotationV3DTO {
   /**
    * Champions id list for new players
    */
-  public readonly freeChampionIdsForNewPlayers: Number[]
+  public readonly freeChampionIdsForNewPlayers: number[]
   /**
    * Champions id list
    */
-  public readonly freeChampionIds: Number[]
+  public readonly freeChampionIds: number[]
   /**
    * Max level to get new players rotation
    */
-  public readonly maxNewPlayerLevel: Number[]
+  public readonly maxNewPlayerLevel: number[]
 }

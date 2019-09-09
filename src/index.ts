@@ -1,2 +1,2 @@
 export * from './riot'
-export * from './enum/regions'
+export * from './enum'

@@ -15,7 +15,7 @@ export class LolStatusServiceStatusIncident {
   /**
    * Indicent id
    */
-  id: Number
+  id: number
   /**
    * Updates list
    */

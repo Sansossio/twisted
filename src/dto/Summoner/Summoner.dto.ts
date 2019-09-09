@@ -5,7 +5,7 @@ export class SummonerV4DTO {
   /**
    * ID of the summoner icon associated with the summoner.
    */
-  public readonly profileIconId: Number
+  public readonly profileIconId: number
   /**
    * Summoner name
    */
@@ -17,11 +17,11 @@ export class SummonerV4DTO {
   /**
    * Summoner level associated with the summoner.
    */
-  public readonly summonerLevel: Number
+  public readonly summonerLevel: number
   /**
    * Date summoner was last modified specified as epoch milliseconds. The following events will update this timestamp: profile icon change, playing the tutorial or advanced tutorial, finishing a game, summoner name change
    */
-  public readonly revisionDate: Number
+  public readonly revisionDate: number
   /**
    *  Encrypted summoner ID. Max length 63 characters.
    */

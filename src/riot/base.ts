@@ -11,7 +11,11 @@ export class BaseApi {
 
   constructor (
     private readonly key?: string
-  ) {}
+  ) {
+    if (this.key) {
+      this.key = process.env.RIOT_API_KEY
+    }
+  }
 
   private urlParams (path: string, params: IParams) {
     const re = /\$\(([^\)]+)?\)/g

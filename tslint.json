@@ -3,6 +3,6 @@
         "tslint-config-standard"
     ],
     "linterOptions": {
-        "exclude": ["example/**"]
+        "exclude": ["example/**", "dist/**"]
     }
 }

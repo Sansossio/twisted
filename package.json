@@ -1,6 +1,6 @@
 {
   "name": "riot-games-api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,17 @@
       "pre-push": "npm test"
     }
   },
-  "keywords": [],
+  "engines": {
+    "node": ">=8.6.0"
+  },
+  "keywords": [
+    "riot",
+    "lol",
+    "api",
+    "wrap",
+    "riot games",
+    "league of legends"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

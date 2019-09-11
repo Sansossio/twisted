@@ -7,7 +7,7 @@ interface IParams {
 }
 
 export class BaseApi {
-  private readonly apiUrl = 'https://$(region).api.riotgames.com/lol'
+  readonly baseUrl = 'https://$(region).api.riotgames.com/lol'
 
   constructor (
     private readonly key?: string
@@ -15,20 +15,6 @@ export class BaseApi {
     if (this.key) {
       this.key = process.env.RIOT_API_KEY
     }
-  }
-
-  private urlParams (path: string, params: IParams) {
-    const re = /\$\(([^\)]+)?\)/g
-    let base = `${this.apiUrl}/${path}`
-    let match
-    // tslint:disable:no-conditional-assignment
-    while (match = re.exec(base)) {
-      const [key] = match
-      const value = String(params[match[1]])
-      base = base.replace(key, value)
-      re.lastIndex = 0
-    }
-    return base
   }
 
   protected async request<T> (region: Regions, path: string, params?: IParams): Promise<T> {
@@ -39,7 +25,7 @@ export class BaseApi {
     params = params || {}
     params.region = region.toLowerCase()
     // Format
-    const uri = this.urlParams(path, params)
+    const uri = this.getApiUrl(path, params)
     const options: rp.OptionsWithUri = {
       uri,
       method: 'GET',
@@ -50,5 +36,19 @@ export class BaseApi {
       json: true
     }
     return rp(options)
+  }
+
+  getApiUrl (path: string, params: IParams) {
+    const re = /\$\(([^\)]+)?\)/g
+    let base = `${this.baseUrl}/${path}`
+    let match
+    // tslint:disable:no-conditional-assignment
+    while (match = re.exec(base)) {
+      const [key] = match
+      const value = String(params[match[1]])
+      base = base.replace(key, value)
+      re.lastIndex = 0
+    }
+    return base
   }
 }

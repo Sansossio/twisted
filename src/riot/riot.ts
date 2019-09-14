@@ -1,23 +1,27 @@
 import { Regions, FindSummonerBy } from '..'
 import { BaseApi } from './base'
 import { ChampionRotationV3DTO } from '../DTO/Champion/ChampionRotation.DTO'
-import { ChampionRotationEndpoint } from '../endpoints/Champion/ChampionRotation.endpoint'
-import { SummonerEndpoint } from '../endpoints/Summoner/Summoner.endpoint'
 import { SummonerV4DTO } from '../dto/Summoner/Summoner.dto'
 import { LolStatusDTO } from '../dto/Status/LolStatus.dto'
-import { LolStatusEndpoint } from '../endpoints/LolStatus/LolStatus.endpoint'
+import { endpointsV4, endpointsV3 } from '../enum/endpoints'
+import { Matchv4 } from './matchv4'
 
 /**
  * Riot Games api wrap
  */
 export class RiotApi extends BaseApi {
   /**
+   * Match methods
+   */
+  public readonly match: Matchv4 = new Matchv4(this.getKey())
+
+  /**
    * Get champion rotation
    * @param region Riot region
    */
   public async getChampionRotation (region: Regions)
   : Promise<ChampionRotationV3DTO> {
-    return this.request(region, ChampionRotationEndpoint.path)
+    return this.request(region, endpointsV3.ChampionRotation)
   }
 
   /**
@@ -28,7 +32,7 @@ export class RiotApi extends BaseApi {
    */
   public async getSummoner (by: FindSummonerBy, value: string, region: Regions)
   : Promise<SummonerV4DTO> {
-    let path = SummonerEndpoint.path
+    let { path } = endpointsV4.Summoner
     if (by === FindSummonerBy.ID) {
       path = path.replace('/$(by)/', '')
     }
@@ -36,7 +40,7 @@ export class RiotApi extends BaseApi {
       summonerName: value,
       by
     }
-    return this.request(region, path, params)
+    return this.request(region, endpointsV4.Summoner, params)
   }
 
   /**
@@ -45,6 +49,6 @@ export class RiotApi extends BaseApi {
    */
   public async getLolStatus (region: Regions)
   : Promise<LolStatusDTO> {
-    return this.request(region, LolStatusEndpoint.path)
+    return this.request(region, endpointsV3.LolStatus)
   }
 }

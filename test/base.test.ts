@@ -2,9 +2,15 @@ import { expect } from 'chai'
 import { RiotApi } from '../src'
 import { ApiKeyNotFound } from '../src/errors'
 import { Regions } from '../src/enum'
+import { IEndpoint } from '../src/enum/endpoints'
 
 describe('Base api', () => {
   const riot = new RiotApi()
+  const baseEndpoint: IEndpoint = {
+    path: '',
+    version: 0,
+    prefix: ''
+  }
   it('should throw when missing Riot api key', async () => {
     try {
       await riot.getChampionRotation(Regions.LAT_NORTH)
@@ -20,7 +26,8 @@ describe('Base api', () => {
       region: Regions.LAT_NORTH
     }
     const path = 'ryze'
-    const url = riot.getApiUrl(path, params)
+    baseEndpoint.path = path
+    const url = riot.getApiUrl(baseEndpoint, params)
     expect(url.endsWith(path)).to.be.equal(true)
   })
   it('should return correct api url with api params', () => {
@@ -28,9 +35,9 @@ describe('Base api', () => {
       region: Regions.LAT_NORTH,
       division: 'wood'
     }
-    const path = 'ryze/$(division)'
+    baseEndpoint.path = 'ryze/$(division)'
     const ends = 'ryze/wood'
-    const url = riot.getApiUrl(path, params)
+    const url = riot.getApiUrl(baseEndpoint, params)
     expect(url.endsWith(ends)).to.be.equal(true)
   })
 })

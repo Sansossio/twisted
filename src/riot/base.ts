@@ -1,6 +1,7 @@
 import rp from 'request-promise'
 import { Regions } from '../enum/regions'
 import { ApiKeyNotFound } from '../errors'
+import { IEndpoint } from '../enum/endpoints'
 
 interface IParams {
   [key: string]: string | number
@@ -12,12 +13,16 @@ export class BaseApi {
   constructor (
     private readonly key?: string
   ) {
-    if (this.key) {
+    if (!this.key) {
       this.key = process.env.RIOT_API_KEY
     }
   }
 
-  protected async request<T> (region: Regions, path: string, params?: IParams): Promise<T> {
+  protected getKey () {
+    return this.key
+  }
+
+  protected async request<T> (region: Regions, endpoint: IEndpoint, params?: IParams): Promise<T> {
     if (!this.key) {
       throw new ApiKeyNotFound()
     }
@@ -25,7 +30,7 @@ export class BaseApi {
     params = params || {}
     params.region = region.toLowerCase()
     // Format
-    const uri = this.getApiUrl(path, params)
+    const uri = this.getApiUrl(endpoint, params)
     const options: rp.OptionsWithUri = {
       uri,
       method: 'GET',
@@ -38,9 +43,15 @@ export class BaseApi {
     return rp(options)
   }
 
-  getApiUrl (path: string, params: IParams) {
+  getApiUrl (endpoint: IEndpoint, params: IParams) {
+    const {
+      prefix,
+      version,
+      path
+    } = endpoint
+    const basePath = `${prefix}/v${version}/${path}`
     const re = /\$\(([^\)]+)?\)/g
-    let base = `${this.baseUrl}/${path}`
+    let base = `${this.baseUrl}/${basePath}`
     let match
     // tslint:disable:no-conditional-assignment
     while (match = re.exec(base)) {

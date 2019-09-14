@@ -31,7 +31,6 @@ export class RiotApi extends BaseApi {
   : Promise<ChampionRotationV3DTO> {
     return this.request(region, endpointsV3.ChampionRotation)
   }
-
   /**
    * Lol status by server
    * @param region Riot region

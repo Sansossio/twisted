@@ -14,9 +14,9 @@ export class BaseApi {
   readonly baseUrl = 'https://$(region).api.riotgames.com/lol'
 
   constructor (
-    private readonly key?: string
+    private readonly key?: string | null
   ) {
-    if (!this.key) {
+    if (!this.key && this.key !== null) {
       this.key = process.env.RIOT_API_KEY
     }
   }

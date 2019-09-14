@@ -5,7 +5,7 @@ import { Regions } from '../src/enum'
 import { IEndpoint } from '../src/enum/endpoints'
 
 describe('Base api', () => {
-  const riot = new RiotApi()
+  const riot = new RiotApi(null)
   const baseEndpoint: IEndpoint = {
     path: '',
     version: 0,

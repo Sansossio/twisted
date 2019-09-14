@@ -1,4 +1,4 @@
-import { Regions, FindSummonerBy } from '..'
+import { Regions } from '..'
 import { BaseApi } from './base'
 import { ChampionRotationV3DTO } from '../DTO/Champion/ChampionRotation.DTO'
 import { LolStatusDTO } from '../dto/Status/LolStatus.dto'

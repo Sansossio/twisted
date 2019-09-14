@@ -1,7 +1,6 @@
 import { RiotApi, Regions } from '../src'
-import { apiKey } from './apiKey'
 
-const api = new RiotApi(apiKey)
+const api = new RiotApi()
 
 async function example () {
   const data = await api.getChampionRotation(Regions.LAT_NORTH)

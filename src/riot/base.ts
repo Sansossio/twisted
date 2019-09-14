@@ -2,6 +2,9 @@ import rp from 'request-promise'
 import { Regions } from '../enum/regions'
 import { ApiKeyNotFound } from '../errors'
 import { IEndpoint } from '../enum/endpoints'
+import { config } from 'dotenv'
+
+config()
 
 interface IParams {
   [key: string]: string | number

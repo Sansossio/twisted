@@ -1,7 +1,6 @@
 import { RiotApi, Regions, FindSummonerBy } from '../src'
-import { apiKey } from './apiKey'
 
-const api = new RiotApi(apiKey)
+const api = new RiotApi()
 const exampleSummoner = 'Hide on Bush'
 
 async function example () {

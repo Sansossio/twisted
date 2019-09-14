@@ -1,6 +1,6 @@
 import * as _ from 'lodash'
 import { BaseApi } from '../base'
-import { endpointsV4 } from '../../enum/endpoints.enum'
+import { endpointsV4, IEndpoint } from '../../enum/endpoints.enum'
 import { SummonerV4DTO } from '../../dto/Summoner/Summoner.dto'
 import { FindSummonerBy, Regions } from '../../enum'
 
@@ -8,8 +8,8 @@ import { FindSummonerBy, Regions } from '../../enum'
  * Summoner methods
  */
 export class SummonerApi extends BaseApi {
-  private parsePath (by: FindSummonerBy) {
-    let { path } = endpointsV4.Summoner
+  private parsePath (endpoint: IEndpoint, by: FindSummonerBy) {
+    let { path } = endpoint
     if (by === FindSummonerBy.ID) {
       path = path.replace('/$(by)/', '/')
     }
@@ -17,7 +17,7 @@ export class SummonerApi extends BaseApi {
   }
   private genericRequest (by: FindSummonerBy, value: string, region: Regions) {
     const endpoint = _.cloneDeep(endpointsV4.Summoner)
-    endpoint.path = this.parsePath(by)
+    endpoint.path = this.parsePath(endpoint, by)
     const params = {
       summonerName: value,
       by

@@ -23,6 +23,11 @@ export const endpointsV4: IEndpoints = {
     path: 'matches/$(matchId)',
     prefix: 'match',
     version: 4
+  },
+  MatchTimeline: {
+    path: 'timelines/by-match/$(matchId)',
+    prefix: 'match',
+    version: 4
   }
 }
 

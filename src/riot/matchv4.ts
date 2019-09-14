@@ -3,6 +3,7 @@ import { MatchListingDto } from '../dto/Match/MatchListing/MatchListing.dto'
 import { Regions } from '../enum'
 import { endpointsV4 } from '../enum/endpoints'
 import { MatchDto } from '../dto/Match/Match/Match.dto'
+import { MatchTimelineDto } from '../dto/Match/MatchTimeLine/MatchTimeLine.dto'
 
 /**
  * Match methods
@@ -28,5 +29,12 @@ export class Matchv4 extends BaseApi {
       encryptedAccountId
     }
     return this.request(region, endpointsV4.MatchListing, params)
+  }
+
+  public async timeline (matchId: number, region: Regions): Promise<MatchTimelineDto> {
+    const params = {
+      matchId
+    }
+    return this.request(region, endpointsV4.MatchTimeline, params)
   }
 }

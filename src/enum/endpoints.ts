@@ -14,6 +14,11 @@ export const endpointsV4: IEndpoints = {
     prefix: 'summoner',
     version: 4
   },
+  SummonerLeague: {
+    path: 'entries/by-summoner/$(encryptedSummonerId)',
+    prefix: 'league',
+    version: 4
+  },
   MatchListing: {
     path: 'matchlists/by-account/$(encryptedAccountId)',
     prefix: 'match',

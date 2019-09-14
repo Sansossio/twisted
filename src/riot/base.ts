@@ -1,7 +1,7 @@
 import rp from 'request-promise'
-import { Regions } from '../enum/regions'
+import { Regions } from '../enum/regions.enum'
 import { ApiKeyNotFound } from '../errors'
-import { IEndpoint } from '../enum/endpoints'
+import { IEndpoint } from '../enum/endpoints.enum'
 import { config } from 'dotenv'
 
 config()

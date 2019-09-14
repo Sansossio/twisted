@@ -1,6 +1,6 @@
 import { BaseApi } from '../base'
 import { Regions } from '../../enum'
-import { endpointsV4 } from '../../enum/endpoints'
+import { endpointsV4 } from '../../enum/endpoints.enum'
 import { SummonerLeagueDto } from '../../dto/League/SummonerLeague/SummonerLeague.dto'
 
 /**

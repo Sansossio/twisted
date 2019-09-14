@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import { RiotApi } from '../src'
 import { ApiKeyNotFound } from '../src/errors'
 import { Regions } from '../src/enum'
-import { IEndpoint } from '../src/enum/endpoints'
+import { IEndpoint } from '../src/enum/endpoints.enum'
 
 describe('Base api', () => {
   const riot = new RiotApi(null)

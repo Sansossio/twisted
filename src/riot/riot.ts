@@ -3,7 +3,7 @@ import { BaseApi } from './base'
 import { ChampionRotationV3DTO } from '../DTO/Champion/ChampionRotation.DTO'
 import { SummonerV4DTO } from '../dto/Summoner/Summoner.dto'
 import { LolStatusDTO } from '../dto/Status/LolStatus.dto'
-import { endpointsV4, endpointsV3 } from '../enum/endpoints'
+import { endpointsV4, endpointsV3 } from '../enum/endpoints.enum'
 import { MatchApi } from './match/match'
 import { LeagueApi } from './league/league'
 

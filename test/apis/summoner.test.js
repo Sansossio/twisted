@@ -1,3 +1,7 @@
+const {
+  describe,
+  it
+} = require('mocha')
 const { expect } = require('chai')
 const { SummonerApi } = require('../../src/riot/summoner/summoner')
 

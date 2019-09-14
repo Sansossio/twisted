@@ -18,6 +18,11 @@ export const endpointsV4: IEndpoints = {
     path: 'matchlists/by-account/$(encryptedAccountId)',
     prefix: 'match',
     version: 4
+  },
+  Match: {
+    path: 'matches/$(matchId)',
+    prefix: 'match',
+    version: 4
   }
 }
 

@@ -2,10 +2,10 @@ import { RiotApi, Regions, FindSummonerBy } from '../src'
 import { apiKey } from './apiKey'
 
 const api = new RiotApi(apiKey)
-const exampleSummoner = 'Sansossio'
+const exampleSummoner = 'Hide on Bush'
 
 async function example () {
-  const data = await api.getSummoner(FindSummonerBy.NAME, exampleSummoner, Regions.LAT_NORTH)
+  const data = await api.getSummoner(FindSummonerBy.NAME, exampleSummoner, Regions.KOREA)
   console.log(data)
 }
 

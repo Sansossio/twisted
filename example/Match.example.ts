@@ -1,11 +1,11 @@
-import { RiotApi, Regions, FindSummonerBy } from '../src'
+import { RiotApi } from '../src'
+import { config } from './config';
 
 const api = new RiotApi()
-const exampleSummoner = 'Hide on Bush'
 
 async function example () {
-  const region = Regions.KOREA
-  const user = await api.getSummoner(FindSummonerBy.NAME, exampleSummoner, region)
+  const { region } = config
+  const user = await api.summoner.getByName(config.summonerName, region)
   const {
     matches
   } = await api.match.list(user.accountId, region)

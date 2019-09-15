@@ -84,7 +84,7 @@ export const endpointsV4: IEndpoints = {
     prefix: 'champion-mastery',
     version: 4
   },
-  SpectorFeaturedGames: {
+  SpectatorFeaturedGames: {
     path: 'featured-games',
     prefix: 'spectator',
     version: 4

@@ -7,7 +7,7 @@ import { LeagueApi } from './league/league'
 import { SummonerApi } from './summoner/summoner'
 import { ThirdPartyCode } from './thirdPartyCode/thirdPartyCode'
 import { ChampionApi } from './champion/champion'
-import { SpectorApi } from './spector/spector'
+import { SpectatorApi } from './spectator/spectator'
 
 /**
  * Riot Games api wrap
@@ -34,9 +34,9 @@ export class RiotApi extends BaseApi {
    */
   public readonly champion = new ChampionApi(this.getKey())
   /**
-   * Spector methods
+   * Spectator methods
    */
-  public readonly spector = new SpectorApi(this.getKey())
+  public readonly spectator = new SpectatorApi(this.getKey())
   /**
    * Lol status by server
    * @param region Riot region

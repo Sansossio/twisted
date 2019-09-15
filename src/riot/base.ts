@@ -11,7 +11,7 @@ interface IParams {
 }
 
 export class BaseApi {
-  readonly baseUrl = 'https://$(region).api.riotgames.com/lol'
+  private readonly baseUrl = 'https://$(region).api.riotgames.com/lol'
 
   constructor (
     private readonly key?: string | null
@@ -19,6 +19,26 @@ export class BaseApi {
     if (!this.key && this.key !== null) {
       this.key = process.env.RIOT_API_KEY
     }
+  }
+
+  private getApiUrl (endpoint: IEndpoint, params: IParams) {
+    const {
+      prefix,
+      version,
+      path
+    } = endpoint
+    const basePath = `${prefix}/v${version}/${path}`
+    const re = /\$\(([^\)]+)?\)/g
+    let base = `${this.baseUrl}/${basePath}`
+    let match
+    // tslint:disable:no-conditional-assignment
+    while (match = re.exec(base)) {
+      const [key] = match
+      const value = String(params[match[1]])
+      base = base.replace(key, value)
+      re.lastIndex = 0
+    }
+    return base
   }
 
   protected getKey () {
@@ -44,25 +64,5 @@ export class BaseApi {
       json: true
     }
     return rp(options)
-  }
-
-  getApiUrl (endpoint: IEndpoint, params: IParams) {
-    const {
-      prefix,
-      version,
-      path
-    } = endpoint
-    const basePath = `${prefix}/v${version}/${path}`
-    const re = /\$\(([^\)]+)?\)/g
-    let base = `${this.baseUrl}/${basePath}`
-    let match
-    // tslint:disable:no-conditional-assignment
-    while (match = re.exec(base)) {
-      const [key] = match
-      const value = String(params[match[1]])
-      base = base.replace(key, value)
-      re.lastIndex = 0
-    }
-    return base
   }
 }

@@ -3,8 +3,6 @@ import * as _ from 'lodash'
 
 const interval = 1000
 
-console.log(process.env.npm_config_example)
-
 function waiter (ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
 }

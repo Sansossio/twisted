@@ -1,19 +1,19 @@
-import { expect } from 'chai'
-import { RiotApi } from '../src'
-import { ApiKeyNotFound } from '../src/errors'
-import { Regions } from '../src/enum'
-import { IEndpoint } from '../src/enum/endpoints.enum'
+const { describe, it } = require('mocha')
+const { expect } = require('chai')
+const { RiotApi } = require('../src')
+const { ApiKeyNotFound } = require('../src/errors')
 
 describe('Base api', () => {
   const riot = new RiotApi(null)
-  const baseEndpoint: IEndpoint = {
+  const baseEndpoint = {
     path: '',
     version: 0,
     prefix: ''
   }
+  const region = 'LA1'
   it('should throw when missing Riot api key', async () => {
     try {
-      await riot.getChampionRotation(Regions.LAT_NORTH)
+      await riot.getChampionRotation(region)
     } catch (e) {
       expect(e).instanceOf(ApiKeyNotFound)
     }
@@ -23,7 +23,7 @@ describe('Base api', () => {
   })
   it('should return correct api url', () => {
     const params = {
-      region: Regions.LAT_NORTH
+      region: region
     }
     const path = 'ryze'
     baseEndpoint.path = path
@@ -32,7 +32,7 @@ describe('Base api', () => {
   })
   it('should return correct api url with api params', () => {
     const params = {
-      region: Regions.LAT_NORTH,
+      region: region,
       division: 'wood'
     }
     baseEndpoint.path = 'ryze/$(division)'

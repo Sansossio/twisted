@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build:
+      dockerfile: examples.Dockerfile
+      context: .
+    container_name: riotApiExamples
+    volumes:
+      - .:/app
+    environment:
+      RIOT_API_KEY: YOUR_API_KEY_HERE

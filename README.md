@@ -4,5 +4,12 @@
 RIOT_API_KEY = Riot api key
 
 # Run examples
-Command: ```sh npm run example```
-Single example run: ```sh npm run example --example={exampleFunctionName}```
+## Simple
+```sh npm run example```
+
+## Specific examples
+```sh npm run example --example={exampleFunctionName}```
+
+## With docker
+Edit docker-compose.yml with your api key and:
+```sh docker-compose up```

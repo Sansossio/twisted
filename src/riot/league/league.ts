@@ -37,6 +37,21 @@ export class LeagueApi extends BaseApi {
     return this.request<LeagueEntryDTO>(region, endpointsV4.LeagueExp, params)
   }
   /**
+   * League entries
+   * @param queue Note that the queue value must be a valid ranked queue.
+   * @param tier
+   * @param division
+   * @param region
+   */
+  public async entries (queue: Queues, tier: Tiers, division: Divisions, region: Regions) {
+    const params = {
+      queue,
+      tier,
+      division
+    }
+    return this.request<LeagueEntryDTO>(region, endpointsV4.LeagueEntries, params)
+  }
+  /**
    * Get league by id
    * @param leagueId
    * @param region

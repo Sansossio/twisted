@@ -83,6 +83,11 @@ export const endpointsV4: IEndpoints = {
     path: 'scores/by-summoner/$(encryptedSummonerId)',
     prefix: 'champion-mastery',
     version: 4
+  },
+  SpectorFeaturedGames: {
+    path: 'featured-games',
+    prefix: 'spectator',
+    version: 4
   }
 }
 

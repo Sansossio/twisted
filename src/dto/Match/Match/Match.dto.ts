@@ -1,6 +1,6 @@
 import { MatchParticipantsIdentitiesDto } from './MatchParticipantsIdentities.dto'
 import { MatchTeamsDto } from './MatchTeams.dto'
-import { MatchParticipantsDto } from './MatchParticipants.dto'
+import { MatchParticipantDTO } from './MatchParticipant.dto'
 
 /**
  * Match dto
@@ -49,7 +49,7 @@ export class MatchDto {
   /**
    * Participant information.
    */
-  participants: MatchParticipantsDto[]
+  participants: MatchParticipantDTO[]
   /**
    * Match duration in seconds.
    */

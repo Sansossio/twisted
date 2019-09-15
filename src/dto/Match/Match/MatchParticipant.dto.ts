@@ -6,7 +6,7 @@ import { MatchParticipantsMasteryDto } from './MatchParticipantsMastery.dto'
 /**
  * Participant
  */
-export class MatchParticipantsDto {
+export class MatchParticipantDTO {
   /**
    * Participant statistics.
    */

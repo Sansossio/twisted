@@ -7,4 +7,8 @@ export class BannedChampion {
    * Banned championId.
    */
   championId: number
+  /**
+   * The ID of the team that banned the champion
+   */
+  teamId?: number
 }

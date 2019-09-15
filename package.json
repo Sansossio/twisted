@@ -8,7 +8,8 @@
     "lint": "tslint --project tsconfig.json",
     "lint:fix": "tslint --project tsconfig.json --fix",
     "test": "mocha -r ts-node/register test/**/**.test{.ts,.js}",
-    "build": "tsc"
+    "build": "tsc",
+    "examples": "ts-node runExamples"
   },
   "husky": {
     "hooks": {

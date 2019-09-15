@@ -1,4 +1,4 @@
-import { Regions } from "../src";
+import { Regions } from "../../src";
 
 export const config = {
   summonerName: 'Hide on Bush',

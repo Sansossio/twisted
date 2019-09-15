@@ -1,11 +1,8 @@
 import { RiotApi, Regions } from '../src'
-import { config } from './config'
+import { config } from './config/config'
 
 const api = new RiotApi()
 
-async function example () {
-  const data = await api.summoner.getByName(config.summonerName, config.region)
-  console.log(data)
+export async function summonerByNameExample () {
+  return await api.summoner.getByName(config.summonerName, config.region)
 }
-
-example()

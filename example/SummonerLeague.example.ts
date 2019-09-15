@@ -1,13 +1,10 @@
 import { RiotApi } from '../src'
-import { config } from './config';
+import { config } from './config/config'
 
 const api = new RiotApi()
 
-async function example () {
+export async function summonerLeagueExample () {
   const { region } = config
   const { id } = await api.summoner.getByName(config.summonerName, region)
-  const league = await api.league.bySummoner(id, region)
-  console.log(league)
+  return await api.league.bySummoner(id, region)
 }
-
-example()

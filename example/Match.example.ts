@@ -1,9 +1,8 @@
 import { RiotApi } from '../src'
-import { config } from './config';
+import { config } from './config/config'
 
-const api = new RiotApi()
-
-async function example () {
+export async function matchExample () {
+  const api = new RiotApi()
   const { region } = config
   const user = await api.summoner.getByName(config.summonerName, region)
   const {
@@ -11,7 +10,5 @@ async function example () {
   } = await api.match.list(user.accountId, region)
   const { gameId } = matches[0]
   const match = await api.match.get(gameId, region)
-  console.log(match)
+  return match
 }
-
-example()

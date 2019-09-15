@@ -1,10 +1,7 @@
 import { RiotApi, Regions } from '../src'
 
-const api = new RiotApi()
 
-async function example () {
-  const data = await api.getLolStatus(Regions.LAT_NORTH)
-  console.log(data)
+export async function lolStatusExample () {
+  const api = new RiotApi()
+  return await api.getLolStatus(Regions.LAT_NORTH)
 }
-
-example()

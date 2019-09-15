@@ -27,4 +27,16 @@ export class ChampionApi extends BaseApi {
     }
     return this.request<ChampionMasteryDTO[]>(region, endpointsV4.ChampionMasteryBySummoner, params)
   }
+  /**
+   * Champion mastery by summoner
+   * @param encryptedSummonerId
+   * @param region
+   */
+  public async masteryBySummonerChampion (encryptedSummonerId: string, championId: number, region: Regions) {
+    const params = {
+      encryptedSummonerId,
+      championId
+    }
+    return this.request<ChampionMasteryDTO>(region, endpointsV4.ChampionMasteryBySummonerChampion, params)
+  }
 }

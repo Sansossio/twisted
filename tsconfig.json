@@ -15,6 +15,8 @@
     "node_modules",
     "dist",
     "test",
-    "example"
+    "example",
+    "runExamples.ts",
+    "debug.ts"
   ]
 }

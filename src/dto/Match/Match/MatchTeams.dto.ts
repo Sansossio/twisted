@@ -1,4 +1,4 @@
-import { MatchTeamsBansDto } from './MatchTeamsBans.dto'
+import { BannedChampion } from './MatchTeamsBans.dto'
 
 export class MatchTeamsDto {
   /**
@@ -12,7 +12,7 @@ export class MatchTeamsDto {
   /**
    * If match queueId has a draft, contains banned champion data, otherwise empty.
    */
-  bans: MatchTeamsBansDto[]
+  bans: BannedChampion[]
   /**
    * Number of times the team killed Baron.
    */

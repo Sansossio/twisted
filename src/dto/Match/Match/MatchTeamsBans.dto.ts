@@ -1,4 +1,4 @@
-export class MatchTeamsBansDto {
+export class BannedChampion {
   /**
    * Turn during which the champion was banned.
    */

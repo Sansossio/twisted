@@ -2,8 +2,8 @@
  * Divisions
  */
 export const enum Divisions {
-  I,
-  II,
-  III,
-  IV
+  I = 'I',
+  II = 'II',
+  III = 'III',
+  IV = 'IV'
 }

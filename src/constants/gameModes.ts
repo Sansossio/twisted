@@ -2,73 +2,73 @@ export const enum GameModes {
   /**
    * Classic Summoner's Rift and Twisted Treeline games
    */
-  CLASSIC,
+  CLASSIC = 'CLASSIC',
   /**
    * Dominion/Crystal Scar games
    */
-  ODIN,
+  ODIN = 'ODIN',
   /**
    * ARAM games
    */
-  ARAM,
+  ARAM = 'ARAM',
   /**
    * Tutorial games
    */
-  TUTORIAL,
+  TUTORIAL = 'TUTORIAL',
   /**
    * URF games
    */
-  URF,
+  URF = 'URF',
   /**
    * Doom Bot games
    */
-  DOOMBOTSTEEMO,
+  DOOMBOTSTEEMO = 'DOOMBOTSTEEMO',
   /**
    * One for All games
    */
-  ONEFORALL,
+  ONEFORALL = 'ONEFORALL',
   /**
    * Ascension games
    */
-  ASCENSION,
+  ASCENSION = 'ASCENSION',
   /**
    * Snowdown Showdown games
    */
-  FIRSTBLOOD,
+  FIRSTBLOOD = 'FIRSTBLOOD',
   /**
    * Legend of the Poro King games
    */
-  KINGPORO,
+  KINGPORO = 'KINGPORO',
   /**
    * Nexus Siege games
    */
-  SIEGE,
+  SIEGE = 'SIEGE',
   /**
    * Blood Hunt Assassin games
    */
-  ASSASSINATE,
+  ASSASSINATE = 'ASSASSINATE',
   /**
    * All Random Summoner's Rift games
    */
-  ARSR,
+  ARSR = 'ARSR',
   /**
    * Dark Star: Singularity games
    */
-  DARKSTAR,
+  DARKSTAR = 'DARKSTAR',
   /**
    * Star Guardian Invasion games
    */
-  STARGUARDIAN,
+  STARGUARDIAN = 'STARGUARDIAN',
   /**
    * PROJECT: Hunters games
    */
-  PROJECT,
+  PROJECT = 'PROJECT',
   /**
    * Nexus Blitz games
    */
-  GAMEMODEX,
+  GAMEMODEX = 'GAMEMODEX',
   /**
    * Odyssey: Extraction games
    */
-  ODYSSEY
+  ODYSSEY = 'ODYSSEY'
 }

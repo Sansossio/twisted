@@ -27,7 +27,10 @@ async function runExamples () {
     console.time(key)
     let error = false
     try {
-      await method()
+      const response = await method()
+      if (filter) {
+        console.log(JSON.stringify(response))
+      }
     } catch (e) {
       error = true
       throw e
@@ -41,4 +44,4 @@ async function runExamples () {
 }
 
 runExamples()
-  .catch(console.error)
+  .catch()

@@ -1,6 +1,6 @@
 import { Regions } from "../../src";
 
 export const config = {
-  summonerName: 'Hide on Bush',
-  region: Regions.KOREA
+  summonerName: 'Sansossio',
+  region: Regions.LAT_NORTH
 }

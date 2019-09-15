@@ -3,6 +3,7 @@ import { BaseApi } from '../base'
 import { endpointsV4, endpointsV3 } from '../../enum/endpoints.enum'
 import { ChampionMasteryDTO } from '../../dto/Champion/ChampionMastery.dto'
 import { ChampionRotationV3DTO } from '../../dto/Champion/ChampionRotation.dto'
+import { ChampionsScoreDTO } from '../../dto/Champion/ChampionsScore.dto'
 
 /**
  * Third party methods
@@ -38,5 +39,22 @@ export class ChampionApi extends BaseApi {
       championId
     }
     return this.request<ChampionMasteryDTO>(region, endpointsV4.ChampionMasteryBySummonerChampion, params)
+  }
+  /**
+   * Champions mastery score
+   * @param encryptedSummonerId
+   * @param region
+   */
+  public async championsScore (encryptedSummonerId: string, region: Regions): Promise<ChampionsScoreDTO> {
+    const params = {
+      encryptedSummonerId
+    }
+    let score = await this.request<number | undefined>(region, endpointsV4.ChampionsScore, params)
+    if (typeof score !== 'number') {
+      score = 0
+    }
+    return {
+      score
+    }
   }
 }

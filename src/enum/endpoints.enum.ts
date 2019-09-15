@@ -88,6 +88,11 @@ export const endpointsV4: IEndpoints = {
     path: 'featured-games',
     prefix: 'spectator',
     version: 4
+  },
+  SpectatorSummoner: {
+    path: 'active-games/by-summoner/$(encryptedSummonerId)',
+    prefix: 'spectator',
+    version: 4
   }
 }
 

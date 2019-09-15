@@ -9,7 +9,7 @@
     "lint:fix": "tslint --project tsconfig.json --fix",
     "test": "mocha -r ts-node/register test/**/**.test{.ts,.js}",
     "build": "tsc",
-    "examples": "ts-node runExamples"
+    "example": "ts-node runExamples"
   },
   "husky": {
     "hooks": {

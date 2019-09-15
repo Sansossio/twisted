@@ -1,18 +1,25 @@
-import * as examples from './example'
+import * as allExamples from './example'
 import * as _ from 'lodash'
 
 const interval = 1000
+
+console.log(process.env.npm_config_example)
 
 function waiter (ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 async function runExamples () {
-  console.log(`Total examples: ${Object.keys(examples).length}`)
+  let examples = Object.keys(allExamples)
+  const filter = process.env.npm_config_example
+  if (filter) {
+    examples = examples.filter(v => v.toLowerCase().indexOf(filter.toLowerCase()) > -1)
+  }
+  console.log(`Total examples: ${examples.length}`)
   console.log('------------------------------------------------')
-  for (const key in examples) {
+  for (const key of examples) {
     console.log(`Run ${key}`)
-    const method = _.get(examples, key)
+    const method = _.get(allExamples, key)
     if (typeof method !== 'function') {
       console.error(`Method ${key} isn't a function`)
       continue

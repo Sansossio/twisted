@@ -33,6 +33,11 @@ export const endpointsV4: IEndpoints = {
     path: 'timelines/by-match/$(matchId)',
     prefix: 'match',
     version: 4
+  },
+  LeagueExp: {
+    path: 'entries/$(queue)/$(tier)/$(division)',
+    prefix: 'league-exp',
+    version: 4
   }
 }
 

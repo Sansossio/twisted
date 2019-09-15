@@ -4,6 +4,7 @@ import { endpointsV4 } from '../../enum/endpoints.enum'
 import { SummonerLeagueDto } from '../../dto/League/SummonerLeague/SummonerLeague.dto'
 import { LeagueEntryDTO } from '../../dto/League/LeagueExp/LeagueEntry.dto'
 import { Queues, Tiers, Divisions } from '../../constants'
+import { LeagueListDTO } from '../../dto/League/LeagueItem/LeagueList.dto'
 
 /**
  * League methods
@@ -18,7 +19,7 @@ export class LeagueApi extends BaseApi {
     const params = {
       encryptedSummonerId
     }
-    return this.request<SummonerLeagueDto>(region, endpointsV4.SummonerLeague, params)
+    return this.request<SummonerLeagueDto[]>(region, endpointsV4.SummonerLeague, params)
   }
   /**
    * Top league exp
@@ -34,5 +35,12 @@ export class LeagueApi extends BaseApi {
       division
     }
     return this.request<LeagueEntryDTO>(region, endpointsV4.LeagueExp, params)
+  }
+
+  public async get (leagueId: string, region: Regions) {
+    const params = {
+      leagueId
+    }
+    return this.request<LeagueListDTO>(region, endpointsV4.League, params)
   }
 }

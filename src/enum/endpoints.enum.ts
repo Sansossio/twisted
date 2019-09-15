@@ -49,6 +49,11 @@ export const endpointsV4: IEndpoints = {
     prefix: 'league',
     version: 4
   },
+  MasterLeaguesByQueue: {
+    path: 'masterleagues/by-queue/$(queue)',
+    prefix: 'league',
+    version: 4
+  },
   LeagueEntries: {
     path: 'entries/$(queue)/$(tier)/$(division)',
     prefix: 'league',

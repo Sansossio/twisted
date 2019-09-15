@@ -84,4 +84,15 @@ export class LeagueApi extends BaseApi {
     }
     return this.request<LeagueListDTO>(region, endpointsV4.GrandMasterLeaguesByQueue, params)
   }
+  /**
+   * Get master league by queue
+   * @param queue Note that the queue value must be a valid ranked queue.
+   * @param region
+   */
+  public async getMasterLeagueByQueue (queue: Queues, region: Regions) {
+    const params = {
+      queue
+    }
+    return this.request<LeagueListDTO>(region, endpointsV4.MasterLeaguesByQueue, params)
+  }
 }

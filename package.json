@@ -10,7 +10,8 @@
     "test": "mocha -r ts-node/register test/**/**.test{.ts,.js}",
     "build": "tsc",
     "example": "ts-node runExamples",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "prepublish": "npm run lint && npm run test"
   },
   "husky": {
     "hooks": {

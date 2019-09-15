@@ -6,6 +6,7 @@ import { endpointsV3 } from '../enum/endpoints.enum'
 import { MatchApi } from './match/match'
 import { LeagueApi } from './league/league'
 import { SummonerApi } from './summoner/summoner'
+import { ThirdPartyCode } from './thirdPartyCode/thirdPartyCode'
 
 /**
  * Riot Games api wrap
@@ -23,6 +24,10 @@ export class RiotApi extends BaseApi {
    * Summoner methods
    */
   public readonly summoner = new SummonerApi(this.getKey())
+  /**
+   * Third Party methods
+   */
+  public readonly thirdPartyCode = new ThirdPartyCode(this.getKey())
   /**
    * Get champion rotation
    * @param region Riot region

@@ -38,6 +38,11 @@ export const endpointsV4: IEndpoints = {
     path: 'entries/$(queue)/$(tier)/$(division)',
     prefix: 'league-exp',
     version: 4
+  },
+  ThirdPartyCode: {
+    path: 'third-party-code/by-summoner/$(encryptedSummonerId)',
+    prefix: 'platform',
+    version: 4
   }
 }
 

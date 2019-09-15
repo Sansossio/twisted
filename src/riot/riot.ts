@@ -1,12 +1,12 @@
 import { Regions } from '..'
 import { BaseApi } from './base'
-import { ChampionRotationV3DTO } from '../DTO/Champion/ChampionRotation.DTO'
 import { LolStatusDTO } from '../dto/Status/LolStatus.dto'
 import { endpointsV3 } from '../enum/endpoints.enum'
 import { MatchApi } from './match/match'
 import { LeagueApi } from './league/league'
 import { SummonerApi } from './summoner/summoner'
 import { ThirdPartyCode } from './thirdPartyCode/thirdPartyCode'
+import { ChampionApi } from './champion/champion'
 
 /**
  * Riot Games api wrap
@@ -29,13 +29,9 @@ export class RiotApi extends BaseApi {
    */
   public readonly thirdPartyCode = new ThirdPartyCode(this.getKey())
   /**
-   * Get champion rotation
-   * @param region Riot region
+   * Champion mastery
    */
-  public async getChampionRotation (region: Regions)
-  : Promise<ChampionRotationV3DTO> {
-    return this.request(region, endpointsV3.ChampionRotation)
-  }
+  public readonly champion = new ChampionApi(this.getKey())
   /**
    * Lol status by server
    * @param region Riot region

@@ -68,6 +68,11 @@ export const endpointsV4: IEndpoints = {
     path: 'third-party-code/by-summoner/$(encryptedSummonerId)',
     prefix: 'platform',
     version: 4
+  },
+  ChampionMasteryBySummoner: {
+    path: 'champion-masteries/by-summoner/$(encryptedSummonerId)',
+    prefix: 'champion-mastery',
+    version: 4
   }
 }
 

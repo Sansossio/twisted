@@ -1,7 +1,7 @@
 {
   "name": "riot-games-api",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -30,7 +30,15 @@
     "riot games",
     "league of legends"
   ],
-  "author": "",
+  "author": {
+    "name": "Julio Sansossio",
+    "email": "juliosansossio@gmail.com",
+    "url": "https://github.com/Sansossio"
+  },
+  "homepage": "https://github.com/Sansossio/riot-games-api",
+  "bugs": {
+    "url": "https://github.com/Sansossio/riot-games-api/issues"
+  },
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.2.1",

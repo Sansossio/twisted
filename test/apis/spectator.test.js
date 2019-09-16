@@ -31,7 +31,7 @@ describe('Spectator API', () => {
       })
       const api = new SpectatorApi()
       api.activeGame()
-        .then(() => done(new Error()))
+        .then(() => done(new Error('Bad error handler response')))
         .catch(() => done())
         .finally(() => restore())
     })

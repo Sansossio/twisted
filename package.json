@@ -30,6 +30,10 @@
     "riot games",
     "league of legends"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sansossio"
+  },
   "author": {
     "name": "Julio Sansossio",
     "email": "juliosansossio@gmail.com",

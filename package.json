@@ -10,8 +10,8 @@
     "test": "mocha -r ts-node/register test/**/**.test{.ts,.js}",
     "build": "tsc",
     "example": "ts-node runExamples",
-    "postinstall": "npm run build",
-    "prepublish": "npm run lint && npm run test"
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "husky": {
     "hooks": {
@@ -46,7 +46,6 @@
     "dotenv": "^8.1.0",
     "husky": "^3.0.5",
     "mocha": "^6.2.0",
-    "nodemon": "^1.19.2",
     "sinon": "^7.4.2",
     "ts-node": "^8.3.0",
     "tslint": "^5.19.0",

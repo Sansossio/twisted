@@ -1,8 +1,11 @@
 import rp from 'request-promise'
+import * as _ from 'lodash'
 import { Regions } from '../enum/regions.enum'
 import { ApiKeyNotFound } from '../errors'
 import { IEndpoint } from '../enum/endpoints.enum'
 import { config } from 'dotenv'
+import { ApiResponseDTO } from '../dto/ApiResponse/ApiResponse.dto'
+import { RateLimitDto } from '../dto/RateLimit/RateLimit.dto'
 
 config()
 
@@ -18,6 +21,17 @@ export class BaseApi {
   ) {
     if (!this.key && this.key !== null) {
       this.key = process.env.RIOT_API_KEY
+    }
+  }
+
+  private getRateLimits (headers: any): RateLimitDto {
+    return {
+      Type: _.get(headers, 'x-rate-limit-type', null),
+      AppRateLimit: _.get(headers, 'x-app-rate-limit', null),
+      AppRateLimitCount: _.get(headers, 'x-app-rate-limit-count', null),
+      MethodRateLimit: _.get(headers, 'x-method-rate-limit'),
+      MethodRatelimitCount: _.get(headers, 'x-method-rate-limit-count', null),
+      RetryAfter: _.get(headers, 'retry-after')
     }
   }
 
@@ -45,7 +59,7 @@ export class BaseApi {
     return this.key
   }
 
-  protected async request<T> (region: Regions, endpoint: IEndpoint, params?: IParams): Promise<T> {
+  protected async request<T> (region: Regions, endpoint: IEndpoint, params?: IParams): Promise<ApiResponseDTO<T>> {
     if (!this.key) {
       throw new ApiKeyNotFound()
     }
@@ -61,8 +75,13 @@ export class BaseApi {
         Origin: null,
         'X-Riot-Token': this.key
       },
+      resolveWithFullResponse: true,
       json: true
     }
-    return rp(options)
+    const { body, headers } = await (rp(options) as any)
+    return {
+      rateLimits: this.getRateLimits(headers),
+      data: body
+    }
   }
 }

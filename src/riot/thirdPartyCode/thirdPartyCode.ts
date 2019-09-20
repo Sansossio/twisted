@@ -3,6 +3,7 @@ import { Regions } from '../../enum'
 import { BaseApi } from '../base'
 import { endpointsV4 } from '../../enum/endpoints.enum'
 import { ThirdPartyCodeDTO } from '../../dto/ThirdPartyCode/ThirdPartyCode.dto'
+import { ApiResponseDTO } from '../../dto/ApiResponse/ApiResponse.dto'
 
 /**
  * Third party methods
@@ -19,19 +20,25 @@ export class ThirdPartyCode extends BaseApi {
    * @param encryptedSummonerId
    * @param region
    */
-  public async get (encryptedSummonerId: string, region: Regions): Promise<ThirdPartyCodeDTO> {
+  public async get (encryptedSummonerId: string, region: Regions): Promise<ApiResponseDTO<ThirdPartyCodeDTO>> {
     let code
+    let rateLimits
     const params = {
       encryptedSummonerId
     }
     try {
-      code = await this.request<string>(region, endpointsV4.ThirdPartyCode, params)
+      const response = await this.request<string>(region, endpointsV4.ThirdPartyCode, params)
+      rateLimits = response.rateLimits
+      code = response.data
     } catch (e) {
       this.errorHandler(e)
       code = null
     }
     return {
-      code
+      rateLimits,
+      data: {
+        code
+      }
     }
   }
 }

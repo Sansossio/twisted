@@ -13,8 +13,7 @@ export class ChampionApi extends BaseApi {
    * Get champion rotation
    * @param region Riot region
    */
-  public async rotation (region: Regions)
-  : Promise<ChampionRotationV3DTO> {
+  public async rotation (region: Regions) {
     return this.request(region, endpointsV3.ChampionRotation)
   }
   /**
@@ -49,7 +48,9 @@ export class ChampionApi extends BaseApi {
     const params = {
       encryptedSummonerId
     }
-    let score = await this.request<number | undefined>(region, endpointsV4.ChampionsScore, params)
+    let {
+      data: score
+    } = await this.request<number | undefined>(region, endpointsV4.ChampionsScore, params)
     if (typeof score !== 'number') {
       score = 0
     }

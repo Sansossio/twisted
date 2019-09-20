@@ -6,11 +6,11 @@ const { ThirdPartyCode } = require('../../src/riot/thirdPartyCode/thirdPartyCode
 
 describe('Third Party code', () => {
   it('should return valid code', async () => {
-    stub(ThirdPartyCode.prototype, 'request').callsFake(() => code)
-    const api = new ThirdPartyCode()
     const code = 'ORIGENGG'
+    stub(ThirdPartyCode.prototype, 'request').callsFake(() => ({ data: code }))
+    const api = new ThirdPartyCode()
     const response = await api.get()
-    expect(response.code).eq(code)
+    expect(response.data.code).eq(code)
     restore()
   })
   it('should return null when an error is 500', async () => {
@@ -22,7 +22,7 @@ describe('Third Party code', () => {
     })
     const api = new ThirdPartyCode()
     const response = await api.get()
-    expect(response.code).eq(null)
+    expect(response.data.code).eq(null)
     restore()
   })
   it('should return null when an error is 404', async () => {
@@ -34,7 +34,7 @@ describe('Third Party code', () => {
     })
     const api = new ThirdPartyCode()
     const response = await api.get()
-    expect(response.code).eq(null)
+    expect(response.data.code).eq(null)
     restore()
   })
 })

@@ -5,7 +5,7 @@ import { config } from './config/config';
 export async function spectatorSummonerExample () {
   const api = new RiotApi()
   const { summonerName, region } = config
-  const { id } = await api.summoner.getByName(summonerName, region)
+  const { data: { id } } = await api.summoner.getByName(summonerName, region)
 
   return await api.spectator.activeGame(id, region)
 }

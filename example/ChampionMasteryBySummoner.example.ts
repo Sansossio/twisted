@@ -5,6 +5,10 @@ const api = new RiotApi()
 
 export async function championMasteryBySummoner () {
   const { region } = config
-  const { id } = await api.summoner.getByName(config.summonerName, region)
+  const {
+    data: {
+      id
+    }
+  } = await api.summoner.getByName(config.summonerName, region)
   return await api.champion.masteryBySummoner(id, region)
 }

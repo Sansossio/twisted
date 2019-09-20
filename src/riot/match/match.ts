@@ -19,7 +19,7 @@ export class MatchApi extends BaseApi {
       matchId
     }
     const response = await this.request<MatchDto>(region, endpointsV4.Match, params)
-    response.teams = response.teams.map((team) => {
+    response.data.teams = response.data.teams.map((team) => {
       team.win = (team.win as any) === 'Win'
       return team
     })

@@ -6,8 +6,10 @@ export async function matchExample () {
   const { region } = config
   const user = await api.summoner.getByName(config.summonerName, region)
   const {
-    matches
-  } = await api.match.list(user.accountId, region)
+    data: {
+      matches
+    }
+  } = await api.match.list(user.data.accountId, region)
   const { gameId } = matches[0]
   const match = await api.match.get(gameId, region)
   return match

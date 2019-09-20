@@ -29,14 +29,14 @@ export class ThirdPartyCode extends BaseApi {
     try {
       const response = await this.request<string>(region, endpointsV4.ThirdPartyCode, params)
       rateLimits = response.rateLimits
-      code = response.data
+      code = response.response
     } catch (e) {
       this.errorHandler(e)
       code = null
     }
     return {
       rateLimits,
-      data: {
+      response: {
         code
       }
     }

@@ -6,7 +6,7 @@ const api = new RiotApi()
 export async function summonerByAccountIDExample () {
   const { region } = config
   const {
-    data: {
+    response: {
       accountId
     }
   } = await api.summoner.getByName(config.summonerName, region)

@@ -5,6 +5,6 @@ const api = new RiotApi()
 
 export async function summonerByPUUIDExample () {
   const { region } = config
-  const { data: { puuid } } = await api.summoner.getByName(config.summonerName, region)
+  const { response: { puuid } } = await api.summoner.getByName(config.summonerName, region)
   return await api.summoner.getByPUUID(puuid, region)
 }

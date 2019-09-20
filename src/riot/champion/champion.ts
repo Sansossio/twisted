@@ -49,7 +49,7 @@ export class ChampionApi extends BaseApi {
       encryptedSummonerId
     }
     let {
-      data: score
+      response: score
     } = await this.request<number | undefined>(region, endpointsV4.ChampionsScore, params)
     if (typeof score !== 'number') {
       score = 0

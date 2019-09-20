@@ -6,12 +6,12 @@ const api = new RiotApi()
 export async function leagueExample () {
   const { region } = config
   const {
-    data: {
+    response: {
       id
     }
   } = await api.summoner.getByName(config.summonerName, region)
   const {
-    data: [league]
+    response: [league]
   } = await api.league.bySummoner(id, region)
   return await api.league.get(league.leagueId, region)
 }

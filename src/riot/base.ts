@@ -81,7 +81,7 @@ export class BaseApi {
     const { body, headers } = await (rp(options) as any)
     return {
       rateLimits: this.getRateLimits(headers),
-      data: body
+      response: body
     }
   }
 }

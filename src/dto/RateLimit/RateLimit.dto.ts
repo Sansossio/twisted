@@ -28,4 +28,8 @@ export class RateLimitDto {
    * The number of calls to a specific method that have been made during a specific rate limit. See the Method Rate Limit Headers section below for more information.
    */
   MethodRatelimitCount: string
+  /**
+   * Trace id
+   */
+  EdgeTraceId?: string
 }

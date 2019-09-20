@@ -6,6 +6,7 @@ import { IEndpoint } from '../enum/endpoints.enum'
 import { config } from 'dotenv'
 import { ApiResponseDTO } from '../dto/ApiResponse/ApiResponse.dto'
 import { RateLimitDto } from '../dto/RateLimit/RateLimit.dto'
+import { GenericError } from '../errors/Generic.error'
 
 config()
 
@@ -31,7 +32,8 @@ export class BaseApi {
       AppRateLimitCount: _.get(headers, 'x-app-rate-limit-count', null),
       MethodRateLimit: _.get(headers, 'x-method-rate-limit'),
       MethodRatelimitCount: _.get(headers, 'x-method-rate-limit-count', null),
-      RetryAfter: _.get(headers, 'retry-after')
+      RetryAfter: _.get(headers, 'retry-after'),
+      EdgeTraceId: _.get(headers, 'x-riot-edge-trace-id')
     }
   }
 
@@ -78,10 +80,16 @@ export class BaseApi {
       resolveWithFullResponse: true,
       json: true
     }
-    const { body, headers } = await (rp(options) as any)
-    return {
-      rateLimits: this.getRateLimits(headers),
-      response: body
+    try {
+      const { body, headers } = await (rp(options) as any)
+      return {
+        rateLimits: this.getRateLimits(headers),
+        response: body
+      }
+    } catch (e) {
+      const headers = this.getRateLimits(e.response.headers)
+      const error = new GenericError(headers, e)
+      throw error
     }
   }
 }

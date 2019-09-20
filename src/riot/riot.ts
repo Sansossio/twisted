@@ -1,13 +1,11 @@
-import { Regions } from '..'
 import { BaseApi } from './base'
-import { LolStatusDTO } from '../dto/Status/LolStatus.dto'
-import { endpointsV3 } from '../enum/endpoints.enum'
 import { MatchApi } from './match/match'
 import { LeagueApi } from './league/league'
 import { SummonerApi } from './summoner/summoner'
 import { ThirdPartyCode } from './thirdPartyCode/thirdPartyCode'
 import { ChampionApi } from './champion/champion'
 import { SpectatorApi } from './spectator/spectator'
+import { StatusApi } from './status/status'
 
 /**
  * Riot Games api wrap
@@ -38,10 +36,7 @@ export class RiotApi extends BaseApi {
    */
   public readonly spectator = new SpectatorApi(this.getKey())
   /**
-   * Lol status by server
-   * @param region Riot region
+   * Status methods
    */
-  public async getLolStatus (region: Regions) {
-    return this.request<LolStatusDTO>(region, endpointsV3.LolStatus)
-  }
+  public readonly status = new StatusApi(this.getKey())
 }

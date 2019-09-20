@@ -152,7 +152,7 @@ export const Champions = {
 }
 
 export function getChampionName (champ: number): string {
-  const result = get<string>(exports.Champions, champ)
+  const result = get<string>(Champions, champ)
   if (!result) {
     throw new Error(`Invalid champ id ${champ}`)
   }

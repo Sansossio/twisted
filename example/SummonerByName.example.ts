@@ -1,4 +1,4 @@
-import { RiotApi, Regions } from '../src'
+import { RiotApi } from '../src'
 import { config } from './config/config'
 
 const api = new RiotApi()

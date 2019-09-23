@@ -1,8 +1,7 @@
-import { Regions } from '../../enum'
+import { Regions } from '../../constants'
 import { BaseApi } from '../base'
-import { endpointsV4, endpointsV3 } from '../../enum/endpoints.enum'
+import { endpointsV4, endpointsV3 } from '../../endpoints/endpoints'
 import { ChampionMasteryDTO } from '../../dto/Champion/ChampionMastery.dto'
-import { ChampionRotationV3DTO } from '../../dto/Champion/ChampionRotation.dto'
 import { ChampionsScoreDTO } from '../../dto/Champion/ChampionsScore.dto'
 
 /**

@@ -1,5 +1,5 @@
-import { RiotApi, Regions } from '../src'
-
+import { RiotApi } from '../src'
+import { Regions } from '../src/constants'
 
 export async function spectatorFeaturedGames () {
   const api = new RiotApi()

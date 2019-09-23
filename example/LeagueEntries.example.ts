@@ -1,4 +1,5 @@
-import { RiotApi, Regions } from '../src'
+import { RiotApi } from '../src'
+import { Regions } from '../src/constants'
 import { Queues, Tiers, Divisions } from '../src/constants'
 
 export async function leagueEntriesExample () {

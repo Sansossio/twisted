@@ -1,9 +1,8 @@
 import { BaseApi } from '../base'
-import { Regions } from '../../enum'
-import { endpointsV4 } from '../../enum/endpoints.enum'
+import { endpointsV4 } from '../../endpoints/endpoints'
 import { SummonerLeagueDto } from '../../dto/League/SummonerLeague/SummonerLeague.dto'
 import { LeagueEntryDTO } from '../../dto/League/LeagueExp/LeagueEntry.dto'
-import { Queues, Tiers, Divisions } from '../../constants'
+import { Queues, Tiers, Divisions, Regions } from '../../constants'
 import { LeagueListDTO } from '../../dto/League/LeagueItem/LeagueList.dto'
 
 /**

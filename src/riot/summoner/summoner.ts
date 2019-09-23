@@ -1,9 +1,9 @@
 import * as _ from 'lodash'
 import { BaseApi } from '../base'
-import { endpointsV4, IEndpoint } from '../../enum/endpoints.enum'
+import { endpointsV4, IEndpoint } from '../../endpoints/endpoints'
 import { SummonerV4DTO } from '../../dto/Summoner/Summoner.dto'
-import { Regions } from '../../enum'
-import { FindSummonerBy } from '../../enum/summoner.enum'
+import { Regions } from '../../constants'
+import { FindSummonerBy } from '../../constants/summoner.find'
 
 /**
  * Summoner methods

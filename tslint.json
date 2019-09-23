@@ -3,6 +3,9 @@
         "tslint-config-standard"
     ],
     "linterOptions": {
-        "exclude": ["example/**", "dist/**", "node_modules/**", "debug.ts"]
+        "exclude": ["dist/**", "node_modules/**", "debug.ts"]
+    },
+    "rules": {
+        "no-return-await": false
     }
 }

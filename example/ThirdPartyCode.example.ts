@@ -1,5 +1,5 @@
 import { RiotApi } from '../src'
-import { config } from './config/config';
+import { config } from './config/config'
 
 export async function thirdPartyExample () {
   const riot = new RiotApi()

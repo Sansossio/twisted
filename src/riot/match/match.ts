@@ -1,7 +1,7 @@
 import { BaseApi } from '../base'
 import { MatchListingDto } from '../../dto/Match/MatchListing/MatchListing.dto'
-import { Regions } from '../../enum'
-import { endpointsV4 } from '../../enum/endpoints.enum'
+import { Regions } from '../../constants'
+import { endpointsV4 } from '../../endpoints/endpoints'
 import { MatchDto } from '../../dto/Match/Match/Match.dto'
 import { MatchTimelineDto } from '../../dto/Match/MatchTimeLine/MatchTimeLine.dto'
 

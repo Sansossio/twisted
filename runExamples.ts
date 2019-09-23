@@ -30,12 +30,15 @@ async function runExamples () {
         console.log(JSON.stringify(response))
       }
     } catch (e) {
-      error = true
-      throw e
+      error = e
     } finally {
       console.error(`Method ${key}: ${error ? 'FAIL' : 'OK'}`)
       console.timeEnd(key)
       console.log('------------------------------------------------')
+      if (error) {
+        console.error(error)
+        process.exit(1)
+      }
       await waiter(interval)
     }
   }

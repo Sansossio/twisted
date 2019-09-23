@@ -1,5 +1,6 @@
 import { BaseApi } from '../base'
-import { Regions, endpointsV3 } from '../../enum'
+import { Regions } from '../../constants'
+import { endpointsV3 } from '../../endpoints'
 import { LolStatusDTO } from '../../dto/Status/LolStatus.dto'
 
 export class StatusApi extends BaseApi {

@@ -18,12 +18,12 @@ export class MatchApi extends BaseApi {
     const params = {
       matchId
     }
-    const response = await this.request<MatchDto>(region, endpointsV4.Match, params)
-    response.response.teams = response.response.teams.map((team) => {
+    const data = await this.request<MatchDto>(region, endpointsV4.Match, params)
+    data.response.teams = data.response.teams.map((team) => {
       team.win = (team.win as any) === 'Win'
       return team
     })
-    return response
+    return data
   }
   /**
    * Summoner match listing

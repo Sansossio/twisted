@@ -10,8 +10,8 @@ describe('Third Party code', () => {
     const code = 'ORIGENGG'
     stub(ThirdPartyCode.prototype, 'request').callsFake(() => ({ response: code }))
     const api = new ThirdPartyCode()
-    const response = await api.get()
-    expect(response.response.code).eq(code)
+    const data = await api.get()
+    expect(data.response.code).eq(code)
   })
   it('should return null when an error is 500', async () => {
     // Mock error 500
@@ -21,8 +21,8 @@ describe('Third Party code', () => {
       throw error
     })
     const api = new ThirdPartyCode()
-    const response = await api.get()
-    expect(response.response.code).eq(null)
+    const data = await api.get()
+    expect(data.response.code).eq(null)
   })
   it('should return null when an error is 404', async () => {
     // Mock error 404
@@ -32,7 +32,7 @@ describe('Third Party code', () => {
       throw error
     })
     const api = new ThirdPartyCode()
-    const response = await api.get()
-    expect(response.response.code).eq(null)
+    const data = await api.get()
+    expect(data.response.code).eq(null)
   })
 })

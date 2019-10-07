@@ -27,9 +27,9 @@ export class ThirdPartyCode extends BaseApi {
       encryptedSummonerId
     }
     try {
-      const response = await this.request<string>(region, endpointsV4.ThirdPartyCode, params)
-      rateLimits = response.rateLimits
-      code = response.response
+      const data = await this.request<string>(region, endpointsV4.ThirdPartyCode, params)
+      rateLimits = data.rateLimits
+      code = data.response
     } catch (e) {
       this.errorHandler(e)
       code = null

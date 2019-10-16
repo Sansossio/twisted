@@ -7,6 +7,7 @@ import { config } from 'dotenv'
 import { ApiResponseDTO } from '../dto/ApiResponse/ApiResponse.dto'
 import { RateLimitDto } from '../dto/RateLimit/RateLimit.dto'
 import { GenericError } from '../errors/Generic.error'
+import { RateLimitError } from '../errors/RateLimit.error'
 
 config()
 
@@ -57,6 +58,16 @@ export class BaseApi {
     return base
   }
 
+  private getError (e: any) {
+    const { statusCode } = e.error || e
+    const headers = this.getRateLimits(e.response.headers)
+    if (statusCode === 419) {
+      return new RateLimitError(headers, e)
+    }
+    // Otherwise generic error
+    return new GenericError(headers, e)
+  }
+
   protected getKey () {
     return this.key
   }
@@ -87,9 +98,7 @@ export class BaseApi {
         response: body
       }
     } catch (e) {
-      const headers = this.getRateLimits(e.response.headers)
-      const error = new GenericError(headers, e)
-      throw error
+      throw this.getError(e)
     }
   }
 }

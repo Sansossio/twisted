@@ -12,6 +12,7 @@ export async function summonerByNameExample () {
   return await api.leagueOfLegends.summoner.getByName('Hide on bush', Regions.KOREA)
 }
 ```
+[https://github.com/Sansossio/riot-games-api/tree/master/example](More examples)
 
 # Run all examples
 ## Simple

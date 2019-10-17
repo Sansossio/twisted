@@ -3,8 +3,8 @@ RIOT_API_KEY = Riot api key
 
 # Simple example
 ```js
-import { RiotApi } from 'riot-games-api'
-import { Regions } from 'riot-games-api/constants'
+import { RiotApi } from 'api-riot-games'
+import { Regions } from 'api-riot-games/constants'
 
 const api = new RiotApi()
 

@@ -1,5 +1,5 @@
 {
-  "name": "riot-games-api",
+  "name": "api-riot-games",
   "version": "0.1.0",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",

@@ -5,7 +5,7 @@ const {
 const { expect } = require('chai')
 const { restore, stub } = require('sinon')
 const httpStatus = require('http-status-codes')
-const { SpectatorApi } = require('../../src/riot/spectator/spectator')
+const { SpectatorApi } = require('../../../src/riot/spectator/spectator')
 
 describe('Spectator API', () => {
   describe('Active game', () => {

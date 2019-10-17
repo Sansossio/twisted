@@ -13,7 +13,7 @@ describe('Base api', () => {
   const region = 'LA1'
   it('should throw when missing Riot api key', async () => {
     try {
-      await riot.champion.rotation(region)
+      await riot.leagueOfLegends.champion.rotation(region)
     } catch (e) {
       expect(e).instanceOf(ApiKeyNotFound)
     }

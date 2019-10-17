@@ -3,7 +3,7 @@ const {
   it
 } = require('mocha')
 const { expect } = require('chai')
-const { SummonerApi } = require('../../src/riot/summoner/summoner')
+const { SummonerApi } = require('../../../src/riot/summoner/summoner')
 
 describe('Summoner API', () => {
   it('Should return empty path when "by" is ID', () => {

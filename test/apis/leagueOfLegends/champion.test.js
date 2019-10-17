@@ -5,7 +5,7 @@ const {
 } = require('mocha')
 const { expect } = require('chai')
 const { restore, stub } = require('sinon')
-const { ChampionApi } = require('../../src/riot/champion/champion')
+const { ChampionApi } = require('../../../src/riot/champion/champion')
 
 describe('Champions API', () => {
   describe('Champions Score', () => {

@@ -1,9 +1,19 @@
-# It's not working, yet
-
 # Environment variables
 RIOT_API_KEY = Riot api key
 
-# Run examples
+# Simple example
+```js
+import { RiotApi } from 'riot-games-api'
+import { Regions } from './src/constants'
+
+const api = new RiotApi()
+
+export async function summonerByNameExample () {
+  return await api.leagueOfLegends.summoner.getByName('Hide on bush', Regions.KOREA)
+}
+```
+
+# Run all examples
 ## Simple
 ```sh npm run example```
 

@@ -1,3 +1,5 @@
+# Install
+```sh npm i api-riot-games```
 # Environment variables
 RIOT_API_KEY = Riot api key
 

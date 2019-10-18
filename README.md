@@ -17,7 +17,7 @@ export async function summonerByNameExample () {
 [More examples](https://github.com/Sansossio/riot-games-api/tree/master/example)
 
 # Automatic rate limits reattemps
-````js
+```js
 import { RiotApi } from 'api-riot-games'
 import { Regions } from 'api-riot-games/constants'
 
@@ -32,6 +32,7 @@ const api = new RiotApi({
   rateLimitRetryAttempts: 1
 })
 ```
+
 # Run all examples
 ## Simple
 ```sh npm run example```

@@ -14,29 +14,29 @@ export class LolApi extends BaseApi {
   /**
    * Match methods
    */
-  public readonly match = new MatchApi(this.getKey())
+  public readonly match = new MatchApi(this.getParam())
   /**
    * League methods
    */
-  public readonly league = new LeagueApi(this.getKey())
+  public readonly league = new LeagueApi(this.getParam())
   /**
    * Summoner methods
    */
-  public readonly summoner = new SummonerApi(this.getKey())
+  public readonly summoner = new SummonerApi(this.getParam())
   /**
    * Third Party methods
    */
-  public readonly thirdPartyCode = new ThirdPartyCode(this.getKey())
+  public readonly thirdPartyCode = new ThirdPartyCode(this.getParam())
   /**
    * Champion mastery
    */
-  public readonly champion = new ChampionApi(this.getKey())
+  public readonly champion = new ChampionApi(this.getParam())
   /**
    * Spectator methods
    */
-  public readonly spectator = new SpectatorApi(this.getKey())
+  public readonly spectator = new SpectatorApi(this.getParam())
   /**
    * Status methods
    */
-  public readonly status = new StatusApi(this.getKey())
+  public readonly status = new StatusApi(this.getParam())
 }

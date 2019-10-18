@@ -11,7 +11,7 @@ export class RateLimitDto {
    * The remaining number of seconds before the rate limit resets. Applies to both user and service rate limits.
    * Included in any 429 response where the rate limit was enforced by the API infrastructure. Not included in any 429 response where the rate limit was enforced by the underlying service to which the request was proxied.
    */
-  RetryAfter?: string
+  RetryAfter?: number
   /**
    * The application rate limits currently being applied to your API key. See the Application Rate Limit Headers section below for more information.
    */

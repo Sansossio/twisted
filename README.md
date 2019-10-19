@@ -6,7 +6,7 @@ RIOT_API_KEY = Riot api key
 # Simple example
 ```js
 import { RiotApi } from 'api-riot-games'
-import { Regions } from 'api-riot-games/constants'
+import { Regions } from 'api-riot-games/dist/constants'
 
 const api = new RiotApi()
 
@@ -19,7 +19,7 @@ export async function summonerByNameExample () {
 # Automatic rate limits reattemps
 ```js
 import { RiotApi } from 'api-riot-games'
-import { Regions } from 'api-riot-games/constants'
+import { Regions } from 'api-riot-games/dist/constants'
 
 const api = new RiotApi({
    /**

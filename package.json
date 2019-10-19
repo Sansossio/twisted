@@ -1,6 +1,6 @@
 {
   "name": "api-riot-games",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

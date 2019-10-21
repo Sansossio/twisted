@@ -142,7 +142,7 @@ export class BaseApi {
     }
   }
 
-  protected async request<T> (region: Regions, endpoint: IEndpoint, params?: IParams, forceError?: boolean): Promise<ApiResponseDTO<T>> {
+  protected async request<T> (region: Regions, endpoint: IEndpoint, params?: IParams, forceError?: boolean, qs?: any): Promise<ApiResponseDTO<T>> {
     if (!this.key) {
       throw new ApiKeyNotFound()
     }
@@ -158,12 +158,13 @@ export class BaseApi {
         Origin: null,
         'X-Riot-Token': this.key
       },
+      qs,
       resolveWithFullResponse: true,
       json: true
     }
     try {
       const apiResponse = await this.internalRequest<any>(options)
-      const { body, headers } = apiResponse
+      const { body, headers, request } = apiResponse
       return {
         rateLimits: this.getRateLimits(headers),
         response: body

@@ -4,6 +4,7 @@ import { Regions } from '../../constants'
 import { endpointsV4 } from '../../endpoints/endpoints'
 import { MatchDto } from '../../dto/Match/Match/Match.dto'
 import { MatchTimelineDto } from '../../dto/Match/MatchTimeLine/MatchTimeLine.dto'
+import { MatchQueryDTO } from '../../dto/Match/Query/MatchQuery.dto'
 
 /**
  * Match methods
@@ -30,11 +31,11 @@ export class MatchApi extends BaseApi {
    * @param encryptedAccountId Encrypted summoner ID. Max length 63 characters.
    * @param region
    */
-  public async list (encryptedAccountId: string, region: Regions) {
+  public async list (encryptedAccountId: string, region: Regions, query?: MatchQueryDTO) {
     const params = {
       encryptedAccountId
     }
-    return this.request<MatchListingDto>(region, endpointsV4.MatchListing, params)
+    return this.request<MatchListingDto>(region, endpointsV4.MatchListing, params, false, query)
   }
 
   public async timeline (matchId: number, region: Regions) {

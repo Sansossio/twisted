@@ -8,7 +8,7 @@ const { getChampionName } = require('../../src//constants/champions')
 describe('Champions Constant', () => {
   it('should return a empty champ', () => {
     const response = getChampionName(0)
-    expect(response).to.eq('EmptyChampion')
+    expect(response).to.eq('EMPTY_CHAMPION')
   })
   it('should return a champ', () => {
     const response = getChampionName(1)

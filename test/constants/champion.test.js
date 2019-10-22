@@ -3,7 +3,7 @@ const {
   it
 } = require('mocha')
 const { expect } = require('chai')
-const { getChampionName } = require('../../src//constants/champions')
+const { getChampionName, getChampionNameCapital } = require('../../src//constants/champions')
 
 describe('Champions Constant', () => {
   it('should return a empty champ', () => {
@@ -13,6 +13,10 @@ describe('Champions Constant', () => {
   it('should return a champ', () => {
     const response = getChampionName(1)
     expect(typeof response).to.eq('string')
+  })
+  it('should return a champ capitalize', () => {
+    const response = getChampionNameCapital(4)
+    expect(response).to.eq('TwistedFate')
   })
   it('should return error unknow champion', (done) => {
     try {

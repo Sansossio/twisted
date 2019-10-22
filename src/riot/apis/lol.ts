@@ -6,6 +6,7 @@ import { ThirdPartyCode } from '../thirdPartyCode/thirdPartyCode'
 import { ChampionApi } from '../champion/champion'
 import { SpectatorApi } from '../spectator/spectator'
 import { StatusApi } from '../status/status'
+import { DataDragonService } from '../dataDragon/DataDragonService'
 
 /**
  * Classic league of legends api
@@ -39,4 +40,8 @@ export class LolApi extends BaseApi {
    * Status methods
    */
   public readonly status = new StatusApi(this.getParam())
+  /**
+   * Data dragon
+   */
+  public readonly dataDragon = new DataDragonService()
 }

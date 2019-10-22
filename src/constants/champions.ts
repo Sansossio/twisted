@@ -1,4 +1,8 @@
 import { invert } from 'lodash'
+
+// Untyped modules
+const { CamelCase } = require('camelcasejs')
+
 /**
  * Champions
  */
@@ -151,10 +155,23 @@ export enum Champions {
   PYKE = 555
 }
 
+/**
+ * Get champion name by id
+ */
 export function getChampionName (champ: number): string {
   const result = invert(Champions)[champ]
   if (!result) {
     throw new Error(`Invalid champ id ${champ}`)
   }
   return result
+}
+
+/**
+ * Get champion and by id and return capitalize string
+ */
+export function getChampionNameCapital (champ: number): string {
+  let name = getChampionName(champ)
+  name = CamelCase(name.toLowerCase())
+  name = name.charAt(0).toUpperCase() + name.slice(1)
+  return name
 }

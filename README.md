@@ -16,14 +16,14 @@ export async function summonerByNameExample () {
 ```
 [More examples](https://github.com/Sansossio/riot-games-api/tree/master/example)
 
-# Automatic rate limits reattemps
+# Automatic rate limits reattempts
 ```js
 import { RiotApi } from 'api-riot-games'
 import { Regions } from 'api-riot-games/dist/constants'
 
 const api = new RiotApi({
    /**
-   * If api response is 429 (rate limits) try reattemp after needed time (default true)
+   * If api response is 429 (rate limits) try reattempt after needed time (default true)
    */
   rateLimitRetry: true,
   /**

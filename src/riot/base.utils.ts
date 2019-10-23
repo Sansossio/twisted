@@ -4,7 +4,7 @@ export interface IParams {
 
 export interface IBaseApiParams {
   /**
-   * If api response is 429 (rate limits) try reattemp after needed time (default true)
+   * If api response is 429 (rate limits) try reattempt after needed time (default true)
    */
   rateLimitRetry?: boolean
   /**

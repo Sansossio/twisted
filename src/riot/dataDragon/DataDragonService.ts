@@ -4,6 +4,7 @@ import { RealmServers } from '../../constants/realmServers'
 import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTP } from '../../dto'
 import { Champions, getChampionNameCapital } from '../../constants/champions'
 import { ChampionsDataDragonDetailsSolo } from '../../dto/DataDragon/Champions.datadragon.dto'
+import { MapsDataDragonDTO } from '../../dto/DataDragon/Maps.datadragon.dto'
 
 /**
  * Data Dragon is our way of centralizing League of Legends game data and assets, including champions, items, runes, summoner spells, and profile icons. All of which can be used by third-party developers. You can download a gzipped tar file (.tar.gz) for each patch which will contain all assets for that patch.
@@ -65,6 +66,11 @@ export class DataDragonService {
 
   async getSeasons (): Promise<{ id: number, season: string}[]> {
     const path = 'docs/lol/seasons.json'
+    return this.request(path, DataDragonEnum.STATIC)
+  }
+
+  async getMaps (): Promise<MapsDataDragonDTO> {
+    const path = 'docs/lol/maps.json'
     return this.request(path, DataDragonEnum.STATIC)
   }
 }

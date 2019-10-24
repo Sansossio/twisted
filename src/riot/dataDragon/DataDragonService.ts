@@ -1,7 +1,7 @@
 import rp from 'request-promise'
 import { DataDragonEnum } from '../../constants/dataDragon'
 import { RealmServers } from '../../constants/realmServers'
-import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTP } from '../../dto'
+import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTO } from '../../dto'
 import { Champions, getChampionNameCapital } from '../../constants/champions'
 import { ChampionsDataDragonDetailsSolo } from '../../dto/DataDragon/Champions.datadragon.dto'
 import { MapsDataDragonDTO } from '../../dto/DataDragon/Maps.datadragon.dto'
@@ -59,7 +59,7 @@ export class DataDragonService {
   }
 
   // Static data
-  async getQueues (): Promise<QueuesDataDragonDTP[]> {
+  async getQueues (): Promise<QueuesDataDragonDTO[]> {
     const path = 'docs/lol/queues.json'
     return this.request(path, DataDragonEnum.STATIC)
   }

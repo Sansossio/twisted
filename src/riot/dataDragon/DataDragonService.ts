@@ -1,7 +1,7 @@
 import rp from 'request-promise'
 import { DataDragonEnum } from '../../constants/dataDragon'
 import { RealmServers } from '../../constants/realmServers'
-import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTO } from '../../dto'
+import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTO, GameModeaDataDragonDTO } from '../../dto'
 import { Champions, getChampionNameCapital } from '../../constants/champions'
 import { ChampionsDataDragonDetailsSolo } from '../../dto/DataDragon/Champions.datadragon.dto'
 import { MapsDataDragonDTO } from '../../dto/DataDragon/Maps.datadragon.dto'
@@ -71,6 +71,11 @@ export class DataDragonService {
 
   async getMaps (): Promise<MapsDataDragonDTO> {
     const path = 'docs/lol/maps.json'
+    return this.request(path, DataDragonEnum.STATIC)
+  }
+
+  async getGameModes (): Promise<GameModeaDataDragonDTO> {
+    const path = 'docs/lol/gameModes.json'
     return this.request(path, DataDragonEnum.STATIC)
   }
 }

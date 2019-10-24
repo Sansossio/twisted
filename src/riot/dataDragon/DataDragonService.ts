@@ -1,7 +1,7 @@
 import rp from 'request-promise'
 import { DataDragonEnum } from '../../constants/dataDragon'
 import { RealmServers } from '../../constants/realmServers'
-import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails } from '../../dto'
+import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTP } from '../../dto'
 import { Champions, getChampionNameCapital } from '../../constants/champions'
 import { ChampionsDataDragonDetailsSolo } from '../../dto/DataDragon/Champions.datadragon.dto'
 
@@ -12,15 +12,16 @@ import { ChampionsDataDragonDetailsSolo } from '../../dto/DataDragon/Champions.d
  */
 export class DataDragonService {
   // Internal methods
-  private async request<T> (path: string): Promise<T> {
+  private async request<T> (path: string, base: DataDragonEnum = DataDragonEnum.BASE): Promise<T> {
     const options: rp.OptionsWithUri = {
-      uri: `${DataDragonEnum.BASE}/${path}`,
+      uri: `${base}/${path}`,
       method: 'GET',
       json: true
     }
     return rp(options)
   }
   // Riot requests
+  // Data dragon
   async getRealms (server: RealmServers): Promise<RealmDTO> {
     const path = `realms/${server}.json`
     return this.request(path)
@@ -54,5 +55,11 @@ export class DataDragonService {
       return fullResponse.data[champName] as ChampionsDataDragonDetailsSolo
     }
     return fullResponse
+  }
+
+  // Static data
+  async getQueues (): Promise<QueuesDataDragonDTP[]> {
+    const path = 'docs/lol/queues.json'
+    return this.request(path, DataDragonEnum.STATIC)
   }
 }

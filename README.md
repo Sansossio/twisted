@@ -11,7 +11,7 @@ import { Regions } from 'api-riot-games/dist/constants'
 const api = new RiotApi()
 
 export async function summonerByNameExample () {
-  return await api.Lol.summoner.getByName('Hide on bush', Regions.KOREA)
+  return await api.Lol.Summoner.getByName('Hide on bush', Regions.KOREA)
 }
 ```
 [More examples](https://github.com/Sansossio/riot-games-api/tree/master/example)

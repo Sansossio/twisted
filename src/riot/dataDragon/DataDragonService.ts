@@ -9,7 +9,7 @@ import { GameTypesDataDragonDTO } from '../../dto/DataDragon/GameTypes.datadrago
 
 /**
  * Data Dragon is our way of centralizing League of Legends game data and assets, including champions, items, runes, summoner spells, and profile icons. All of which can be used by third-party developers. You can download a gzipped tar file (.tar.gz) for each patch which will contain all assets for that patch.
- * https://ddragon.leagueoflegends.com/cdn/dragontail-9.20.1.tgz
+ * https://ddragon.Lol.com/cdn/dragontail-9.20.1.tgz
  * Please be aware that updating Data Dragon after each League of Legends patch is a manual process, so it is not always updated immediately after a patch. Your patience is appreciated.
  */
 export class DataDragonService {

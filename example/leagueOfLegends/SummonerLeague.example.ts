@@ -5,6 +5,6 @@ const api = new RiotApi()
 
 export async function summonerLeagueExample () {
   const { region } = config
-  const { response: { id } } = await api.leagueOfLegends.summoner.getByName(config.summonerName, region)
-  return await api.leagueOfLegends.league.bySummoner(id, region)
+  const { response: { id } } = await api.Lol.Summoner.getByName(config.summonerName, region)
+  return await api.Lol.League.bySummoner(id, region)
 }

@@ -4,5 +4,5 @@ import { RealmServers, Champions } from '../../src/constants'
 const api = new RiotApi()
 
 export async function getChampionDetailsDataDragon () {
-  return api.leagueOfLegends.dataDragon.getChampion(Champions.TWISTED_FATE)
+  return api.Lol.DataDragon.getChampion(Champions.TWISTED_FATE)
 }

@@ -9,6 +9,6 @@ export async function championsScoreExample () {
     response: {
       id
     }
-  } = await api.leagueOfLegends.summoner.getByName(config.summonerName, region)
-  return await api.leagueOfLegends.champion.championsScore(id, region)
+  } = await api.Lol.Summoner.getByName(config.summonerName, region)
+  return await api.Lol.Champion.championsScore(id, region)
 }

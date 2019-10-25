@@ -9,6 +9,6 @@ export async function summonerByAccountIDExample () {
     response: {
       accountId
     }
-  } = await api.leagueOfLegends.summoner.getByName(config.summonerName, region)
-  return await api.leagueOfLegends.summoner.getByAccountID(accountId, region)
+  } = await api.Lol.Summoner.getByName(config.summonerName, region)
+  return await api.Lol.Summoner.getByAccountID(accountId, region)
 }

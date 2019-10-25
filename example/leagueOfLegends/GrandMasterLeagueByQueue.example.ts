@@ -5,5 +5,5 @@ import { Queues } from '../../src/constants'
 const api = new RiotApi()
 
 export async function grandmasterLeagueByQueueExample () {
-  return await api.leagueOfLegends.league.getGrandMasterLeagueByQueue(Queues.RANKED_SOLO_5x5, config.region)
+  return await api.Lol.League.getGrandMasterLeagueByQueue(Queues.RANKED_SOLO_5x5, config.region)
 }

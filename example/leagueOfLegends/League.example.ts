@@ -9,9 +9,9 @@ export async function leagueExample () {
     response: {
       id
     }
-  } = await api.leagueOfLegends.summoner.getByName(config.summonerName, region)
+  } = await api.Lol.Summoner.getByName(config.summonerName, region)
   const {
     response: [league]
-  } = await api.leagueOfLegends.league.bySummoner(id, region)
-  return await api.leagueOfLegends.league.get(league.leagueId, region)
+  } = await api.Lol.League.bySummoner(id, region)
+  return await api.Lol.League.get(league.leagueId, region)
 }

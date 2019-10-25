@@ -9,6 +9,6 @@ export async function championMasteryBySummonerByChampion () {
     response: {
       id
     }
-  } = await api.leagueOfLegends.summoner.getByName(config.summonerName, region)
-  return await api.leagueOfLegends.champion.masteryBySummonerChampion(id, 1, region)
+  } = await api.Lol.Summoner.getByName(config.summonerName, region)
+  return await api.Lol.Champion.masteryBySummonerChampion(id, 1, region)
 }

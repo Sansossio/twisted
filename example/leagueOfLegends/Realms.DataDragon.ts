@@ -4,5 +4,5 @@ import { RealmServers } from '../../src/constants'
 const api = new RiotApi()
 
 export async function realmsDataDragon () {
-  return api.leagueOfLegends.dataDragon.getRealms(RealmServers.AMERICA_NORTH)
+  return api.Lol.DataDragon.getRealms(RealmServers.AMERICA_NORTH)
 }

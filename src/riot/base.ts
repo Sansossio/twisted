@@ -73,7 +73,7 @@ export class BaseApi {
     // tslint:disable:no-conditional-assignment
     while (match = re.exec(base)) {
       const [key] = match
-      const value = String(params[match[1]])
+      const value = encodeURI(String(params[match[1]]))
       base = base.replace(key, value)
       re.lastIndex = 0
     }

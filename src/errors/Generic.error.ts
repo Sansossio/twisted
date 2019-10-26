@@ -16,7 +16,7 @@ export class GenericError extends Error implements IErrors {
   readonly name = 'GenericError'
 
   constructor (rateLimits: RateLimitDto, error: StatusCodeError) {
-    super(message)
+    super(error.message || message)
     this.status = error.statusCode
     this.body = _.get(error, 'response.body', null)
     this.rateLimits = rateLimits

@@ -7,6 +7,7 @@ import { ChampionApi } from '../champion/champion'
 import { SpectatorApi } from '../spectator/spectator'
 import { StatusApi } from '../status/status'
 import { DataDragonService } from '../dataDragon/DataDragonService'
+import { SeedApi } from './seed'
 
 /**
  * Classic league of legends api
@@ -44,4 +45,8 @@ export class LolApi extends BaseApi {
    * Data dragon
    */
   public readonly DataDragon = new DataDragonService()
+  /**
+   * Seed methods
+   */
+  public readonly Seed = new SeedApi()
 }

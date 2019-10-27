@@ -3,15 +3,21 @@ import * as _ from 'lodash'
 import { Regions } from '../constants/regions'
 import { ApiKeyNotFound } from '../errors'
 import { IEndpoint } from '../endpoints'
-import { TOO_MANY_REQUESTS } from 'http-status-codes'
+import { TOO_MANY_REQUESTS, SERVICE_UNAVAILABLE } from 'http-status-codes'
 import { config } from 'dotenv'
 import { ApiResponseDTO } from '../dto/ApiResponse/ApiResponse.dto'
 import { RateLimitDto } from '../dto/RateLimit/RateLimit.dto'
 import { GenericError } from '../errors/Generic.error'
 import { RateLimitError } from '../errors/RateLimit.error'
 import { IBaseApiParams, IParams, waiter } from './base.utils'
+import { ServiceUnavailable } from '../errors/ServiceUnavailable.error'
 
 config()
+
+enum RetryRequestsSeconds {
+  RATE_LIMIT = 1,
+  SERVICE_UNAVAILABLE = 4
+}
 
 export class BaseApi {
   private readonly baseUrl = 'https://$(region).api.riotgames.com/lol'
@@ -90,10 +96,23 @@ export class BaseApi {
     return statusCode === TOO_MANY_REQUESTS
   }
 
+  private isServiceUnavailableError (e: any) {
+    if (!e) {
+      return false
+    }
+    const {
+      statusCode = e.status
+    } = e || e.error
+    return statusCode === SERVICE_UNAVAILABLE
+  }
+
   private getError (e: any) {
     const headers = this.getRateLimits(_.get(e, 'response.headers'))
     if (this.isRateLimitError(e)) {
       return new RateLimitError(headers)
+    }
+    if (this.isServiceUnavailableError(e)) {
+      return new ServiceUnavailable(headers, e)
     }
     // Otherwise generic error
     return new GenericError(headers, e)
@@ -105,7 +124,7 @@ export class BaseApi {
 
   private async retryRateLimit<T> (region: Regions, endpoint: IEndpoint, params?: IParams, e?: any): Promise<ApiResponseDTO<T>> {
     let baseError = this.getError(e)
-    const isRateLimitError = this.isRateLimitError(e)
+    const isRateLimitError = this.isRateLimitError(e) || this.isServiceUnavailableError(e)
     if (!this.rateLimitRetry || !isRateLimitError || this.rateLimitRetryAttempts < 1) {
       throw baseError
     }
@@ -117,7 +136,7 @@ export class BaseApi {
       } catch (error) {
         const parseError = this.getError(error)
         // Isn't rate limit error
-        if (!this.isRateLimitError(error)) {
+        if (!this.isRateLimitError(error) && !this.isServiceUnavailableError(error)) {
           throw parseError
         }
         // Set a new attemp
@@ -126,7 +145,11 @@ export class BaseApi {
             RetryAfter
           }
         } = parseError
-        const msToWait = ((RetryAfter || 0) + this.retryInterval) * 1000
+        const waitSeconds =
+          this.isServiceUnavailableError(e) ?
+            RetryRequestsSeconds.SERVICE_UNAVAILABLE :
+            RetryRequestsSeconds.RATE_LIMIT
+        const msToWait = ((RetryAfter || 0) + this.retryInterval) * (waitSeconds * 1000)
         await waiter(msToWait)
       }
     }
@@ -164,7 +187,7 @@ export class BaseApi {
     }
     try {
       const apiResponse = await this.internalRequest<any>(options)
-      const { body, headers, request } = apiResponse
+      const { body, headers } = apiResponse
       return {
         rateLimits: this.getRateLimits(headers),
         response: body

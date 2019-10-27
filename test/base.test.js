@@ -1,7 +1,7 @@
 const { describe, it } = require('mocha')
 const { expect } = require('chai')
 const { RiotApi } = require('../src')
-const { ApiKeyNotFound, RateLimitError } = require('../src/errors')
+const { ApiKeyNotFound, RateLimitError, ServiceUnavailable } = require('../src/errors')
 const { restore, stub } = require('sinon')
 
 describe('Base api', () => {
@@ -13,6 +13,7 @@ describe('Base api', () => {
   }
   const region = 'LA1'
   const key = 'apikey'
+
   describe('Arguments', () => {
     it('should throw when missing Riot api key', async () => {
       try {
@@ -21,22 +22,27 @@ describe('Base api', () => {
         expect(e).instanceOf(ApiKeyNotFound)
       }
     })
+
     it('should return correct key when param is an string', () => {
       const api = new RiotApi(key)
       expect(api.key).eq(key)
     })
+
     it('should return correct key when param is an object', () => {
       const api = new RiotApi({ key })
       expect(api.key).eq(key)
     })
+
     it('should return correct retry limit value', () => {
       const api = new RiotApi({ rateLimitRetry: false })
       expect(api.rateLimitRetry).eq(false)
     })
+
     it('should return correct retry limit attempts value', () => {
       const api = new RiotApi({ rateLimitRetryAttempts: 2 })
       expect(api.rateLimitRetryAttempts).eq(2)
     })
+
     it('should return valid default param', () => {
       const api = new RiotApi(key)
       const exp = {
@@ -47,10 +53,12 @@ describe('Base api', () => {
       expect(api.getParam()).deep.equals(exp)
     })
   })
+
   describe('Utils', () => {
     it('base api should have a region variable', () => {
       expect(riot.baseUrl).to.include('$(region)')
     })
+
     it('should return correct api url', () => {
       const params = {
         region: region
@@ -60,6 +68,7 @@ describe('Base api', () => {
       const url = riot.getApiUrl(baseEndpoint, params)
       expect(url.endsWith(path)).to.be.equal(true)
     })
+
     it('should return correct api url with api params', () => {
       const params = {
         region: region,
@@ -71,6 +80,31 @@ describe('Base api', () => {
       expect(url.endsWith(ends)).to.be.equal(true)
     })
   })
+
+  describe('Service unavailable response', () => {
+    it('should return valid response at 2th attempt', async () => {
+      const data = { body: 'good' }
+      const api = new RiotApi(key)
+      const stubApi = stub(api, 'internalRequest')
+      stubApi.onCall(0).throwsException(new ServiceUnavailable())
+      stubApi.onCall(1).callsFake(() => data)
+      const response = await api.request('KR', {})
+      restore()
+      expect(response.response).deep.eq(data.body)
+    }).timeout(10 * 1000)
+
+    it('should throw service unavailable error at 3th attempt', async () => {
+      const api = new RiotApi(key)
+      const stubApi = stub(api, 'internalRequest')
+      stubApi.callsFake().throwsException(new ServiceUnavailable())
+      try {
+        await api.request('KR', {})
+      } catch (e) {
+        expect(e).instanceOf(ServiceUnavailable)
+      }
+    }).timeout(10 * 1000)
+  })
+
   describe('Rate limit response', () => {
     it('should return valid response at 2th attempt', async () => {
       const data = { body: 'good' }
@@ -82,6 +116,7 @@ describe('Base api', () => {
       restore()
       expect(response.response).deep.eq(data.body)
     })
+
     it('should throw rate limit error at 3th attempt', async () => {
       const api = new RiotApi(key)
       const stubApi = stub(api, 'internalRequest')
@@ -92,6 +127,7 @@ describe('Base api', () => {
         expect(e).instanceOf(RateLimitError)
       }
     })
+
     it('should throw rate limit when option ins disable', async () => {
       const api = new RiotApi({
         key,
@@ -106,6 +142,7 @@ describe('Base api', () => {
         expect(e).instanceOf(RateLimitError)
       }
     })
+
     it('should throw rate limit when retry limit retry attempts is lower than 1', async () => {
       const api = new RiotApi({
         key,

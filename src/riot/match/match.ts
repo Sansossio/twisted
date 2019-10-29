@@ -5,11 +5,26 @@ import { endpointsV4 } from '../../endpoints/endpoints'
 import { MatchDto } from '../../dto/Match/Match/Match.dto'
 import { MatchTimelineDto } from '../../dto/Match/MatchTimeLine/MatchTimeLine.dto'
 import { MatchQueryDTO } from '../../dto/Match/Query/MatchQuery.dto'
+import { NOT_FOUND } from 'http-status-codes'
+import { GenericError } from '../../errors'
+import { ApiResponseDTO } from '../../dto'
 
 /**
  * Match methods
  */
 export class MatchApi extends BaseApi {
+  // Private methods
+  generateResponse (error: GenericError): ApiResponseDTO<MatchListingDto> {
+    return {
+      rateLimits: error.rateLimits,
+      response: {
+        matches: [],
+        startIndex: 0,
+        endIndex: 0,
+        totalGames: 0
+      }
+    }
+  }
   /**
    * Get match details
    * @param matchId Match id
@@ -35,7 +50,14 @@ export class MatchApi extends BaseApi {
     const params = {
       encryptedAccountId
     }
-    return this.request<MatchListingDto>(region, endpointsV4.MatchListing, params, false, query)
+    try {
+      return await this.request<MatchListingDto>(region, endpointsV4.MatchListing, params, false, query)
+    } catch (e) {
+      if (e.status !== NOT_FOUND) {
+        throw e
+      }
+      return this.generateResponse(e)
+    }
   }
 
   public async timeline (matchId: number, region: Regions) {

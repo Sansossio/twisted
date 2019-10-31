@@ -10,5 +10,5 @@ export class MetadataDto {
   /**
    * Match id.
    */
-  match_id: string
+  match_id: number
 }

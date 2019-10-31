@@ -18,3 +18,26 @@ export const enum TftRegions {
   ASIA = 'asia',
   AMERICAS = 'americas'
 }
+
+export function regionToTftRegions (region: Regions): TftRegions {
+  switch (region) {
+    // America
+    case Regions.AMERICA_NORTH:
+    case Regions.BRAZIL:
+    case Regions.LAT_NORTH:
+    case Regions.LAT_SOUTH:
+    case Regions.OCEANIA:
+      return TftRegions.AMERICAS
+    // Europe
+    case Regions.EU_EAST:
+    case Regions.EU_WEST:
+    case Regions.TURKEY:
+    case Regions.RUSSIA:
+      return TftRegions.EUROPE
+    // Asia
+    case Regions.JAPAN:
+    case Regions.KOREA:
+      return TftRegions.ASIA
+  }
+  throw new Error(`Unexpected region: ${region}`)
+}

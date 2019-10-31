@@ -1,14 +1,14 @@
 import * as _ from 'lodash'
-import { BaseApi } from '../../../base/base'
 import { endpointsV4, IEndpoint } from '../../../endpoints/endpoints'
 import { SummonerV4DTO } from '../../../dto/Summoner/Summoner.dto'
 import { Regions } from '../../../constants'
 import { FindSummonerBy } from '../../../constants/summoner.find'
+import { BaseApiLol } from '../base/base.api.lol'
 
 /**
  * Summoner methods
  */
-export class SummonerApi extends BaseApi {
+export class SummonerApi extends BaseApiLol {
   private parsePath (endpoint: IEndpoint, by: FindSummonerBy) {
     let { path } = endpoint
     if (by === FindSummonerBy.ID) {

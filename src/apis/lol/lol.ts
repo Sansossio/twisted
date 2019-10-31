@@ -8,11 +8,12 @@ import { SpectatorApi } from './spectator/spectator'
 import { StatusApi } from './status/status'
 import { DataDragonService } from './dataDragon/DataDragonService'
 import { SeedApi } from './seed/seed'
+import { BaseApiLol } from './base/base.api.lol'
 
 /**
  * Classic league of legends api
  */
-export class LolApi extends BaseApi {
+export class LolApi extends BaseApiLol {
   /**
    * Match methods
    */

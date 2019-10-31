@@ -1,9 +1,9 @@
-import { BaseApi } from '../../../base/base'
 import { Regions } from '../../../constants'
 import { LolStatusDTO } from '../../../dto'
 import { endpointsV3 } from '../../../endpoints'
+import { BaseApiLol } from '../base/base.api.lol'
 
-export class StatusApi extends BaseApi {
+export class StatusApi extends BaseApiLol {
   /**
    * Lol status by server
    * @param region Riot region

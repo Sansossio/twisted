@@ -108,3 +108,11 @@ export const endpointsV3: IEndpoints = {
     version: 3
   }
 }
+
+export const endpointsTFTV1: IEndpoints = {
+  Match: {
+    path: 'matches/$(matchId)',
+    prefix: 'match',
+    version: 1
+  }
+}

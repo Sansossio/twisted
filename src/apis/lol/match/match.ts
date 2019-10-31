@@ -1,4 +1,3 @@
-import { BaseApi } from '../../../base/base'
 import { MatchListingDto } from '../../../dto/Match/MatchListing/MatchListing.dto'
 import { Regions } from '../../../constants'
 import { endpointsV4 } from '../../../endpoints/endpoints'
@@ -8,11 +7,12 @@ import { MatchQueryDTO } from '../../../dto/Match/Query/MatchQuery.dto'
 import { NOT_FOUND } from 'http-status-codes'
 import { GenericError } from '../../../errors'
 import { ApiResponseDTO } from '../../../dto'
+import { BaseApiLol } from '../base/base.api.lol'
 
 /**
  * Match methods
  */
-export class MatchApi extends BaseApi {
+export class MatchApi extends BaseApiLol {
   // Private methods
   generateResponse (error: GenericError): ApiResponseDTO<MatchListingDto> {
     return {

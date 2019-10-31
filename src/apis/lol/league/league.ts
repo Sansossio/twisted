@@ -1,14 +1,14 @@
-import { BaseApi } from '../../../base/base'
 import { endpointsV4 } from '../../../endpoints/endpoints'
 import { SummonerLeagueDto } from '../../../dto/League/SummonerLeague/SummonerLeague.dto'
 import { LeagueEntryDTO } from '../../../dto/League/LeagueExp/LeagueEntry.dto'
 import { Queues, Tiers, Divisions, Regions } from '../../../constants'
 import { LeagueListDTO } from '../../../dto/League/LeagueItem/LeagueList.dto'
+import { BaseApiLol } from '../base/base.api.lol'
 
 /**
  * League methods
  */
-export class LeagueApi extends BaseApi {
+export class LeagueApi extends BaseApiLol {
   /**
    * Get summoner leagues
    * @param encryptedSummonerId Encrypted summoner ID. Max length 63 characters.

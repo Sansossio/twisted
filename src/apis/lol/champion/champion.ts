@@ -1,13 +1,13 @@
 import { Regions } from '../../../constants'
-import { BaseApi } from '../../../base/base'
 import { endpointsV4, endpointsV3 } from '../../../endpoints/endpoints'
 import { ChampionMasteryDTO } from '../../../dto/Champion/ChampionMastery.dto'
 import { ChampionsScoreDTO } from '../../../dto/Champion/ChampionsScore.dto'
+import { BaseApiLol } from '../base/base.api.lol'
 
 /**
  * Third party methods
  */
-export class ChampionApi extends BaseApi {
+export class ChampionApi extends BaseApiLol {
   /**
    * Get champion rotation
    * @param region Riot region

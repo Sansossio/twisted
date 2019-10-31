@@ -12,3 +12,9 @@ export const enum Regions {
   JAPAN = 'JP1',
   PBE = 'PBE'
 }
+
+export const enum TftRegions {
+  EUROPE = 'europe',
+  ASIA = 'asia',
+  AMERICAS = 'americas'
+}

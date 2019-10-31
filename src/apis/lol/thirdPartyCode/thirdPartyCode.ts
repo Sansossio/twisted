@@ -1,14 +1,14 @@
 import { INTERNAL_SERVER_ERROR, NOT_FOUND } from 'http-status-codes'
 import { Regions } from '../../../constants'
-import { BaseApi } from '../../../base/base'
 import { endpointsV4 } from '../../../endpoints/endpoints'
 import { ThirdPartyCodeDTO } from '../../../dto/ThirdPartyCode/ThirdPartyCode.dto'
 import { ApiResponseDTO } from '../../../dto/ApiResponse/ApiResponse.dto'
+import { BaseApiLol } from '../base/base.api.lol'
 
 /**
  * Third party methods
  */
-export class ThirdPartyCode extends BaseApi {
+export class ThirdPartyCode extends BaseApiLol {
   private errorHandler (e: any) {
     const { statusCode } = e.error || e
     if (statusCode !== INTERNAL_SERVER_ERROR && statusCode !== NOT_FOUND) {

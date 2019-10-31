@@ -1,6 +1,5 @@
 import rp from 'request-promise'
 import * as _ from 'lodash'
-import { Regions } from '../constants/regions'
 import { ApiKeyNotFound } from '../errors'
 import { IEndpoint } from '../endpoints'
 import { TOO_MANY_REQUESTS, SERVICE_UNAVAILABLE } from 'http-status-codes'
@@ -19,8 +18,9 @@ enum RetryRequestsSeconds {
   SERVICE_UNAVAILABLE = 4
 }
 
-export class BaseApi {
-  private readonly baseUrl = 'https://$(region).api.riotgames.com/lol'
+export class BaseApi<Region extends string> {
+  protected readonly game: string = 'lol'
+  private readonly baseUrl = 'https://$(region).api.riotgames.com/:game'
   private readonly retryInterval = .5
   private key: string
   private rateLimitRetry: boolean = true
@@ -66,6 +66,10 @@ export class BaseApi {
     }
   }
 
+  private getBaseUrl () {
+    return this.baseUrl.replace(':game', this.game)
+  }
+
   private getApiUrl (endpoint: IEndpoint, params: IParams) {
     const {
       prefix,
@@ -74,7 +78,7 @@ export class BaseApi {
     } = endpoint
     const basePath = `${prefix}/v${version}/${path}`
     const re = /\$\(([^\)]+)?\)/g
-    let base = `${this.baseUrl}/${basePath}`
+    let base = `${this.getBaseUrl()}/${basePath}`
     let match
     // tslint:disable:no-conditional-assignment
     while (match = re.exec(base)) {
@@ -122,7 +126,7 @@ export class BaseApi {
     return (rp(options) as any)
   }
 
-  private async retryRateLimit<T> (region: Regions, endpoint: IEndpoint, params?: IParams, e?: any): Promise<ApiResponseDTO<T>> {
+  private async retryRateLimit<T> (region: Region, endpoint: IEndpoint, params?: IParams, e?: any): Promise<ApiResponseDTO<T>> {
     let baseError = this.getError(e)
     const isRateLimitError = this.isRateLimitError(e) || this.isServiceUnavailableError(e)
     if (!this.rateLimitRetry || !isRateLimitError || this.rateLimitRetryAttempts < 1) {
@@ -165,7 +169,7 @@ export class BaseApi {
     }
   }
 
-  protected async request<T> (region: Regions, endpoint: IEndpoint, params?: IParams, forceError?: boolean, qs?: any): Promise<ApiResponseDTO<T>> {
+  protected async request<T> (region: Region, endpoint: IEndpoint, params?: IParams, forceError?: boolean, qs?: any): Promise<ApiResponseDTO<T>> {
     if (!this.key) {
       throw new ApiKeyNotFound()
     }

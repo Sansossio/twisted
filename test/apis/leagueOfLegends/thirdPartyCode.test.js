@@ -2,7 +2,7 @@ const { describe, it, afterEach } = require('mocha')
 const { expect } = require('chai')
 const { stub, restore } = require('sinon')
 const httpStatusCode = require('http-status-codes')
-const { ThirdPartyCode } = require('../../../src/riot/thirdPartyCode/thirdPartyCode')
+const { ThirdPartyCode } = require('../../../src/apis/lol/thirdPartyCode/thirdPartyCode')
 
 describe('Third Party code', () => {
   afterEach(restore)

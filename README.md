@@ -4,22 +4,39 @@
 RIOT_API_KEY = Riot api key
 
 # Simple example
+LOL:
 ```js
-import { RiotApi, Constants } from 'api-riot-games'
+import { LolApi, Constants } from 'api-riot-games'
 
-const api = new RiotApi()
+const api = new LolApi()
 
 export async function summonerByNameExample () {
   return await api.Lol.Summoner.getByName('Hide on bush', Constants.Regions.KOREA)
 }
 ```
+TFT:
+```js
+import { TftApi, Constants } from 'api-riot-games'
+
+const api = new TftApi()
+
+export async function matchListTft () {
+  const {
+    response: {
+      puuid
+    }
+  } = api.Summoner.getByName('MaxiVzla', Constants.Regions.LA1)
+  return api.Match.list(puuid, Constants.TftRegions.TftRegions.AMERICAS)
+}
+
+```
 [More examples](https://github.com/Sansossio/riot-games-api/tree/master/example)
 
 # Automatic rate limits reattempts
 ```js
-import { RiotApi } from 'api-riot-games'
+import { LolApi } from 'api-riot-games'
 
-const api = new RiotApi({
+const api = new LolApi({
    /**
    * If api response is 429 (rate limits) try reattempt after needed time (default true)
    */
@@ -76,6 +93,22 @@ Everything should be in the same order as in the official docs.
 - [ ] `Gets a list of lobby events by tournament code.`
 - [ ] `Creates a tournament provider and returns its ID.`
 - [ ] `Creates a tournament and returns its ID.`
+
+# TFT Endpoints
+## TFT-SUMMONER-V1
+- [x] `Get a summoner by account ID.`
+- [x] `Get a summoner by summoner name.`
+- [x] `Get a summoner by PUUID.`
+- [x] `Get a summoner by summoner ID.`
+## TFT-MATCH-V1
+- [x] `Get match list by summoner PUUID.`
+- [x] `Get match list details.`
+## TFT-LEAGUE-V1
+- [ ] `Get the challenger league for given queue.`
+- [ ] `Get league entries in all queues for a given summoner ID.`
+- [ ] `Get all the league entries.`
+- [ ] `Get league with given ID, including inactive entries.`
+- [ ] `Get the master league for given queue.`
 
 # Run all examples
 

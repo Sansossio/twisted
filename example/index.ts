@@ -1,1 +1,1 @@
-export * from './leagueOfLegends'
+export * from './lol'

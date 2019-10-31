@@ -5,13 +5,12 @@ RIOT_API_KEY = Riot api key
 
 # Simple example
 ```js
-import { RiotApi } from 'api-riot-games'
-import { Regions } from 'api-riot-games/dist/constants'
+import { RiotApi, Constants } from 'api-riot-games'
 
 const api = new RiotApi()
 
 export async function summonerByNameExample () {
-  return await api.Lol.Summoner.getByName('Hide on bush', Regions.KOREA)
+  return await api.Lol.Summoner.getByName('Hide on bush', Constants.Regions.KOREA)
 }
 ```
 [More examples](https://github.com/Sansossio/riot-games-api/tree/master/example)

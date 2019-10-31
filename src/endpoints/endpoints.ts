@@ -120,5 +120,11 @@ export const endpointsTFTV1: IEndpoints = {
     path: 'matches/by-puuid/$(summonerPUUID)/ids',
     prefix: 'match',
     version: 1
+  },
+
+  Summoner: {
+    path: 'summoners/$(by)/$(summonerName)',
+    prefix: 'summoner',
+    version: 1
   }
 }

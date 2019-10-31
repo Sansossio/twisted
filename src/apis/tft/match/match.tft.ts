@@ -11,4 +11,11 @@ export class MatchTFTApi extends BaseApiTft {
     }
     return this.request<MatchTFTDTO>(region, endpointsTFTV1.Match, params)
   }
+
+  public async list (summonerPUUID: string, region: TftRegions) {
+    const params = {
+      summonerPUUID
+    }
+    return this.request<string[]>(region, endpointsTFTV1.MatchListing, params)
+  }
 }

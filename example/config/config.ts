@@ -1,6 +1,6 @@
-import { Regions } from '../../src/constants'
+import { Constants } from '../../src'
 
 export const config = {
   summonerName: 'Hide on Bush',
-  region: Regions.KOREA
+  region: Constants.Regions.KOREA
 }

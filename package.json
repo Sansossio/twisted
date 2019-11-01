@@ -1,6 +1,6 @@
 {
-  "name": "api-riot-games",
-  "version": "2.0.3",
+  "name": "twisted",
+  "version": "1.0.0",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,20 +29,22 @@
     "api",
     "wrap",
     "riot games",
-    "league of legends"
+    "league of legends",
+    "tft",
+    "teamfight tactics"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sansossio/riot-games-api"
+    "url": "https://github.com/Sansossio/twisted"
   },
   "author": {
     "name": "Julio Sansossio",
     "email": "juliosansossio@gmail.com",
     "url": "https://github.com/Sansossio"
   },
-  "homepage": "https://github.com/Sansossio/riot-games-api",
+  "homepage": "https://github.com/Sansossio/twisted",
   "bugs": {
-    "url": "https://github.com/Sansossio/riot-games-api/issues"
+    "url": "https://github.com/Sansossio/twisted/issues"
   },
   "license": "ISC",
   "devDependencies": {

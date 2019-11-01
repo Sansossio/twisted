@@ -1,12 +1,12 @@
 # Install
-``` npm i api-riot-games```
+``` npm i twisted```
 # Environment variables
 RIOT_API_KEY = Riot api key
 
 # Simple example
 LOL:
 ```js
-import { LolApi, Constants } from 'api-riot-games'
+import { LolApi, Constants } from 'twisted'
 
 const api = new LolApi()
 
@@ -16,7 +16,7 @@ export async function summonerByNameExample () {
 ```
 TFT:
 ```js
-import { TftApi, Constants } from 'api-riot-games'
+import { TftApi, Constants } from 'twisted'
 
 const api = new TftApi()
 
@@ -34,7 +34,7 @@ export async function matchListTft () {
 
 # Automatic rate limits reattempts
 ```js
-import { LolApi } from 'api-riot-games'
+import { LolApi } from 'twisted'
 
 const api = new LolApi({
    /**

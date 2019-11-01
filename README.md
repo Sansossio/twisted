@@ -40,11 +40,28 @@ const api = new LolApi({
    /**
    * If api response is 429 (rate limits) try reattempt after needed time (default true)
    */
-  rateLimitRetry: true,
+  rateLimitRetry: true
   /**
    * Number of time to retry after rate limit response (default 1)
    */
   rateLimitRetryAttempts: 1
+  /**
+   * Riot games api key
+   */
+  key: '',
+  /**
+   * Debug methods
+   */
+  debug: {
+    /**
+     * Log methods execution time (default false)
+     */
+    logTime: false
+    /**
+     * Log urls (default false)
+     */
+    logUrls: false
+  }
 })
 ```
 

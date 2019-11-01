@@ -20,9 +20,12 @@ export class BaseApi<Region extends string> {
   private readonly baseUrl = BaseConstants.BASE_URL
   private readonly retryInterval = BaseConstants.RETRY_INTERVAL
   private key: string
-  private logTime: boolean = true
   private rateLimitRetry: boolean = true
   private rateLimitRetryAttempts: number = BaseConstants.RETRY_ATTEMPTS
+  private debug = {
+    logTime: false,
+    logUrls: false
+  }
 
   constructor ()
   constructor (params: IBaseApiParams)
@@ -50,8 +53,13 @@ export class BaseApi<Region extends string> {
     if (typeof param.rateLimitRetryAttempts !== 'undefined') {
       this.rateLimitRetryAttempts = param.rateLimitRetryAttempts
     }
-    if (typeof param.logTime !== 'undefined') {
-      this.logTime = param.logTime
+    if (typeof param.debug !== 'undefined') {
+      if (typeof param.debug.logTime !== 'undefined') {
+        this.debug.logTime = param.debug.logTime
+      }
+      if (typeof param.debug.logUrls !== 'undefined') {
+        this.debug.logUrls = param.debug.logUrls
+      }
     }
   }
 
@@ -175,7 +183,7 @@ export class BaseApi<Region extends string> {
       throw new ApiKeyNotFound()
     }
     // Logger
-    if (this.logTime) {
+    if (this.debug.logTime) {
       Logger.start(endpoint)
     }
     // Url params
@@ -194,6 +202,9 @@ export class BaseApi<Region extends string> {
       resolveWithFullResponse: true,
       json: true
     }
+    if (this.debug.logUrls) {
+      Logger.uri(options, endpoint)
+    }
     try {
       const apiResponse = await this.internalRequest<any>(options)
       const { body, headers } = apiResponse
@@ -207,7 +218,7 @@ export class BaseApi<Region extends string> {
       }
       return await this.retryRateLimit<T>(region, endpoint, params, e)
     } finally {
-      if (this.logTime) {
+      if (this.debug.logTime) {
         Logger.end(endpoint)
       }
     }

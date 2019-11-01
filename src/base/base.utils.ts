@@ -1,3 +1,5 @@
+import { OptionsWithUri } from 'request'
+
 export interface IParams {
   [key: string]: string | number
 }
@@ -16,9 +18,18 @@ export interface IBaseApiParams {
    */
   key?: string,
   /**
-   * Time methods logger (default true)
+   * Debug methods
    */
-  logTime?: boolean
+  debug?: {
+    /**
+     * Log methods execution time (default false)
+     */
+    logTime?: boolean
+    /**
+     * Log urls (default false)
+     */
+    logUrls?: boolean
+  }
 }
 
 export function waiter (ms: number) {
@@ -27,4 +38,16 @@ export function waiter (ms: number) {
       resolve()
     }, ms)
   })
+}
+
+export function getUrlFromOptions (options: OptionsWithUri): string {
+  let uri = options.uri as string
+  if (options.qs) {
+    uri += '?'
+    for (const key in options.qs) {
+      const value = encodeURIComponent(options.qs[key])
+      uri += `${key}=${value}`
+    }
+  }
+  return uri
 }

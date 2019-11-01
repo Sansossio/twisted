@@ -1,6 +1,6 @@
 import { IEndpoint } from '../endpoints/endpoints'
-
-const TimeLogger = require('time-logger')
+import { OptionsWithUri } from 'request'
+import { getUrlFromOptions } from './base.utils'
 
 export class Logger {
   // Private methods
@@ -10,12 +10,16 @@ export class Logger {
   // Public methods
   static start (endpoint: IEndpoint) {
     const name = Logger.parseName(endpoint)
-    TimeLogger.begin(name)
+    console.time(name)
   }
 
   static end (endpoint: IEndpoint) {
     const name = Logger.parseName(endpoint)
-    TimeLogger.end(name)
-    TimeLogger.dump(name)
+    console.timeEnd(name)
+  }
+
+  static uri (options: OptionsWithUri, endpoint: IEndpoint) {
+    const uri = getUrlFromOptions(options)
+    console.log(`Calling method url: ${uri} (${endpoint.path})`)
   }
 }

@@ -10,21 +10,19 @@ import { GenericError } from '../errors/Generic.error'
 import { RateLimitError } from '../errors/RateLimit.error'
 import { IBaseApiParams, IParams, waiter } from './base.utils'
 import { ServiceUnavailable } from '../errors/ServiceUnavailable.error'
+import { BaseConstants, BaseApiGames } from './base.const'
+import { Logger } from './logger.base'
 
 config()
 
-enum RetryRequestsSeconds {
-  RATE_LIMIT = 1,
-  SERVICE_UNAVAILABLE = 4
-}
-
 export class BaseApi<Region extends string> {
-  protected readonly game: string = 'lol'
-  private readonly baseUrl = 'https://$(region).api.riotgames.com/:game'
-  private readonly retryInterval = .5
+  protected readonly game: BaseApiGames = BaseApiGames.LOL
+  private readonly baseUrl = BaseConstants.BASE_URL
+  private readonly retryInterval = BaseConstants.RETRY_INTERVAL
   private key: string
+  private logTime: boolean = true
   private rateLimitRetry: boolean = true
-  private rateLimitRetryAttempts: number = 1
+  private rateLimitRetryAttempts: number = BaseConstants.RETRY_ATTEMPTS
 
   constructor ()
   constructor (params: IBaseApiParams)
@@ -41,16 +39,19 @@ export class BaseApi<Region extends string> {
       if (typeof param.key === 'string') {
         this.key = param.key
       }
-      this.setRateLimitsParams(param)
+      this.setParams(param)
     }
   }
 
-  private setRateLimitsParams (param: IBaseApiParams) {
+  private setParams (param: IBaseApiParams) {
     if (typeof param.rateLimitRetry !== 'undefined') {
       this.rateLimitRetry = param.rateLimitRetry
     }
     if (typeof param.rateLimitRetryAttempts !== 'undefined') {
       this.rateLimitRetryAttempts = param.rateLimitRetryAttempts
+    }
+    if (typeof param.logTime !== 'undefined') {
+      this.logTime = param.logTime
     }
   }
 
@@ -151,8 +152,8 @@ export class BaseApi<Region extends string> {
         } = parseError
         const waitSeconds =
           this.isServiceUnavailableError(e) ?
-            RetryRequestsSeconds.SERVICE_UNAVAILABLE :
-            RetryRequestsSeconds.RATE_LIMIT
+            BaseConstants.SERVICE_UNAVAILABLE :
+            BaseConstants.RATE_LIMIT
         const msToWait = ((RetryAfter || 0) + this.retryInterval) * (waitSeconds * 1000)
         await waiter(msToWait)
       }
@@ -172,6 +173,10 @@ export class BaseApi<Region extends string> {
   protected async request<T> (region: Region, endpoint: IEndpoint, params?: IParams, forceError?: boolean, qs?: any): Promise<ApiResponseDTO<T>> {
     if (!this.key) {
       throw new ApiKeyNotFound()
+    }
+    // Logger
+    if (this.logTime) {
+      Logger.start(endpoint)
     }
     // Url params
     params = params || {}
@@ -201,6 +206,10 @@ export class BaseApi<Region extends string> {
         throw e
       }
       return await this.retryRateLimit<T>(region, endpoint, params, e)
+    } finally {
+      if (this.logTime) {
+        Logger.end(endpoint)
+      }
     }
   }
 }

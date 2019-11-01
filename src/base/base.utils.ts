@@ -14,7 +14,11 @@ export interface IBaseApiParams {
   /**
    * Riot games api key
    */
-  key?: string
+  key?: string,
+  /**
+   * Time methods logger (default true)
+   */
+  logTime?: boolean
 }
 
 export function waiter (ms: number) {

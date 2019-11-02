@@ -1,7 +1,7 @@
-import * as champions from './files/champions.json'
-import * as hexes from './files/hexes.json'
-import * as items from './files/items.json'
-import * as traits from './files/traits.json'
+import champions from './files/champions.json'
+import hexes from './files/hexes.json'
+import items from './files/items.json'
+import traits from './files/traits.json'
 
 import { TFTChampionsDTO } from '../../../dto/index.js'
 import { TFTHexesDto } from '../../../dto/Static/TFTHexes.dto'

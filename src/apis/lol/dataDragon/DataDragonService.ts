@@ -70,17 +70,17 @@ export class DataDragonService {
     return this.request(path, DataDragonEnum.STATIC)
   }
 
-  async getMaps (): Promise<MapsDataDragonDTO> {
+  async getMaps (): Promise<MapsDataDragonDTO[]> {
     const path = 'docs/lol/maps.json'
     return this.request(path, DataDragonEnum.STATIC)
   }
 
-  async getGameModes (): Promise<GameModesDataDragonDTO> {
+  async getGameModes (): Promise<GameModesDataDragonDTO[]> {
     const path = 'docs/lol/gameModes.json'
     return this.request(path, DataDragonEnum.STATIC)
   }
 
-  async getGameTypes (): Promise<GameTypesDataDragonDTO> {
+  async getGameTypes (): Promise<GameTypesDataDragonDTO[]> {
     const path = 'docs/lol/gameTypes.json'
     return this.request(path, DataDragonEnum.STATIC)
   }

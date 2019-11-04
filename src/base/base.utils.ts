@@ -33,6 +33,10 @@ export interface IBaseApiParams {
      * Log urls (default false)
      */
     logUrls?: boolean
+    /**
+     * Log when is waiting for rate limits (default false)
+     */
+    logRatelimits?: boolean
   }
 }
 

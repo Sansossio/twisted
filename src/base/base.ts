@@ -19,13 +19,13 @@ config()
 export class BaseApi<Region extends string> {
   protected readonly game: BaseApiGames = BaseApiGames.LOL
   private readonly baseUrl = BaseConstants.BASE_URL
-  private readonly retryInterval = BaseConstants.RETRY_INTERVAL
   private key: string
   private rateLimitRetry: boolean = true
   private rateLimitRetryAttempts: number = BaseConstants.RETRY_ATTEMPTS
   private debug = {
     logTime: false,
-    logUrls: false
+    logUrls: false,
+    logRatelimits: false
   }
 
   constructor ()
@@ -56,10 +56,13 @@ export class BaseApi<Region extends string> {
     }
     if (typeof param.debug !== 'undefined') {
       if (typeof param.debug.logTime !== 'undefined') {
-        this.debug.logTime = param.debug.logTime
+        _.set(this.debug, 'logTime', param.debug.logTime)
       }
       if (typeof param.debug.logUrls !== 'undefined') {
-        this.debug.logUrls = param.debug.logUrls
+        _.set(this.debug, 'logUrls', param.debug.logUrls)
+      }
+      if (typeof param.debug.logRatelimits !== 'undefined') {
+        _.set(this.debug, 'logRatelimits', param.debug.logRatelimits)
       }
     }
     if (typeof param.concurrency !== 'undefined') {
@@ -166,7 +169,12 @@ export class BaseApi<Region extends string> {
           this.isServiceUnavailableError(e) ?
             BaseConstants.SERVICE_UNAVAILABLE :
             BaseConstants.RATE_LIMIT
-        const msToWait = ((RetryAfter || 0) + this.retryInterval) + (waitSeconds * 1000 * Math.random())
+        const msToWait = ((RetryAfter || 0) * 1000) + (waitSeconds * 1000 * Math.random())
+        // Log
+        if (this.debug.logRatelimits) {
+          Logger.rateLimit(endpoint, msToWait)
+        }
+        // Wait
         await waiter(msToWait)
       }
     }
@@ -178,7 +186,8 @@ export class BaseApi<Region extends string> {
     return {
       key: this.key,
       rateLimitRetry: this.rateLimitRetry,
-      rateLimitRetryAttempts: this.rateLimitRetryAttempts
+      rateLimitRetryAttempts: this.rateLimitRetryAttempts,
+      debug: this.debug
     }
   }
 

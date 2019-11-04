@@ -22,4 +22,9 @@ export class Logger {
     const uri = getUrlFromOptions(options)
     console.log(`Calling method url: ${uri} (${endpoint.path})`)
   }
+
+  static rateLimit (endpoint: IEndpoint, ms: number) {
+    const name = Logger.parseName(endpoint)
+    console.log(`Waiting ${(ms / 1000).toFixed(2)} seconds by rate limit (${name})`)
+  }
 }

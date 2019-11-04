@@ -48,7 +48,7 @@ const api = new LolApi({
   /**
    * Concurrency calls to riot (default infinity)
    */
-  concurrency?: undefined,
+  concurrency: undefined,
   /**
    * Riot games api key
    */
@@ -65,6 +65,10 @@ const api = new LolApi({
      * Log urls (default false)
      */
     logUrls: false
+    /**
+     * Log when is waiting for rate limits (default false)
+     */
+    logRatelimit?: false
   }
 })
 ```

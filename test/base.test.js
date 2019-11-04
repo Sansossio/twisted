@@ -48,7 +48,12 @@ describe('Base api', () => {
       const exp = {
         key,
         rateLimitRetry: true,
-        rateLimitRetryAttempts: 1
+        rateLimitRetryAttempts: 1,
+        debug: {
+          logRatelimits: false,
+          logTime: false,
+          logUrls: false
+        }
       }
       expect(api.getParam()).deep.equals(exp)
     })

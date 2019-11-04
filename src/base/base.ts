@@ -12,6 +12,7 @@ import { IBaseApiParams, IParams, waiter } from './base.utils'
 import { ServiceUnavailable } from '../errors/ServiceUnavailable.error'
 import { BaseConstants, BaseApiGames } from './base.const'
 import { Logger } from './logger.base'
+import { RequestBase } from './request.base'
 
 config()
 
@@ -60,6 +61,9 @@ export class BaseApi<Region extends string> {
       if (typeof param.debug.logUrls !== 'undefined') {
         this.debug.logUrls = param.debug.logUrls
       }
+    }
+    if (typeof param.concurrency !== 'undefined') {
+      RequestBase.setConcurrency(param.concurrency)
     }
   }
 
@@ -132,7 +136,7 @@ export class BaseApi<Region extends string> {
   }
 
   private internalRequest<T> (options: rp.OptionsWithUri): Promise<T> {
-    return (rp(options) as any)
+    return RequestBase.request<T>(options)
   }
 
   private async retryRateLimit<T> (region: Region, endpoint: IEndpoint, params?: IParams, e?: any): Promise<ApiResponseDTO<T>> {

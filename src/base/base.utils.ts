@@ -18,6 +18,10 @@ export interface IBaseApiParams {
    */
   key?: string,
   /**
+   * Concurrency calls to riot (default infinity)
+   */
+  concurrency?: number,
+  /**
    * Debug methods
    */
   debug?: {

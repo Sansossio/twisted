@@ -162,7 +162,7 @@ export class BaseApi<Region extends string> {
           this.isServiceUnavailableError(e) ?
             BaseConstants.SERVICE_UNAVAILABLE :
             BaseConstants.RATE_LIMIT
-        const msToWait = ((RetryAfter || 0) + this.retryInterval) * (waitSeconds * 1000 * Math.random())
+        const msToWait = ((RetryAfter || 0) + this.retryInterval) + (waitSeconds * 1000 * Math.random())
         await waiter(msToWait)
       }
     }

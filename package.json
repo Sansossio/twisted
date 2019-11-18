@@ -1,6 +1,6 @@
 {
   "name": "twisted",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,12 +14,6 @@
     "example": "ts-node runExamples",
     "prepack": "npm run build",
     "prepublishOnly": "npm run lint && npm run test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm test"
-    }
   },
   "engines": {
     "node": ">=8.6.0"
@@ -60,7 +54,6 @@
     "@typescript-eslint/parser": "^2.1.0",
     "chai": "^4.2.0",
     "dotenv": "^8.1.0",
-    "husky": "^3.0.5",
     "mocha": "^6.2.0",
     "sinon": "^7.4.2",
     "ts-node": "^8.3.0",

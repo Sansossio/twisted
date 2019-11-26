@@ -58,4 +58,8 @@ export class MatchDto {
    * Designates the timestamp when champion select ended and the loading screen appeared, NOT when the game timer was at 0:00.
    */
   gameCreation: number
+  /**
+   * Remake
+   */
+  remake: boolean
 }

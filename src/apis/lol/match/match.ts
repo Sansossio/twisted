@@ -14,7 +14,7 @@ import { BaseApiLol } from '../base/base.api.lol'
  */
 export class MatchApi extends BaseApiLol {
   // Private methods
-  generateResponse (error: GenericError): ApiResponseDTO<MatchListingDto> {
+  private generateResponse (error: GenericError): ApiResponseDTO<MatchListingDto> {
     return {
       rateLimits: error.rateLimits,
       response: {
@@ -24,6 +24,14 @@ export class MatchApi extends BaseApiLol {
         totalGames: 0
       }
     }
+  }
+  private map (match: ApiResponseDTO<MatchDto>) {
+    match.response.teams = match.response.teams.map((team) => {
+      team.win = (team.win as any) === 'Win'
+      return team
+    })
+    match.response.remake = match.response.teams.every(t => !t.firstTower)
+    return match
   }
   /**
    * Get match details
@@ -35,11 +43,7 @@ export class MatchApi extends BaseApiLol {
       matchId
     }
     const data = await this.request<MatchDto>(region, endpointsV4.Match, params)
-    data.response.teams = data.response.teams.map((team) => {
-      team.win = (team.win as any) === 'Win'
-      return team
-    })
-    return data
+    return this.map(data)
   }
   /**
    * Summoner match listing

@@ -1,5 +1,5 @@
 import { Regions } from '../../../constants'
-import { LolStatusDTO } from '../../../dto'
+import { LolStatusDTO } from '../../../models-dto'
 import { endpointsV3 } from '../../../endpoints'
 import { BaseApiLol } from '../base/base.api.lol'
 

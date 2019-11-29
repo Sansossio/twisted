@@ -1,8 +1,8 @@
 import { INTERNAL_SERVER_ERROR, NOT_FOUND } from 'http-status-codes'
 import { Regions } from '../../../constants'
 import { endpointsV4 } from '../../../endpoints/endpoints'
-import { ThirdPartyCodeDTO } from '../../../dto/ThirdPartyCode/ThirdPartyCode.dto'
-import { ApiResponseDTO } from '../../../dto/ApiResponse/ApiResponse.dto'
+import { ThirdPartyCodeDTO } from '../../../models-dto/third-party-code/third-party-code.dto'
+import { ApiResponseDTO } from '../../../models-dto/api-response/api-response'
 import { BaseApiLol } from '../base/base.api.lol'
 
 /**

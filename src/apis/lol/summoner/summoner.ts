@@ -1,6 +1,6 @@
 import * as _ from 'lodash'
 import { endpointsV4, IEndpoint } from '../../../endpoints/endpoints'
-import { SummonerV4DTO } from '../../../dto/Summoner/Summoner.dto'
+import { SummonerV4DTO } from '../../../models-dto/summoner/summoner.dto'
 import { Regions } from '../../../constants'
 import { FindSummonerBy } from '../../../constants/summoner.find'
 import { BaseApiLol } from '../base/base.api.lol'

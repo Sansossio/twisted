@@ -1,6 +1,6 @@
 import * as _ from 'lodash'
 import { IErrors } from '.'
-import { RateLimitDto } from '../dto/RateLimit/RateLimit.dto'
+import { RateLimitDto } from '../models-dto/rate-limit/rate-limit.dto'
 import { StatusCodeError } from 'request-promise/errors'
 
 const message = 'Generic error'

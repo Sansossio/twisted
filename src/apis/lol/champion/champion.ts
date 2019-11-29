@@ -1,7 +1,7 @@
 import { Regions } from '../../../constants'
 import { endpointsV4, endpointsV3 } from '../../../endpoints/endpoints'
-import { ChampionMasteryDTO } from '../../../dto/Champion/ChampionMastery.dto'
-import { ChampionsScoreDTO } from '../../../dto/Champion/ChampionsScore.dto'
+import { ChampionMasteryDTO } from '../../../models-dto/champion/champion-mastery.dto'
+import { ChampionsScoreDTO } from '../../../models-dto/champion/champions-score.dto'
 import { BaseApiLol } from '../base/base.api.lol'
 
 /**

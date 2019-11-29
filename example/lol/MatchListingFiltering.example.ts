@@ -1,6 +1,6 @@
 import { LolApi } from '../../src'
 import { config } from '../config/config'
-import { MatchQueryDTO } from '../../src/dto/Match/Query/MatchQuery.dto'
+import { MatchQueryDTO } from '../../src/models-dto/match/query/match-query.dto'
 import { Champions } from '../../src/constants'
 
 const api = new LolApi()

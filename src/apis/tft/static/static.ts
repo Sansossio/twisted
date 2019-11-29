@@ -3,10 +3,10 @@ import hexes from './files/hexes.json'
 import items from './files/items.json'
 import traits from './files/traits.json'
 
-import { TFTChampionsDTO } from '../../../dto/index.js'
-import { TFTHexesDto } from '../../../dto/Static/TFTHexes.dto'
-import { TFTItemsDTO } from '../../../dto/Static/TFTItems.dto'
-import { TFTTraitsDTO } from '../../../dto/Static/TFTTtraits.dto'
+import { TFTChampionsDTO } from '../../../models-dto/index.js'
+import { TFTHexesDto } from '../../../models-dto/static/tft-hexes.dto'
+import { TFTItemsDTO } from '../../../models-dto/static/tft-items'
+import { TFTTraitsDTO } from '../../../models-dto/static/tft-trait'
 
 export class TFTStaticFiles {
   Champions (): TFTChampionsDTO[] {

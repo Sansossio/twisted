@@ -1,8 +1,8 @@
 import { endpointsV4 } from '../../../endpoints/endpoints'
-import { SummonerLeagueDto } from '../../../dto/League/SummonerLeague/SummonerLeague.dto'
-import { LeagueEntryDTO } from '../../../dto/League/LeagueExp/LeagueEntry.dto'
+import { SummonerLeagueDto } from '../../../models-dto/league/summoner-league/summoner-league.dto'
+import { LeagueEntryDTO } from '../../../models-dto/league/league-exp/league-entry.dto'
 import { Queues, Tiers, Divisions, Regions } from '../../../constants'
-import { LeagueListDTO } from '../../../dto/League/LeagueItem/LeagueList.dto'
+import { LeagueListDTO } from '../../../models-dto/league/league-item/league-list.dto'
 import { BaseApiLol } from '../base/base.api.lol'
 
 /**

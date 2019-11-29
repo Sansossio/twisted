@@ -1,11 +1,11 @@
 import rp from 'request-promise'
 import { DataDragonEnum } from '../../../constants/dataDragon'
 import { RealmServers } from '../../../constants/realmServers'
-import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTO, GameModesDataDragonDTO } from '../../../dto'
+import { RealmDTO, ChampionsDataDragon, ChampionsDataDragonDetails, QueuesDataDragonDTO, GameModesDataDragonDTO } from '../../../models-dto'
 import { Champions, getChampionNameCapital } from '../../../constants/champions'
-import { ChampionsDataDragonDetailsSolo } from '../../../dto/DataDragon/Champions.datadragon.dto'
-import { MapsDataDragonDTO } from '../../../dto/DataDragon/Maps.datadragon.dto'
-import { GameTypesDataDragonDTO } from '../../../dto/DataDragon/GameTypes.datadragon.dto'
+import { ChampionsDataDragonDetailsSolo } from '../../../models-dto/data-dragon/Champions.datadragon.dto'
+import { MapsDataDragonDTO } from '../../../models-dto/data-dragon/maps.datadragon.dto'
+import { GameTypesDataDragonDTO } from '../../../models-dto/data-dragon/game-types.datadragon.dto'
 
 /**
  * Data Dragon is our way of centralizing League of Legends game data and assets, including champions, items, runes, summoner spells, and profile icons. All of which can be used by third-party developers. You can download a gzipped tar file (.tar.gz) for each patch which will contain all assets for that patch.

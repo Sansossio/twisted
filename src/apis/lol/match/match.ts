@@ -1,12 +1,12 @@
-import { MatchListingDto } from '../../../dto/Match/MatchListing/MatchListing.dto'
+import { MatchListingDto } from '../../../models-dto/match/match-listing/match-listing.dto'
 import { Regions } from '../../../constants'
 import { endpointsV4 } from '../../../endpoints/endpoints'
-import { MatchDto } from '../../../dto/Match/Match/Match.dto'
-import { MatchTimelineDto } from '../../../dto/Match/MatchTimeLine/MatchTimeLine.dto'
-import { MatchQueryDTO } from '../../../dto/Match/Query/MatchQuery.dto'
+import { MatchDto } from '../../../models-dto/match/match/Match.dto'
+import { MatchTimelineDto } from '../../../models-dto/Match/match-timeline/match-timeline.dto'
+import { MatchQueryDTO } from '../../../models-dto/match/query/match-query.dto'
 import { NOT_FOUND } from 'http-status-codes'
 import { GenericError } from '../../../errors'
-import { ApiResponseDTO } from '../../../dto'
+import { ApiResponseDTO } from '../../../models-dto'
 import { BaseApiLol } from '../base/base.api.lol'
 
 /**

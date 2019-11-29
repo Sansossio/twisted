@@ -1,6 +1,6 @@
 import * as _ from 'lodash'
 import { endpointsTFTV1, IEndpoint } from '../../../endpoints/endpoints'
-import { SummonerV4DTO } from '../../../models-dto/summoner/summoner.dto'
+import { SummonerV4DTO } from '../../../models-dto/summoners/summoner.dto'
 import { Regions } from '../../../constants'
 import { FindSummonerBy } from '../../../constants/summoner.find'
 import { BaseApiTft } from '../base/base.api.tft'

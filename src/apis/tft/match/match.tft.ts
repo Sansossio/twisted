@@ -1,6 +1,6 @@
 import { TftRegions } from '../../../constants'
 import { BaseApiTft } from '../base/base.api.tft'
-import { MatchTFTDTO } from '../../../models-dto/match/tft/match-tft.dto'
+import { MatchTFTDTO } from '../../../models-dto/matches/tft/match-tft.dto'
 import { endpointsTFTV1 } from '../../../endpoints'
 
 export class MatchTFTApi extends BaseApiTft {

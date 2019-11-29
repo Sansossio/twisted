@@ -1,6 +1,6 @@
 {
   "name": "twisted",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,8 +12,7 @@
     "test:base": "mocha -r ts-node/register test/base.test.js",
     "build": "tsc",
     "example": "ts-node runExamples",
-    "prepack": "npm run build",
-    "prepublishOnly": "npm run lint && npm run test"
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=8.6.0"

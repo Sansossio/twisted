@@ -1,4 +1,4 @@
-import { BannedChampion } from '../match/match/match-teams-bans.dto'
+import { BannedChampion } from '../matches/match/match-teams-bans.dto'
 import { ObserverDTO } from './Observer.dto'
 import { CurrentGameParticipantDTO } from './current-game-participant.dto'
 

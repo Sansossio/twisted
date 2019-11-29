@@ -4,9 +4,9 @@ import items from './files/items.json'
 import traits from './files/traits.json'
 
 import { TFTChampionsDTO } from '../../../models-dto/index.js'
-import { TFTHexesDto } from '../../../models-dto/static/tft-hexes.dto'
-import { TFTItemsDTO } from '../../../models-dto/static/tft-items'
-import { TFTTraitsDTO } from '../../../models-dto/static/tft-trait'
+import { TFTHexesDto } from '../../../models-dto/statics/tft-hexes.dto'
+import { TFTItemsDTO } from '../../../models-dto/statics/tft-items'
+import { TFTTraitsDTO } from '../../../models-dto/statics/tft-trait'
 
 export class TFTStaticFiles {
   Champions (): TFTChampionsDTO[] {

@@ -1,5 +1,5 @@
 export * from './Match'
 export * from './MatchListing'
-export * from './MatchTimeline'
+export * from './MatchTimeLine'
 export * from './Query'
 export * from './Tft'

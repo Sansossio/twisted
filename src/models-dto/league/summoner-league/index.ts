@@ -1,2 +1,2 @@
-export * from "./miniseries.dto";
-export * from "./summoner-league.dto";
+export * from './miniseries.dto'
+export * from './summoner-league.dto'

@@ -41,14 +41,15 @@ export class LeagueApi extends BaseApiLol {
    * @param tier
    * @param division
    * @param region
+   * @param page defaults to 1
    */
-  public async entries (queue: Queues, tier: Tiers, division: Divisions, region: Regions) {
+  public async entries (queue: Queues, tier: Tiers, division: Divisions, region: Regions, page: number = 1) {
     const params = {
       queue,
       tier,
       division
     }
-    return this.request<LeagueEntryDTO>(region, endpointsV4.LeagueEntries, params)
+    return this.request<LeagueEntryDTO>(region, endpointsV4.LeagueEntries, params, false, {page: page})
   }
   /**
    * Get league by id

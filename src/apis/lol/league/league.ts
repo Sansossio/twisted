@@ -49,7 +49,7 @@ export class LeagueApi extends BaseApiLol {
       tier,
       division
     }
-    return this.request<LeagueEntryDTO>(region, endpointsV4.LeagueEntries, params, false, {page: page})
+    return this.request<LeagueEntryDTO>(region, endpointsV4.LeagueEntries, params, false, { page })
   }
   /**
    * Get league by id

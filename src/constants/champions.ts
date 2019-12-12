@@ -152,6 +152,7 @@ export enum Champions {
   ORNN = 516,
   SYLAS = 517,
   NEEKO = 518,
+  APHELIOS = 523,
   PYKE = 555,
   SENNA = 235
 }

@@ -154,7 +154,8 @@ export enum Champions {
   NEEKO = 518,
   APHELIOS = 523,
   PYKE = 555,
-  SENNA = 235
+  SENNA = 235,
+  SETT = 875
 }
 
 /**

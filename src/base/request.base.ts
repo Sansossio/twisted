@@ -1,30 +1,18 @@
 import rp from 'request-promise'
-import Queue from 'queue'
-
-const queueSystem = new Queue()
-queueSystem.autostart = true
+import Queue from 'promise-queue'
 
 export class RequestBase {
+  static queue: Queue
 
   private static async sendRequest (options: rp.OptionsWithUri) {
     return rp(options)
   }
 
   static setConcurrency (concurrency: number) {
-    queueSystem.concurrency = concurrency
+    RequestBase.queue = new Queue(concurrency, Infinity)
   }
 
   static request<T> (options: rp.OptionsWithUri): Promise<T> {
-    return new Promise((resolve, reject) => {
-      queueSystem.push(async (cb: any) => {
-        try {
-          const result = await RequestBase.sendRequest(options)
-          resolve(result)
-          cb()
-        } catch (e) {
-          reject(e)
-        }
-      })
-    })
+    return RequestBase.queue.add(() => RequestBase.sendRequest(options))
   }
 }

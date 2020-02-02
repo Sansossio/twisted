@@ -67,6 +67,8 @@ export class BaseApi<Region extends string> {
     }
     if (typeof param.concurrency !== 'undefined') {
       RequestBase.setConcurrency(param.concurrency)
+    } else {
+      RequestBase.setConcurrency(Infinity)
     }
   }
 

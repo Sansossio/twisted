@@ -47,6 +47,7 @@ const api = new LolApi({
   rateLimitRetryAttempts: 1
   /**
    * Concurrency calls to riot (default infinity)
+   * Concurrency per method (example: summoner api, match api, etc)
    */
   concurrency: undefined,
   /**

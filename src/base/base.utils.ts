@@ -19,6 +19,7 @@ export interface IBaseApiParams {
   key?: string,
   /**
    * Concurrency calls to riot (default infinity)
+   * Concurrency per method (example: summoner api, match api, etc)
    */
   concurrency?: number,
   /**

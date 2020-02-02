@@ -4,7 +4,7 @@ import Queue from 'promise-queue'
 export class RequestBase {
   static queue: Queue
 
-  private static async sendRequest (options: rp.OptionsWithUri) {
+  private static sendRequest (options: rp.OptionsWithUri) {
     return rp(options)
   }
 
@@ -13,6 +13,6 @@ export class RequestBase {
   }
 
   static request<T> (options: rp.OptionsWithUri): Promise<T> {
-    return RequestBase.queue.add(() => RequestBase.sendRequest(options))
+    return RequestBase.queue.add(() => RequestBase.sendRequest(options) as any)
   }
 }

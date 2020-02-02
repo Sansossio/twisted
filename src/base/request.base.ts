@@ -5,7 +5,11 @@ export class RequestBase {
   static queue: Queue
 
   private static sendRequest (options: rp.OptionsWithUri) {
-    return rp(options)
+    return new Promise((resolve, reject) => {
+      rp(options)
+        .then(resolve)
+        .catch(reject)
+    })
   }
 
   static setConcurrency (concurrency: number) {

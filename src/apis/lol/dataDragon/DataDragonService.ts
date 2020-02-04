@@ -6,6 +6,9 @@ import { Champions, getChampionNameCapital } from '../../../constants/champions'
 import { ChampionsDataDragonDetailsSolo } from '../../../models-dto/data-dragon/Champions.datadragon.dto'
 import { MapsDataDragonDTO } from '../../../models-dto/data-dragon/maps.datadragon.dto'
 import { GameTypesDataDragonDTO } from '../../../models-dto/data-dragon/game-types.datadragon.dto'
+import { RunesReforgedDTO } from '../../../models-dto/data-dragon/runes-reforged.dto'
+
+const defaultLang = 'en_US'
 
 /**
  * Data Dragon is our way of centralizing League of Legends game data and assets, including champions, items, runes, summoner spells, and profile icons. All of which can be used by third-party developers. You can download a gzipped tar file (.tar.gz) for each patch which will contain all assets for that patch.
@@ -39,13 +42,21 @@ export class DataDragonService {
     return this.request(path)
   }
 
+  /**
+   * Runes reforged (perks)
+   */
+  async getRunesReforged (): Promise<RunesReforgedDTO[]> {
+    const version = (await this.getVersions())[0]
+    const path = `cdn/${version}/data/${defaultLang}/runesReforged.json`
+    return this.request(path)
+  }
+
   async getChampion (): Promise<ChampionsDataDragon>
   async getChampion (champ: Champions): Promise<ChampionsDataDragonDetailsSolo>
   async getChampion (champ?: Champions): Promise<ChampionsDataDragon | ChampionsDataDragonDetailsSolo> {
     const version = (await this.getVersions())[0]
-    const lang = 'en_US'
     let champName = ''
-    let path = `cdn/${version}/data/${lang}/champion`
+    let path = `cdn/${version}/data/${defaultLang}/champion`
     if (champ) {
       champName = getChampionNameCapital(champ)
       path += `/${champName}.json`

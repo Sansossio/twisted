@@ -217,6 +217,7 @@ export class BaseApi<Region extends string> {
         'X-Riot-Token': this.key
       },
       qs,
+      useQuerystring: true,
       resolveWithFullResponse: true,
       json: true
     }

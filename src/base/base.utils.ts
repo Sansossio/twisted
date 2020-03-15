@@ -1,4 +1,5 @@
 import { OptionsWithUri } from 'request'
+import qs from 'querystring';
 
 export interface IParams {
   [key: string]: string | number
@@ -53,10 +54,7 @@ export function getUrlFromOptions (options: OptionsWithUri): string {
   let uri = options.uri as string
   if (options.qs) {
     uri += '?'
-    for (const key in options.qs) {
-      const value = encodeURIComponent(options.qs[key])
-      uri += `${key}=${value}`
-    }
+    uri += qs.stringify(options.qs);
   }
   return uri
 }

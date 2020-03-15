@@ -1,6 +1,7 @@
 const { describe, it } = require('mocha')
 const { expect } = require('chai')
 const { BaseApi } = require('../src/base/base')
+const { getUrlFromOptions } = require('../src/base/base.utils')
 const { ApiKeyNotFound, RateLimitError, ServiceUnavailable } = require('../src/errors')
 const { restore, stub } = require('sinon')
 
@@ -83,6 +84,17 @@ describe('Base api', () => {
       const ends = 'ryze/wood'
       const url = riot.getApiUrl(baseEndpoint, params)
       expect(url.endsWith(ends)).to.be.equal(true)
+    })
+
+    it('should return correct url with query params', () => {
+      const baseUrl = 'https://na.api.riotgames.com/lol/match/v4/matchlists/by-account/xxx'
+      const options = {
+        uri: baseUrl,
+        qs: { queue: [ 420, 430 ], beginIndex: 0, endIndex: 10 }
+      }
+      const url = getUrlFromOptions(options);
+      const exp = `${baseUrl}?queue=420&queue=430&beginIndex=0&endIndex=10`
+      expect(url).equal(exp)
     })
   })
 

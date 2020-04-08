@@ -65,7 +65,8 @@ export class DataDragonService {
     }
     const fullResponse = await this.request<ChampionsDataDragon>(path)
     if (champ) {
-      return fullResponse.data[champName] as ChampionsDataDragonDetailsSolo
+      const response: any = fullResponse.data[champName]
+      return response
     }
     return fullResponse
   }

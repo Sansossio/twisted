@@ -5,7 +5,7 @@ name: Linter and test
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:

@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: echo $NODE_AUTH_TOKEN
     - run: npm i
     - run: npm publish
       env:

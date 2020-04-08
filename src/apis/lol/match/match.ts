@@ -27,7 +27,7 @@ export class MatchApi extends BaseApiLol {
   }
   private map (match: ApiResponseDTO<MatchDto>) {
     match.response.teams = match.response.teams.map((team) => {
-      team.win = (team.win as any) === 'Win'
+      team.win = String(team.win) === 'Win'
       return team
     })
     match.response.remake = match.response.teams.every(t => !t.firstTower)

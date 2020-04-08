@@ -1,6 +1,7 @@
 import { TftRegions } from '../../../constants'
 import { BaseApiTft } from '../base/base.api.tft'
 import { MatchTFTDTO } from '../../../models-dto/matches/tft-matches/match-tft.dto'
+import { MatchTFTQueryDTO } from '../../../models-dto/matches/tft-matches/match-tft-query.dto'
 import { endpointsTFTV1 } from '../../../endpoints'
 
 export class MatchTFTApi extends BaseApiTft {
@@ -22,17 +23,17 @@ export class MatchTFTApi extends BaseApiTft {
    * @param summonerPUUID
    * @param region
    */
-  public async list (summonerPUUID: string, region: TftRegions) {
+  public async list (summonerPUUID: string, region: TftRegions, query?: MatchTFTQueryDTO) {
     const params = {
       summonerPUUID
     }
-    return this.request<string[]>(region, endpointsTFTV1.MatchListing, params)
+    return this.request<string[]>(region, endpointsTFTV1.MatchListing, params, false, query)
   }
 
   /**
    * Get match listing (with details)
    */
-  public async listWithDetails (summonerPUUID: string, region: TftRegions) {
+  public async listWithDetails (summonerPUUID: string, region: TftRegions, query?: MatchTFTQueryDTO) {
     const params = {
       summonerPUUID
     }
@@ -40,7 +41,7 @@ export class MatchTFTApi extends BaseApiTft {
     // Match list
     const {
       response: ids
-    } = await this.request<string[]>(region, endpointsTFTV1.MatchListing, params)
+    } = await this.list(summonerPUUID, region, query)
     // Load details
     for (const id of ids) {
       const {

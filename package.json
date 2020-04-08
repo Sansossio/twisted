@@ -48,6 +48,7 @@
     "@types/lodash": "^4.14.138",
     "@types/mocha": "^5.2.7",
     "@types/promise-queue": "^2.2.0",
+    "@types/request": "^2.48.4",
     "@types/request-promise": "^4.1.44",
     "@types/sinon": "^7.0.13",
     "@typescript-eslint/eslint-plugin": "^2.1.0",

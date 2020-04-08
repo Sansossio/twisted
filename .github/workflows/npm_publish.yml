@@ -25,4 +25,4 @@ jobs:
     - run: npm i
     - run: npm publish
       env:
-        super_secret: ${{ secrets.NPM_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

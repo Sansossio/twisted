@@ -1,5 +1,5 @@
 import { BannedChampion } from '../matches/match/match-teams-bans.dto'
-import { ObserverDTO } from './Observer.dto'
+import { ObserverDTO } from './observer.dto'
 import { CurrentGameParticipantDTO } from './current-game-participant.dto'
 
 export class CurrentGameInfoDTO {

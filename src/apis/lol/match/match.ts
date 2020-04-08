@@ -1,12 +1,12 @@
 import { MatchListingDto } from '../../../models-dto/matches/match-listing/match-listing.dto'
 import { Regions } from '../../../constants'
 import { endpointsV4 } from '../../../endpoints/endpoints'
-import { MatchDto } from '../../../models-dto/matches/match/Match.dto'
+import { MatchDto } from '../../../models-dto/matches/match/match.dto'
 import { MatchTimelineDto } from '../../../models-dto/matches/match-timeline/match-timeline.dto'
 import { MatchQueryDTO } from '../../../models-dto/matches/query/match-query.dto'
 import { NOT_FOUND } from 'http-status-codes'
 import { GenericError } from '../../../errors'
-import { ApiResponseDTO } from '../../../models-dto'
+import { ApiResponseDTO, MatchTeamsDto } from '../../../models-dto'
 import { BaseApiLol } from '../base/base.api.lol'
 
 /**
@@ -26,11 +26,11 @@ export class MatchApi extends BaseApiLol {
     }
   }
   private map (match: ApiResponseDTO<MatchDto>) {
-    match.response.teams = match.response.teams.map((team) => {
+    match.response.teams = match.response.teams.map((team: MatchTeamsDto) => {
       team.win = String(team.win) === 'Win'
       return team
     })
-    match.response.remake = match.response.teams.every(t => !t.firstTower)
+    match.response.remake = match.response.teams.every((t: MatchTeamsDto) => !t.firstTower)
     return match
   }
   /**

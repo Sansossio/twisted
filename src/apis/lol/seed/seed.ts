@@ -1,6 +1,6 @@
 import rp from 'request-promise'
 import { DataSeed } from '../../../constants/dataSeed'
-import { MatchDto } from '../../../models-dto/matches/match/Match.dto'
+import { MatchDto } from '../../../models-dto/matches/match/match.dto'
 
 export class SeedApi {
   private readonly baseUrl = DataSeed.BASE

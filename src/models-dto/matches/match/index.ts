@@ -1,4 +1,4 @@
-export * from './Match.dto'
+export * from './match.dto'
 export * from './match-participant.dto'
 export * from './match-participantsIdentities.dto'
 export * from './match-participants-identities-player.dto'

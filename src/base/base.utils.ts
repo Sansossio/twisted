@@ -1,5 +1,5 @@
 import { OptionsWithUri } from 'request'
-import qs from 'querystring';
+import qs from 'querystring'
 
 export interface IParams {
   [key: string]: string | number
@@ -54,7 +54,7 @@ export function getUrlFromOptions (options: OptionsWithUri): string {
   let uri = options.uri as string
   if (options.qs) {
     uri += '?'
-    uri += qs.stringify(options.qs);
+    uri += qs.stringify(options.qs)
   }
   return uri
 }

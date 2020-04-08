@@ -47,6 +47,7 @@ describe('Base api', () => {
     it('should return valid default param', () => {
       const api = new BaseApi(key)
       const exp = {
+        concurrency: undefined,
         key,
         rateLimitRetry: true,
         rateLimitRetryAttempts: 1,
@@ -90,9 +91,9 @@ describe('Base api', () => {
       const baseUrl = 'https://na.api.riotgames.com/lol/match/v4/matchlists/by-account/xxx'
       const options = {
         uri: baseUrl,
-        qs: { queue: [ 420, 430 ], beginIndex: 0, endIndex: 10 }
+        qs: { queue: [420, 430], beginIndex: 0, endIndex: 10 }
       }
-      const url = getUrlFromOptions(options);
+      const url = getUrlFromOptions(options)
       const exp = `${baseUrl}?queue=420&queue=430&beginIndex=0&endIndex=10`
       expect(url).equal(exp)
     })

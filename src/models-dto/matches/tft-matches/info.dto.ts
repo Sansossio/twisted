@@ -14,6 +14,10 @@ export class InfoDto {
    */
   readonly tft_set_number: number
   /**
+   * Teamfight Taxtics game variant
+   */
+  readonly game_variation: string
+  /**
    * Game length in seconds.
    */
   readonly game_length: number

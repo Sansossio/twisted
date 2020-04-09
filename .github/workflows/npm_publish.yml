@@ -13,7 +13,7 @@ jobs:
         node-version: '13.x'
         registry-url: 'https://registry.npmjs.org'
         scope: '@octocat' # Defaults to the user or organization that owns the workflow file
-    - run: yarn
-    - run: yarn publish
+    - run: npm i
+    - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,3 +1,7 @@
-dist
 node_modules
+example
+.github
+.vscode
 .env
+src
+runExamples.ts

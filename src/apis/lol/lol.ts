@@ -9,6 +9,7 @@ import { StatusApi } from './status/status'
 import { DataDragonService } from './dataDragon/DataDragonService'
 import { SeedApi } from './seed/seed'
 import { BaseApiLol } from './base/base.api.lol'
+import { ClashApi } from './clash/clash.api.lol'
 
 /**
  * Classic league of legends api
@@ -42,6 +43,10 @@ export class LolApi extends BaseApiLol {
    * Status methods
    */
   public readonly Status = new StatusApi(this.getParam())
+  /**
+   * Clash methods
+   */
+  public readonly Clash = new ClashApi(this.getParam())
   /**
    * Data dragon
    */

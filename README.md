@@ -76,6 +76,12 @@ const api = new LolApi({
 
 # Endpoints 
 Everything should be in the same order as in the official docs.
+## CLASH
+- [x] `Get players by summoner id`
+- [x] `Get team`
+- [x] `Get tournaments`
+- [x] `Get tournaments by team id`
+- [x] `Get tournament by id`
 ## CHAMPION-MASTERY-V4
 - [x] `Get all champion mastery entries sorted by number of champion points descending.`
 - [x] `Get a champion mastery by player ID and champion ID.`

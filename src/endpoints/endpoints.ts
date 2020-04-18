@@ -128,3 +128,35 @@ export const endpointsTFTV1: IEndpoints = {
     version: 1
   }
 }
+
+export const endpointsClashV1: IEndpoints = {
+  GetPlayers: {
+    path: 'players/by-summoner/$(encryptedSummonerId)',
+    prefix: 'clash',
+    version: 1
+  },
+
+  GetTeam: {
+    path: 'teams/$(teamId)',
+    prefix: 'clash',
+    version: 1
+  },
+
+  GetTournaments: {
+    path: 'tournaments',
+    prefix: 'clash',
+    version: 1
+  },
+
+  GetTournamentByTeamId: {
+    path: 'tournaments/by-team/$(teamId)',
+    prefix: 'clash',
+    version: 1
+  },
+
+  GetTournamentById: {
+    path: 'tournaments/$(tournamentId)',
+    prefix: 'clash',
+    version: 1
+  }
+}

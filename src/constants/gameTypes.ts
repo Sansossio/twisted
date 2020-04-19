@@ -1,4 +1,4 @@
-export const enum GameTypes {
+export enum GameTypes {
   /**
    * Custom games
    */

@@ -1,4 +1,4 @@
-export const enum Regions {
+export enum Regions {
   BRAZIL = 'BR1',
   EU_EAST = 'EUN1',
   EU_WEST = 'EUW1',
@@ -13,7 +13,7 @@ export const enum Regions {
   PBE = 'PBE'
 }
 
-export const enum TftRegions {
+export enum TftRegions {
   EUROPE = 'europe',
   ASIA = 'asia',
   AMERICAS = 'americas'

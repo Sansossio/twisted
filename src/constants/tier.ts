@@ -1,7 +1,7 @@
 /**
  * Tiers
  */
-export const enum Tiers {
+export enum Tiers {
   CHALLENGER = 'CHALLENGER',
   GRANDMASTER = 'GRANDMASTER',
   MASTER = 'MASTER',

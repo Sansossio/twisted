@@ -1,7 +1,7 @@
 /**
  * Divisions
  */
-export const enum Divisions {
+export enum Divisions {
   I = 'I',
   II = 'II',
   III = 'III',

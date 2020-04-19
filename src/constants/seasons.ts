@@ -1,4 +1,4 @@
-export const enum Seasons {
+export enum Seasons {
   PRESEASON_3 = 0,
   SEASON_3 = 1,
   PRESEASON_2014 = 2,

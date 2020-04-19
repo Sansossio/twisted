@@ -1,4 +1,4 @@
-export const enum GameModes {
+export enum GameModes {
   /**
    * Classic Summoner's Rift and Twisted Treeline games
    */

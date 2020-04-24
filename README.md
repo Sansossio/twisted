@@ -25,8 +25,8 @@ export async function matchListTft () {
     response: {
       puuid
     }
-  } = api.Summoner.getByName('Maxii', Constants.Regions.LA1)
-  return api.Match.list(puuid, Constants.TftRegions.TftRegions.AMERICAS)
+  } = await api.Summoner.getByName('Maxii', Constants.Regions.LAT_NORTH)
+  return api.Match.list(puuid, Constants.TftRegions.AMERICAS)
 }
 
 ```

@@ -1,15 +1,13 @@
 {
   "name": "twisted",
-  "version": "1.23.2",
+  "version": "1.23.3",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "lint:fix": "tslint --project tsconfig.json --fix",
-    "test": "mocha -r ts-node/register test/**/**.test{.ts,.js}",
-    "test:request": "mocha -r ts-node/register test/request.test.js",
-    "test:base": "mocha -r ts-node/register test/base.test.js",
+    "test": "jest",
     "build": "tsc",
     "example": "ts-node runExamples",
     "prepublishOnly": "npm run build"
@@ -45,21 +43,20 @@
     "@types/chai": "^4.2.1",
     "@types/dotenv": "^6.1.1",
     "@types/http-status-codes": "^1.2.0",
+    "@types/jest": "^25.2.1",
     "@types/lodash": "^4.14.138",
-    "@types/mocha": "^5.2.7",
     "@types/promise-queue": "^2.2.0",
     "@types/request": "^2.48.4",
     "@types/request-promise": "^4.1.44",
     "@types/sinon": "^7.0.13",
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/parser": "^2.1.0",
-    "chai": "^4.2.0",
-    "mocha": "^6.2.0",
-    "sinon": "^7.4.2",
+    "jest": "^25.4.0",
+    "ts-jest": "^25.4.0",
     "ts-node": "^8.3.0",
     "tslint": "^5.19.0",
     "tslint-config-standard": "^8.0.1",
-    "typescript": "^3.6.2"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "camelcasejs": "^1.0.3",
@@ -69,5 +66,10 @@
     "promise-queue": "^2.2.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   }
 }

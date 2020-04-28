@@ -1,9 +1,6 @@
-const { describe, it } = require('mocha')
-const { expect } = require('chai')
 const { BaseApi } = require('../src/base/base')
 const { getUrlFromOptions } = require('../src/base/base.utils')
 const { ApiKeyNotFound, RateLimitError, ServiceUnavailable } = require('../src/errors')
-const { restore, stub } = require('sinon')
 
 describe('Base api', () => {
   const riot = new BaseApi({ key: '' })
@@ -20,28 +17,28 @@ describe('Base api', () => {
       try {
         await riot.request(region)
       } catch (e) {
-        expect(e).instanceOf(ApiKeyNotFound)
+        expect(e).toBeInstanceOf(ApiKeyNotFound)
       }
     })
 
     it('should return correct key when param is an string', () => {
       const api = new BaseApi(key)
-      expect(api.key).eq(key)
+      expect(api.key).toEqual(key)
     })
 
     it('should return correct key when param is an object', () => {
       const api = new BaseApi({ key })
-      expect(api.key).eq(key)
+      expect(api.key).toEqual(key)
     })
 
     it('should return correct retry limit value', () => {
       const api = new BaseApi({ rateLimitRetry: false })
-      expect(api.rateLimitRetry).eq(false)
+      expect(api.rateLimitRetry).toEqual(false)
     })
 
     it('should return correct retry limit attempts value', () => {
       const api = new BaseApi({ rateLimitRetryAttempts: 2 })
-      expect(api.rateLimitRetryAttempts).eq(2)
+      expect(api.rateLimitRetryAttempts).toEqual(2)
     })
 
     it('should return valid default param', () => {
@@ -57,13 +54,13 @@ describe('Base api', () => {
           logUrls: false
         }
       }
-      expect(api.getParam()).deep.equals(exp)
+      expect(api.getParam()).toEqual(exp)
     })
   })
 
   describe('Utils', () => {
     it('base api should have a region variable', () => {
-      expect(riot.baseUrl).to.include('$(region)')
+      expect(riot.baseUrl.indexOf('$(region)')).toBeGreaterThan(-1)
     })
 
     it('should return correct api url', () => {
@@ -73,7 +70,7 @@ describe('Base api', () => {
       const path = 'ryze'
       baseEndpoint.path = path
       const url = riot.getApiUrl(baseEndpoint, params)
-      expect(url.endsWith(path)).to.be.equal(true)
+      expect(url.endsWith(path)).toEqual(true)
     })
 
     it('should return correct api url with api params', () => {
@@ -84,7 +81,7 @@ describe('Base api', () => {
       baseEndpoint.path = 'ryze/$(division)'
       const ends = 'ryze/wood'
       const url = riot.getApiUrl(baseEndpoint, params)
-      expect(url.endsWith(ends)).to.be.equal(true)
+      expect(url.endsWith(ends)).toEqual(true)
     })
 
     it('should return correct url with query params', () => {
@@ -95,54 +92,61 @@ describe('Base api', () => {
       }
       const url = getUrlFromOptions(options)
       const exp = `${baseUrl}?queue=420&queue=430&beginIndex=0&endIndex=10`
-      expect(url).equal(exp)
+      expect(url).toEqual(exp)
     })
   })
 
   describe('Service unavailable response', () => {
     it('should return valid response at 2th attempt', async () => {
       const data = { body: 'good' }
-      const api = new BaseApi(key)
-      const stubApi = stub(api, 'internalRequest')
-      stubApi.onCall(0).throwsException(new ServiceUnavailable())
-      stubApi.onCall(1).callsFake(() => data)
+      const api: any = new BaseApi(key)
+      api.internalRequest = jest.fn()
+        .mockImplementationOnce(() => data)
+        .mockImplementationOnce(() => {
+          throw new ServiceUnavailable()
+        })
       const response = await api.request('KR', {})
-      restore()
-      expect(response.response).deep.eq(data.body)
-    }).timeout(10 * 1000)
+      expect(response.response).toEqual(data.body)
+    })
 
     it('should throw service unavailable error at 3th attempt', async () => {
       const api = new BaseApi(key)
-      const stubApi = stub(api, 'internalRequest')
-      stubApi.callsFake().throwsException(new ServiceUnavailable())
+      api.internalRequest = jest.fn()
+        .mockImplementation(() => {
+          throw new ServiceUnavailable()
+        })
       try {
         await api.request('KR', {})
+        throw new Error()
       } catch (e) {
-        expect(e).instanceOf(ServiceUnavailable)
+        expect(e).toBeInstanceOf(ServiceUnavailable)
       }
-    }).timeout(10 * 1000)
+    })
   })
 
   describe('Rate limit response', () => {
     it('should return valid response at 2th attempt', async () => {
       const data = { body: 'good' }
       const api = new BaseApi(key)
-      const stubApi = stub(api, 'internalRequest')
-      stubApi.onCall(0).throwsException(new RateLimitError())
-      stubApi.onCall(1).callsFake(() => data)
+      api.internalRequest = jest.fn()
+        .mockImplementationOnce(() => data)
+        .mockImplementationOnce(() => {
+          throw new RateLimitError()
+        })
       const response = await api.request('KR', {})
-      restore()
-      expect(response.response).deep.eq(data.body)
+      expect(response.response).toEqual(data.body)
     })
 
     it('should throw rate limit error at 3th attempt', async () => {
       const api = new BaseApi(key)
-      const stubApi = stub(api, 'internalRequest')
-      stubApi.callsFake().throwsException(new RateLimitError())
+      api.internalRequest = jest.fn()
+        .mockImplementation(() => {
+          throw new RateLimitError()
+        })
       try {
         await api.request('KR', {})
       } catch (e) {
-        expect(e).instanceOf(RateLimitError)
+        expect(e).toBeInstanceOf(RateLimitError)
       }
     })
 
@@ -152,12 +156,14 @@ describe('Base api', () => {
         rateLimitRetry: false,
         rateLimitRetryAttempts: 1
       })
-      const stubApi = stub(api, 'internalRequest')
-      stubApi.onCall(0).throwsException(new RateLimitError())
+      api.internalRequest = jest.fn()
+        .mockImplementationOnce(() => {
+          throw new RateLimitError()
+        })
       try {
         await api.request('KR', {})
       } catch (e) {
-        expect(e).instanceOf(RateLimitError)
+        expect(e).toBeInstanceOf(RateLimitError)
       }
     })
 
@@ -167,12 +173,14 @@ describe('Base api', () => {
         rateLimitRetry: true,
         rateLimitRetryAttempts: 0
       })
-      const stubApi = stub(api, 'internalRequest')
-      stubApi.onCall(0).throwsException(new RateLimitError())
+      api.internalRequest = jest.fn()
+        .mockImplementationOnce(() => {
+          throw new RateLimitError()
+        })
       try {
         await api.request('KR', {})
       } catch (e) {
-        expect(e).instanceOf(RateLimitError)
+        expect(e).toBeInstanceOf(RateLimitError)
       }
     })
   })

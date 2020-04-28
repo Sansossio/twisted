@@ -1,3 +1,7 @@
+# Twisted
+League of legends api wrapper <br>
+![https://www.npmjs.com/package/twisted](https://nodei.co/npm/twisted.png)
+
 # Install
 ``` npm i twisted```
 # Environment variables

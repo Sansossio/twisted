@@ -12,11 +12,18 @@ export class RequestBase {
     })
   }
 
+  private static getQueue () {
+    if (!RequestBase.queue) {
+      RequestBase.queue = new Queue(Infinity, Infinity)
+    }
+    return RequestBase.queue
+  }
+
   static setConcurrency (concurrency: number) {
     RequestBase.queue = new Queue(concurrency, Infinity)
   }
 
   static request<T> (options: rp.OptionsWithUri): Promise<T> {
-    return RequestBase.queue.add(() => RequestBase.sendRequest(options) as any)
+    return RequestBase.getQueue().add(() => RequestBase.sendRequest(options) as any)
   }
 }

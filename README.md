@@ -91,6 +91,12 @@ Everything should be in the same order as in the official docs.
 ## CHAMPION-V3
 - [x] `Retrieve all champions.`
 - [x] `Retrieve champion by ID.`
+## MATCH-V4
+- [x] `Get matches id by tournament code`
+- [x] `Get match by id`
+- [x] `Get match by tournament code`
+- [x] `Get matches by summoner id`
+- [x] `Get match timeline by id`
 ## LEAGUE-V4
 - [x] `Get the challenger league for given queue.`
 - [x] `Get league entries in all queues for a given summoner ID.`

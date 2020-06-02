@@ -172,8 +172,8 @@ export function getChampionName (champ: number): string {
 /**
  * Get champion and by id and return capitalize string
  */
-export function getChampionNameCapital (champ: number): string {
-  let name = getChampionName(champ)
+export function getChampionNameCapital (champ: number | string): string {
+  let name = typeof champ === 'number' ? getChampionName(champ) : champ
   name = CamelCase(name.toLowerCase())
   name = name.charAt(0).toUpperCase() + name.slice(1)
   return name

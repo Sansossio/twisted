@@ -52,7 +52,7 @@ export class DataDragonService {
   }
 
   async getChampion (): Promise<ChampionsDataDragon>
-  async getChampion (champ: Champions): Promise<ChampionsDataDragonDetailsSolo>
+  async getChampion (champ: Champions | number): Promise<ChampionsDataDragonDetailsSolo>
   async getChampion (champ?: Champions): Promise<ChampionsDataDragon | ChampionsDataDragonDetailsSolo> {
     const version = (await this.getVersions())[0]
     let champName = ''

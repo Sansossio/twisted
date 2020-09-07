@@ -1,6 +1,6 @@
 {
   "name": "twisted",
-  "version": "1.26.0",
+  "version": "1.27.0",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -45,6 +45,7 @@
     "@types/http-status-codes": "^1.2.0",
     "@types/jest": "^25.2.1",
     "@types/lodash": "^4.14.138",
+    "@types/node": "^14.6.4",
     "@types/promise-queue": "^2.2.0",
     "@types/request": "^2.48.4",
     "@types/request-promise": "^4.1.44",
@@ -65,7 +66,8 @@
     "lodash": "^4.17.15",
     "promise-queue": "^2.2.5",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "uuid": "^8.3.0"
   },
   "standard": {
     "env": [

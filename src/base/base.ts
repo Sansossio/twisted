@@ -200,15 +200,15 @@ export class BaseApi<Region extends string> {
     if (!this.key) {
       throw new ApiKeyNotFound()
     }
-    // Logger
-    if (this.debug.logTime) {
-      Logger.start(endpoint)
-    }
     // Url params
     params = params || {}
     params.region = region.toLowerCase()
     // Format
     const uri = this.getApiUrl(endpoint, params)
+    // Logger
+    if (this.debug.logTime) {
+      Logger.start(endpoint, uri)
+    }
     const options: rp.OptionsWithUri = {
       uri,
       method: 'GET',
@@ -238,7 +238,7 @@ export class BaseApi<Region extends string> {
       return await this.retryRateLimit<T>(region, endpoint, params, e)
     } finally {
       if (this.debug.logTime) {
-        Logger.end(endpoint)
+        Logger.end(endpoint, uri)
       }
     }
   }

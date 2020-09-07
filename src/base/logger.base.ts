@@ -4,17 +4,21 @@ import { getUrlFromOptions } from './base.utils'
 
 export class Logger {
   // Private methods
-  private static parseName (endpoint: IEndpoint) {
-    return `${endpoint.prefix}/${endpoint.path}`
+  private static parseName (endpoint: IEndpoint, uri?: string) {
+    let text = `${endpoint.prefix}/${endpoint.path}`
+    if (uri) {
+      text += ` (${uri})`
+    }
+    return text
   }
   // Public methods
-  static start (endpoint: IEndpoint) {
-    const name = Logger.parseName(endpoint)
+  static start (endpoint: IEndpoint, uri?: string) {
+    const name = Logger.parseName(endpoint, uri)
     console.time(name)
   }
 
-  static end (endpoint: IEndpoint) {
-    const name = Logger.parseName(endpoint)
+  static end (endpoint: IEndpoint, uri?: string) {
+    const name = Logger.parseName(endpoint, uri)
     console.timeEnd(name)
   }
 

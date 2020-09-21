@@ -10,7 +10,7 @@ export enum Regions {
   TURKEY = 'TR1',
   RUSSIA = 'RU',
   JAPAN = 'JP1',
-  PBE = 'PBE'
+  PBE = 'PBE1'
 }
 
 export enum TftRegions {

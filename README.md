@@ -142,7 +142,7 @@ Everything should be in the same order as in the official docs.
 - [x] `Get match list details.`
 ## TFT-LEAGUE-V1
 - [ ] `Get the challenger league for given queue.`
-- [ ] `Get league entries in all queues for a given summoner ID.`
+- [x] `Get league entries in all queues for a given summoner ID.`
 - [ ] `Get all the league entries.`
 - [ ] `Get league with given ID, including inactive entries.`
 - [ ] `Get the master league for given queue.`
@@ -152,14 +152,14 @@ Everything should be in the same order as in the official docs.
 Download code from git and:
 
 ## Simple
-```sh npm run example```
+```$ RIOT_API_KEY={YOUR_KEY} npm run example```
 
 ## Specific examples
-```sh npm run example --example={exampleFunctionName}```
+```$ RIOT_API_KEY={YOUR_KEY} npm run example --example={exampleFunctionName}```
 
 ## With docker
 Edit docker-compose.yml with your api key and:
-```sh docker-compose up```
+```$ docker-compose up```
 
 ## Real project
 We did a project based on a "twisted" package, this project is not finished but it is a very good example<br />

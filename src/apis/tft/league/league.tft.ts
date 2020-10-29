@@ -12,7 +12,7 @@ export class LeagueTFTApi extends BaseApiTft {
    */
   public async get (encryptedSummonerId: string, region: Regions) {
     const params = {
-        encryptedSummonerId
+      encryptedSummonerId
     }
     return this.request<LeagueEntryDTO>(region, endpointsTFTV1.LeagueBySummoner, params)
   }

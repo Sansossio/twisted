@@ -1,1 +1,1 @@
-export * from "./LeagueEntryDTO.dto"
+export * from './LeagueEntryDTO.dto'

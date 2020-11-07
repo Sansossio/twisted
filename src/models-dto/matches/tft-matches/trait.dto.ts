@@ -15,4 +15,8 @@ export class TraitDto {
    * Number of units with this trait.
    */
   num_units: number
+  /**
+   * Current style for this trait. (0 = No style, 1 = Bronze, 2 = Silver, 3 = Gold, 4 = Chromatic)
+   */
+  style: number
 }

@@ -12,9 +12,9 @@ export class UnitDto {
    */
   character_id: string
   /**
-   * If a unit is chosen as part of the Fates set mechanic, 
-   * the chosen trait will be indicated by this field. 
-   * Otherwise this field is excluded from the response. 
+   * If a unit is chosen as part of the Fates set mechanic,
+   * the chosen trait will be indicated by this field.
+   * Otherwise this field is excluded from the response.
    */
   chosen?: string
   /**

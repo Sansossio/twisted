@@ -128,6 +128,24 @@ export const endpointsTFTV1: IEndpoints = {
     version: 1
   },
 
+  LeagueMaster: {
+    path: 'master',
+    prefix: 'league',
+    version: 1
+  },
+
+  LeagueGrandMaster: {
+    path: 'grandmaster',
+    prefix: 'league',
+    version: 1
+  },
+
+  LeagueChallenger: {
+    path: 'challenger',
+    prefix: 'league',
+    version: 1
+  },
+
   LeagueBySummoner: {
     path: 'entries/by-summoner/$(encryptedSummonerId)',
     prefix: 'league',

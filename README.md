@@ -141,11 +141,12 @@ Everything should be in the same order as in the official docs.
 - [x] `Get match list by summoner PUUID.`
 - [x] `Get match list details.`
 ## TFT-LEAGUE-V1
-- [ ] `Get the challenger league for given queue.`
+- [x] `Get the challenger league for given queue.`
+- [x] `Get the grandmaster league for given queue.`
+- [x] `Get the master league for given queue.`
 - [x] `Get league entries in all queues for a given summoner ID.`
 - [ ] `Get all the league entries.`
 - [ ] `Get league with given ID, including inactive entries.`
-- [ ] `Get the master league for given queue.`
 
 # Run all examples
 

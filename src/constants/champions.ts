@@ -159,7 +159,8 @@ export enum Champions {
   LILLIA = 876,
   YONE = 777,
   SAMIRA = 360,
-  SERAPHINE= 147
+  SERAPHINE= 147,
+  RELL= 526
 }
 
 /**

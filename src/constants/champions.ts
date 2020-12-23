@@ -1,5 +1,5 @@
 import { invert } from 'lodash'
-import rp from 'request-promise';
+import rp from 'request-promise'
 // Untyped modules
 const { CamelCase } = require('camelcasejs')
 
@@ -163,30 +163,34 @@ export enum Champions {
   RELL = 526
 }
 
-const championIdMap = invert(Champions);
+const championIdMap = invert(Champions)
 
 /**
  * Fetching champion IDs from CommunityDragon's PBE content. See https://www.communitydragon.org/
  */
-const updateChampionIDs = () => {
-  const CD_CHAMPIONS = 'https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json';
-  try {
-    rp(CD_CHAMPIONS)
-        .then(JSON.parse)
-        .then(cdChamps => {
-          cdChamps.forEach(({id, alias}: {id: number, alias: string}) => {
-            const championAlias = alias.replace(/[a-z][A-Z]/g, letter => letter[0] + '_' + letter[1]).toUpperCase();
-            if(!championIdMap[id]){
-              championIdMap[id] = championIdMap[id] || championAlias;
-              championIdMap[championAlias] = championIdMap[championAlias] || '' + id;
-            }
+if (process.env.UPDATE_CHAMPION_IDS) {
+  const updateChampionIDs = () => {
+    const CD_CHAMPIONS = 'https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json'
+    try {
+      rp(CD_CHAMPIONS)
+          .then(JSON.parse)
+          .then(cdChamps => {
+            cdChamps.forEach(({id, alias}: {id: number, alias: string}) => {
+              const championAlias = alias.replace(/[a-z][A-Z]/g, letter => letter[0] + '_' + letter[1]).toUpperCase()
+              if (!championIdMap[id]) {
+                championIdMap[id] = championIdMap[id] || championAlias
+                championIdMap[championAlias] = championIdMap[championAlias] || '' + id
+              }
+            })
           })
-        });
-  } catch (ignore){}
+    } catch (e) {
+      console.warn('Updating champion IDs failed')
+    }
+  }
+  // Schedule once every day.
+  setInterval(updateChampionIDs, 1000 * 60 * 60 * 24)
+  updateChampionIDs()
 }
-// Schedule once every day.
-setInterval(updateChampionIDs, 1000 * 60 * 60 * 24);
-updateChampionIDs();
 
 /**
  * Get champion name by id

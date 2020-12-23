@@ -165,3 +165,20 @@ Edit docker-compose.yml with your api key and:
 ## Real project
 We did a project based on a "twisted" package, this project is not finished but it is a very good example<br />
 Github: https://github.com/twisted-gg
+
+# Options
+
+The following environment variables can be set either in the ```.env``` file or as shown in the examples:
+ 
+## ```RIOT_API_KEY```
+
+Obtained from the Riot Games developer page(https://developer.riotgames.com/)
+Necessary to use this library.
+
+## ```UPDATE_CHAMPION_IDS```
+
+This library has an option to fetch an actual version of champion IDs regularly. This is useful in case a new champion
+gets added, while the application runs. E.g. data crawlers, or services which aren't supposed to be restarted regularly.
+
+Set the value to ```true``` or ```1``` to enable this feature. 
+

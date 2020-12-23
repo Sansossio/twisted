@@ -168,20 +168,25 @@ const championIdMap = invert(Champions);
 /**
  * Fetching champion IDs from CommunityDragon's PBE content. See https://www.communitydragon.org/
  */
-const CD_CHAMPIONS = 'https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json';
-try {
-  rp(CD_CHAMPIONS)
-    .then(JSON.parse)
-    .then(cdChamps => {
-      cdChamps.forEach(({id, alias}: {id: number, alias: string}) => {
-        const championAlias = alias.replace(/[a-z][A-Z]/g, letter => letter[0] + '_' + letter[1]).toUpperCase();
-        if(!championIdMap[id]){
-          championIdMap[id] = championIdMap[id] || championAlias;
-          championIdMap[championAlias] = championIdMap[championAlias] || '' + id;
-        }
-      })
-    });
-} catch (ignore){}
+const updateChampionIDs = () => {
+  const CD_CHAMPIONS = 'https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json';
+  try {
+    rp(CD_CHAMPIONS)
+        .then(JSON.parse)
+        .then(cdChamps => {
+          cdChamps.forEach(({id, alias}: {id: number, alias: string}) => {
+            const championAlias = alias.replace(/[a-z][A-Z]/g, letter => letter[0] + '_' + letter[1]).toUpperCase();
+            if(!championIdMap[id]){
+              championIdMap[id] = championIdMap[id] || championAlias;
+              championIdMap[championAlias] = championIdMap[championAlias] || '' + id;
+            }
+          })
+        });
+  } catch (ignore){}
+}
+// Schedule once every day.
+setInterval(updateChampionIDs, 1000 * 60 * 60 * 24);
+updateChampionIDs();
 
 /**
  * Get champion name by id

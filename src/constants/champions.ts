@@ -175,7 +175,7 @@ if (process.env.UPDATE_CHAMPION_IDS) {
       rp(CD_CHAMPIONS)
           .then(JSON.parse)
           .then(cdChamps => {
-            cdChamps.forEach(({id, alias}: {id: number, alias: string}) => {
+            cdChamps.forEach(({ id, alias }: {id: number, alias: string}) => {
               const championAlias = alias.replace(/[a-z][A-Z]/g, letter => letter[0] + '_' + letter[1]).toUpperCase()
               if (!championIdMap[id]) {
                 championIdMap[id] = championIdMap[id] || championAlias

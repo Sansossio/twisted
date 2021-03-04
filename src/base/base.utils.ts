@@ -1,4 +1,4 @@
-import { OptionsWithUri } from 'request'
+import { AxiosRequestConfig } from 'axios'
 import qs from 'querystring'
 
 export interface IParams {
@@ -50,11 +50,11 @@ export function waiter (ms: number) {
   })
 }
 
-export function getUrlFromOptions (options: OptionsWithUri): string {
-  let uri = options.uri as string
-  if (options.qs) {
+export function getUrlFromOptions (options: AxiosRequestConfig): string {
+  let uri = options.url as string
+  if (options.params) {
     uri += '?'
-    uri += qs.stringify(options.qs)
+    uri += qs.stringify(options.params)
   }
   return uri
 }

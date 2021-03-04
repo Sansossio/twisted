@@ -1,4 +1,4 @@
-import rp from 'request-promise'
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import * as _ from 'lodash'
 import { ApiKeyNotFound } from '../errors'
 import { IEndpoint } from '../endpoints'
@@ -142,7 +142,7 @@ export class BaseApi<Region extends string> {
     return new GenericError(headers, e)
   }
 
-  private internalRequest<T> (options: rp.OptionsWithUri): Promise<T> {
+  private internalRequest<T> (options: AxiosRequestConfig): Promise<T> {
     return RequestBase.request<T>(options)
   }
 
@@ -196,7 +196,7 @@ export class BaseApi<Region extends string> {
     }
   }
 
-  protected async request<T> (region: Region, endpoint: IEndpoint, params?: IParams, forceError?: boolean, qs?: any): Promise<ApiResponseDTO<T>> {
+  protected async request<T> (region: Region, endpoint: IEndpoint, params?: IParams, forceError?: boolean, queryParams?: any): Promise<ApiResponseDTO<T>> {
     if (!this.key) {
       throw new ApiKeyNotFound()
     }
@@ -204,32 +204,29 @@ export class BaseApi<Region extends string> {
     params = params || {}
     params.region = region.toLowerCase()
     // Format
-    const uri = this.getApiUrl(endpoint, params)
+    const url = this.getApiUrl(endpoint, params)
     // Logger
     if (this.debug.logTime) {
-      Logger.start(endpoint, uri)
+      Logger.start(endpoint, url)
     }
-    const options: rp.OptionsWithUri = {
-      uri,
+    const options: AxiosRequestConfig = {
+      url,
       method: 'GET',
       headers: {
         Origin: null,
         'X-Riot-Token': this.key
       },
-      qs,
-      useQuerystring: true,
-      resolveWithFullResponse: true,
-      json: true
+      params: queryParams
     }
     if (this.debug.logUrls) {
       Logger.uri(options, endpoint)
     }
     try {
-      const apiResponse = await this.internalRequest<any>(options)
-      const { body, headers } = apiResponse
+      const apiResponse = await this.internalRequest<AxiosResponse<T>>(options)
+      const { data, headers } = apiResponse
       return {
         rateLimits: this.getRateLimits(headers),
-        response: body
+        response: data
       }
     } catch (e) {
       if (forceError) {
@@ -238,7 +235,7 @@ export class BaseApi<Region extends string> {
       return await this.retryRateLimit<T>(region, endpoint, params, e)
     } finally {
       if (this.debug.logTime) {
-        Logger.end(endpoint, uri)
+        Logger.end(endpoint, url)
       }
     }
   }

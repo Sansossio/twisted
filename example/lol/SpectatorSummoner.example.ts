@@ -8,3 +8,5 @@ export async function spectatorSummonerExample () {
 
   return await api.Spectator.activeGame(id, region)
 }
+
+spectatorSummonerExample()

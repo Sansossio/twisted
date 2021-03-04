@@ -1,5 +1,5 @@
 import { IEndpoint } from '../endpoints/endpoints'
-import { OptionsWithUri } from 'request'
+import { AxiosRequestConfig } from 'axios'
 import { getUrlFromOptions } from './base.utils'
 
 export class Logger {
@@ -22,7 +22,7 @@ export class Logger {
     console.timeEnd(name)
   }
 
-  static uri (options: OptionsWithUri, endpoint: IEndpoint) {
+  static uri (options: AxiosRequestConfig, endpoint: IEndpoint) {
     const uri = getUrlFromOptions(options)
     console.log(`Calling method url: ${uri} (${endpoint.path})`)
   }

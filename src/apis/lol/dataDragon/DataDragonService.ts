@@ -1,4 +1,4 @@
-import rp from 'request-promise'
+import Axios, { AxiosRequestConfig } from 'axios'
 import { DataDragonEnum } from '../../../constants/dataDragon'
 import { RealmServers } from '../../../constants/realmServers'
 import { RealmDTO, ChampionsDataDragon, QueuesDataDragonDTO, GameModesDataDragonDTO } from '../../../models-dto'
@@ -18,12 +18,11 @@ const defaultLang = 'en_US'
 export class DataDragonService {
   // Internal methods
   private async request<T> (path: string, base: DataDragonEnum = DataDragonEnum.BASE): Promise<T> {
-    const options: rp.OptionsWithUri = {
-      uri: `${base}/${path}`,
-      method: 'GET',
-      json: true
+    const options: AxiosRequestConfig = {
+      url: `${base}/${path}`,
+      method: 'GET'
     }
-    return rp(options)
+    return (await Axios(options)).data
   }
   // Riot requests
   // Data dragon

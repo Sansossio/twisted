@@ -1,12 +1,12 @@
-import rp from 'request-promise'
+import Axios, { AxiosRequestConfig } from 'axios'
 import Queue from 'promise-queue'
 
 export class RequestBase {
   static queue: Queue
 
-  private static sendRequest (options: rp.OptionsWithUri) {
+  private static sendRequest (options: AxiosRequestConfig) {
     return new Promise((resolve, reject) => {
-      rp(options)
+      Axios(options)
         .then(resolve)
         .catch(reject)
     })
@@ -23,7 +23,7 @@ export class RequestBase {
     RequestBase.queue = new Queue(concurrency, Infinity)
   }
 
-  static request<T> (options: rp.OptionsWithUri): Promise<T> {
+  static request<T> (options: AxiosRequestConfig): Promise<T> {
     return RequestBase.getQueue().add(() => RequestBase.sendRequest(options) as any)
   }
 }

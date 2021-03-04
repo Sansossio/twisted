@@ -2,7 +2,6 @@ import * as _ from 'lodash'
 import { IErrors } from '.'
 import { TOO_MANY_REQUESTS } from 'http-status-codes'
 import { RateLimitDto } from '../models-dto/rate-limit/rate-limit.dto'
-import { StatusCodeError } from 'request-promise/errors'
 
 const message = 'Rate limit error'
 

@@ -5,6 +5,7 @@ export async function matchExample () {
   const api = new LolApi()
   const { region } = config
   const user = await api.Summoner.getByName(config.summonerName, region)
+  console.log()
   const {
     response: {
       matches
@@ -14,3 +15,5 @@ export async function matchExample () {
   const match = await api.Match.get(gameId, region)
   return match
 }
+
+matchExample()

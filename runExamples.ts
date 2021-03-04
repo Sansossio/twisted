@@ -9,7 +9,7 @@ function waiter (ms: number): Promise<void> {
 
 async function runExamples () {
   let examples = Object.keys(allExamples)
-  const filter = process.env.npm_config_example
+  const filter = process.argv[2]
   if (filter) {
     examples = examples.filter(v => v.toLowerCase().indexOf(filter.toLowerCase()) > -1)
   }

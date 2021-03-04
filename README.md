@@ -153,10 +153,10 @@ Everything should be in the same order as in the official docs.
 Download code from git and:
 
 ## Simple
-```$ RIOT_API_KEY={YOUR_KEY} npm run example```
+```$ RIOT_API_KEY={YOUR_KEY} yarn example```
 
 ## Specific examples
-```$ RIOT_API_KEY={YOUR_KEY} npm run example --example={exampleFunctionName}```
+```$ RIOT_API_KEY={YOUR_KEY} yarn example {exampleFunctionName}```
 
 ## With docker
 Edit docker-compose.yml with your api key and:

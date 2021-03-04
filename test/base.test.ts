@@ -87,8 +87,8 @@ describe('Base api', () => {
     it('should return correct url with query params', () => {
       const baseUrl = 'https://na.api.riotgames.com/lol/match/v4/matchlists/by-account/xxx'
       const options = {
-        uri: baseUrl,
-        qs: { queue: [420, 430], beginIndex: 0, endIndex: 10 }
+        url: baseUrl,
+        params: { queue: [420, 430], beginIndex: 0, endIndex: 10 }
       }
       const url = getUrlFromOptions(options)
       const exp = `${baseUrl}?queue=420&queue=430&beginIndex=0&endIndex=10`
@@ -98,7 +98,7 @@ describe('Base api', () => {
 
   describe('Service unavailable response', () => {
     it('should return valid response at 2th attempt', async () => {
-      const data = { body: 'good' }
+      const data = { data: 'good' }
       const api: any = new BaseApi(key)
       api.internalRequest = jest.fn()
         .mockImplementationOnce(() => data)
@@ -106,7 +106,7 @@ describe('Base api', () => {
           throw new ServiceUnavailable()
         })
       const response = await api.request('KR', {})
-      expect(response.response).toEqual(data.body)
+      expect(response.response).toEqual(data.data)
     })
 
     it('should throw service unavailable error at 3th attempt', async () => {
@@ -126,7 +126,7 @@ describe('Base api', () => {
 
   describe('Rate limit response', () => {
     it('should return valid response at 2th attempt', async () => {
-      const data = { body: 'good' }
+      const data = { data: 'good' }
       const api = new BaseApi(key)
       api.internalRequest = jest.fn()
         .mockImplementationOnce(() => data)
@@ -134,7 +134,7 @@ describe('Base api', () => {
           throw new RateLimitError()
         })
       const response = await api.request('KR', {})
-      expect(response.response).toEqual(data.body)
+      expect(response.response).toEqual(data.data)
     })
 
     it('should throw rate limit error at 3th attempt', async () => {

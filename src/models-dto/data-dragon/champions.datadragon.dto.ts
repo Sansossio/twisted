@@ -56,7 +56,7 @@ export class ChampionsDataDragonDetailsSolo extends ChampionsDataDragonDetails {
   }[]
   allytips: string[]
   enemytips: string[]
-  speels: {
+  spells: {
     id: string
     name: string
     description: string

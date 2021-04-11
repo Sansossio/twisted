@@ -8,6 +8,7 @@
     "lint": "tslint --project tsconfig.json",
     "lint:fix": "tslint --project tsconfig.json --fix",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "build": "tsc",
     "example": "ts-node runExamples",
     "prepublishOnly": "npm run build"

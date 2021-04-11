@@ -38,7 +38,7 @@ jobs:
 
       - name: Coverage
         run: yarn test:coverage
-     - name: Upload coverage to Codecov
-       env:
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
+        env:
          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-       run: bash <(curl -s https://codecov.io/bash)

@@ -161,7 +161,8 @@ export enum Champions {
   SAMIRA = 360,
   SERAPHINE = 147,
   RELL = 526,
-  VIEGO = 234
+  VIEGO = 234,
+  GWEN = 887
 }
 
 const championIdMap = invert(Champions)

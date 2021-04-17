@@ -21,5 +21,6 @@ jobs:
         with:
           tag_name: ${{ env.PACKAGE_VERSION }}
           release_name: Release ${{ env.PACKAGE_VERSION }}
+          body: Release ${{ env.PACKAGE_VERSION }}
           draft: false
           prerelease: false

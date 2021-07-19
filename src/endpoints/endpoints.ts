@@ -109,6 +109,52 @@ export const endpointsV3: IEndpoints = {
   }
 }
 
+export const endpointsLorV1: IEndpoints = {
+  Match: {
+    path: 'matches/$(matchId)',
+    prefix: 'match',
+    version: 1
+  },
+  MatchListing: {
+    path: 'matches/by-puuid/$(puuid)/ids',
+    prefix: 'match',
+    version: 1
+  },
+  Ranked: {
+    path: "leaderboards",
+    prefix: "ranked",
+    version: 1
+  },
+  Status: {
+    path: "platform-data",
+    prefix: "status",
+    version: 1
+  }
+}
+
+export const endpointsRiotV1: IEndpoints = {
+  AccountByPuuid: {
+    path: 'accounts/by-puuid/$(puuid)',
+    prefix: 'account',
+    version: 1
+  },
+  AccountByRiotId: {
+    path: 'accounts/by-riot-id/$(gameName)/$(tagLine)',
+    prefix: 'account',
+    version: 1
+  },
+  AccountByGame: {
+    path: 'accounts/active-shards/by-game/$(game)/by-puuid/$(puuid)',
+    prefix: 'account',
+    version: 1
+  },
+  AccountMe: {
+    path: 'accounts/me',
+    prefix: 'account',
+    version: 1
+  }
+}
+
 export const endpointsTFTV1: IEndpoints = {
   Match: {
     path: 'matches/$(matchId)',

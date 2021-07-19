@@ -19,6 +19,19 @@ export enum TftRegions {
   AMERICAS = 'americas'
 }
 
+export enum LorRegions {
+  EUROPE = 'europe',
+  ASIA = 'asia',
+  AMERICAS = 'americas'
+}
+
+export enum RiotRegions {
+  EUROPE = 'europe',
+  ASIA = 'asia',
+  AMERICAS = 'americas',
+  ESPORTS = 'esports'
+}
+
 export function regionToTftRegions (region: Regions): TftRegions {
   switch (region) {
     // America

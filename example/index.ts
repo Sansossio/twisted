@@ -1,3 +1,5 @@
 export * from './lol'
 export * from './tft'
+export * from './lor'
+export * from './riot'
 export * from './clash'

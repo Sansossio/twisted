@@ -189,7 +189,7 @@ if (process.env.UPDATE_CHAMPION_IDS) {
     }
   }
   // Schedule once every day.
-  setInterval(updateChampionIDs, 1000 * 60 * 60 * 24)
+  setInterval(updateChampionIDs, 1000 * 60 * 60 * 24).unref()
   updateChampionIDs()
 }
 

@@ -114,20 +114,14 @@ export class BaseApi<Region extends string> {
     if (!e) {
       return false
     }
-    const {
-      statusCode = e.status
-    } = e || e.error
-    return statusCode === TOO_MANY_REQUESTS
+    return e.response.status === TOO_MANY_REQUESTS
   }
 
   private isServiceUnavailableError (e: any) {
     if (!e) {
       return false
     }
-    const {
-      statusCode = e.status
-    } = e || e.error
-    return statusCode === SERVICE_UNAVAILABLE
+    return e.response.status === SERVICE_UNAVAILABLE
   }
 
   private getError (e: any) {

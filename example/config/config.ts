@@ -6,7 +6,7 @@ export const config = {
 }
 
 export const configTft = {
-  summonerName: 'MaxiVZLA',
+  summonerName: 'Zwait',
   region: Constants.Regions.LAT_NORTH,
-  tftRegion: Constants.TftRegions.AMERICAS
+  tftRegion: Constants.RegionGroups.AMERICAS
 }

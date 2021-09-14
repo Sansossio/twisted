@@ -13,13 +13,20 @@ export enum Regions {
   PBE = 'PBE1'
 }
 
-export enum TftRegions {
-  EUROPE = 'europe',
-  ASIA = 'asia',
-  AMERICAS = 'americas'
+/**
+ * As per RIOT Api:
+ * - The AMERICAS routing value serves NA, BR, LAN, LAS, and OCE.
+ * - The ASIA routing value serves KR and JP
+ * - The EUROPE routing value serves EUNE, EUW, TR, and RU.
+ * Use regionToRegionGroup() to convert them.
+ */
+export enum RegionGroups {
+  ASIA = 'ASIA',
+  AMERICAS = 'AMERICAS',
+  EUROPE = 'EUROPE'
 }
 
-export function regionToTftRegions (region: Regions): TftRegions {
+export function regionToRegionGroup (region: Regions): RegionGroups {
   switch (region) {
     // America
     case Regions.AMERICA_NORTH:
@@ -27,17 +34,17 @@ export function regionToTftRegions (region: Regions): TftRegions {
     case Regions.LAT_NORTH:
     case Regions.LAT_SOUTH:
     case Regions.OCEANIA:
-      return TftRegions.AMERICAS
+      return RegionGroups.AMERICAS
     // Europe
     case Regions.EU_EAST:
     case Regions.EU_WEST:
     case Regions.TURKEY:
     case Regions.RUSSIA:
-      return TftRegions.EUROPE
+      return RegionGroups.EUROPE
     // Asia
     case Regions.JAPAN:
     case Regions.KOREA:
-      return TftRegions.ASIA
+      return RegionGroups.ASIA
   }
   throw new Error(`Unexpected region: ${region}`)
 }

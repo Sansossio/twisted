@@ -8,6 +8,24 @@ interface IEndpoints {
   [key: string]: IEndpoint
 }
 
+export const endpointsV5: IEndpoints = {
+  MatchListing: {
+    path: 'matches/by-puuid/$(summonerPUUID)/ids',
+    prefix: 'match',
+    version: 5
+  },
+  Match: {
+    path: 'matches/$(matchId)',
+    prefix: 'match',
+    version: 5
+  },
+  MatchTimeline: {
+    path: 'matches/$(matchId)/timeline',
+    prefix: 'match',
+    version: 5
+  }
+}
+
 export const endpointsV4: IEndpoints = {
   Summoner: {
     path: 'summoners/$(by)/$(summonerName)',

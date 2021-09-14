@@ -1,7 +1,7 @@
 import { BaseApi } from '../../../base/base'
-import { TftRegions, Regions } from '../../../constants'
+import { RegionGroups, Regions } from '../../../constants'
 import { BaseApiGames } from '../../../base/base.const'
 
-export class BaseApiTft extends BaseApi<TftRegions | Regions> {
+export class BaseApiTft extends BaseApi<RegionGroups | Regions> {
   protected readonly game: BaseApiGames = BaseApiGames.TFT
 }

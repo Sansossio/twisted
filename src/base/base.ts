@@ -115,14 +115,14 @@ export class BaseApi<Region extends string> {
     if (!e) {
       return false
     }
-    return e.response.status === TOO_MANY_REQUESTS
+    return e.status === TOO_MANY_REQUESTS || e.response?.status === TOO_MANY_REQUESTS
   }
 
   private isServiceUnavailableError (e: any) {
     if (!e) {
       return false
     }
-    return e.response.status === SERVICE_UNAVAILABLE
+    return e.status === SERVICE_UNAVAILABLE || e.response?.status === SERVICE_UNAVAILABLE
   }
 
   private getError (e: any) {

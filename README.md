@@ -88,7 +88,13 @@ Everything should be in the same order as in the official docs.
 ## CHAMPION-V3
 - [x] `Retrieve all champions.`
 - [x] `Retrieve champion by ID.`
-## MATCH-V4
+
+## MATCH-V5
+- [x] `Get match by id`
+- [x] `Get matches by summoner id`
+- [x] `Get match timeline by id`
+
+## MATCH-V4 (deprecated)
 - [x] `Get matches id by tournament code`
 - [x] `Get match by id`
 - [x] `Get match by tournament code`

@@ -1,4 +1,3 @@
-import { BaseApi } from '../../base/base'
 import { MatchApi } from './match/match'
 import { LeagueApi } from './league/league'
 import { SummonerApi } from './summoner/summoner'
@@ -10,6 +9,7 @@ import { DataDragonService } from './dataDragon/DataDragonService'
 import { SeedApi } from './seed/seed'
 import { BaseApiLol } from './base/base.api.lol'
 import { ClashApi } from './clash/clash.api.lol'
+import { MatchV5Api } from './match/match-v5'
 
 /**
  * Classic league of legends api
@@ -17,8 +17,13 @@ import { ClashApi } from './clash/clash.api.lol'
 export class LolApi extends BaseApiLol {
   /**
    * Match methods
+   * @deprecated use v5 instead
    */
   public readonly Match = new MatchApi(this.getParam())
+  /**
+   * MatchV5 methods
+   */
+  public readonly MatchV5 = new MatchV5Api(this.getParam())
   /**
    * League methods
    */

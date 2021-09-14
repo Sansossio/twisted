@@ -13,6 +13,7 @@ import { ServiceUnavailable } from '../errors/service-unavailable.error'
 import { BaseConstants, BaseApiGames } from './base.const'
 import { Logger } from './logger.base'
 import { RequestBase } from './request.base'
+import { RegionGroups } from '../constants'
 
 config()
 
@@ -114,14 +115,14 @@ export class BaseApi<Region extends string> {
     if (!e) {
       return false
     }
-    return e.response.status === TOO_MANY_REQUESTS
+    return e.status === TOO_MANY_REQUESTS || e.response?.status === TOO_MANY_REQUESTS
   }
 
   private isServiceUnavailableError (e: any) {
     if (!e) {
       return false
     }
-    return e.response.status === SERVICE_UNAVAILABLE
+    return e.status === SERVICE_UNAVAILABLE || e.response?.status === SERVICE_UNAVAILABLE
   }
 
   private getError (e: any) {
@@ -140,7 +141,7 @@ export class BaseApi<Region extends string> {
     return RequestBase.request<T>(options)
   }
 
-  private async retryRateLimit<T> (region: Region, endpoint: IEndpoint, params?: IParams, e?: any): Promise<ApiResponseDTO<T>> {
+  private async retryRateLimit<T> (region: Region | RegionGroups, endpoint: IEndpoint, params?: IParams, e?: any): Promise<ApiResponseDTO<T>> {
     let baseError = this.getError(e)
     const isRateLimitError = this.isRateLimitError(e) || this.isServiceUnavailableError(e)
     if (!this.rateLimitRetry || !isRateLimitError || this.rateLimitRetryAttempts < 1) {
@@ -190,7 +191,7 @@ export class BaseApi<Region extends string> {
     }
   }
 
-  protected async request<T> (region: Region, endpoint: IEndpoint, params?: IParams, forceError?: boolean, queryParams?: any): Promise<ApiResponseDTO<T>> {
+  protected async request<T> (region: Region | RegionGroups, endpoint: IEndpoint, params?: IParams, forceError?: boolean, queryParams?: any): Promise<ApiResponseDTO<T>> {
     if (!this.key) {
       throw new ApiKeyNotFound()
     }

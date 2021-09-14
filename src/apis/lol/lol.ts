@@ -17,6 +17,7 @@ import { MatchV5Api } from './match/match-v5'
 export class LolApi extends BaseApiLol {
   /**
    * Match methods
+   * @deprecated use v5 instead
    */
   public readonly Match = new MatchApi(this.getParam())
   /**

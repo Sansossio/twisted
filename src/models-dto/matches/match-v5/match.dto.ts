@@ -217,10 +217,10 @@ export namespace MatchV5DTOs {
     kills: number
   }
 
-  type Description = "primaryStyle" | "subStyle"
+  type Description = 'primaryStyle' | 'subStyle'
 
   // TODO: Revisit the possible values once https://github.com/RiotGames/developer-relations/issues/541 is fixed
-  type Position = "" | "Invalid" | "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY"
-  type Role = "SOLO" | "NONE" | "CARRY" | "SUPPORT"
-  type Lane = "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM"
+  type Position = '' | 'Invalid' | 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM' | 'UTILITY'
+  type Role = 'SOLO' | 'NONE' | 'CARRY' | 'SUPPORT'
+  type Lane = 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM'
 }

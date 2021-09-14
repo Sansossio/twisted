@@ -12,7 +12,7 @@ import { BaseApiLol } from '../base/base.api.lol'
  */
 export class MatchV5Api extends BaseApiLol {
   // Private methods
-  private generateResponse(error: GenericError): ApiResponseDTO<string[]> {
+  private generateResponse (error: GenericError): ApiResponseDTO<string[]> {
     return {
       rateLimits: error.rateLimits,
       response: []
@@ -24,7 +24,7 @@ export class MatchV5Api extends BaseApiLol {
    * @param matchId Match id
    * @param region
    */
-  public async get(matchId: string, region: RegionGroups) {
+  public async get (matchId: string, region: RegionGroups) {
     const params = {
       matchId
     }
@@ -36,21 +36,21 @@ export class MatchV5Api extends BaseApiLol {
    * @param region
    * @returns A list of match ids
    */
-  public async list(puuid: string, region: RegionGroups, query?: MatchQueryV5DTO) {
+  public async list (puuid: string, region: RegionGroups, query?: MatchQueryV5DTO) {
     const params = {
       summonerPUUID: puuid
     }
     try {
       return await this.request<string[]>(region, endpointsV5.MatchListing, params, false, query)
     } catch (e) {
-      if ((e as any).status !== NOT_FOUND) {
+      if (e.status !== NOT_FOUND) {
         throw e
       }
-      return this.generateResponse(e as any)
+      return this.generateResponse(e)
     }
   }
 
-  public async timeline(matchId: string, region: RegionGroups) {
+  public async timeline (matchId: string, region: RegionGroups) {
     const params = {
       matchId
     }

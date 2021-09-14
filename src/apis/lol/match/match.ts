@@ -37,6 +37,7 @@ export class MatchApi extends BaseApiLol {
    * Get match details
    * @param matchId Match id
    * @param region
+   * @deprecated
    */
   public async get (matchId: number, region: Regions) {
     const params = {
@@ -49,6 +50,7 @@ export class MatchApi extends BaseApiLol {
    * Summoner match listing
    * @param encryptedAccountId Encrypted summoner ID. Max length 63 characters.
    * @param region
+   * @deprecated
    */
   public async list (encryptedAccountId: string, region: Regions, query?: MatchQueryDTO) {
     const params = {
@@ -64,6 +66,12 @@ export class MatchApi extends BaseApiLol {
     }
   }
 
+  /**
+   * Timeline
+   * @param matchId
+   * @param region
+   * @deprecated
+   */
   public async timeline (matchId: number, region: Regions) {
     const params = {
       matchId

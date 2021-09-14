@@ -37,7 +37,7 @@ export class MatchDto {
   /**
    * Please refer to the Game Constants documentation.
    */
-  mapId: string
+  mapId: number
   /**
    * Please refer to the Game Constants documentation.
    */

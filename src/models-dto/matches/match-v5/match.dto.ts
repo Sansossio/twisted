@@ -4,7 +4,7 @@ export namespace MatchV5DTOs {
     info: InfoDto
   }
 
-  interface MetadataDto {
+  export interface MetadataDto {
     /** Match data version. */
     dataVersion: string
 
@@ -15,7 +15,7 @@ export namespace MatchV5DTOs {
     participants: string[]
   }
 
-  interface InfoDto {
+  export interface InfoDto {
     /** Unix timestamp for when the game is created(i.e., the loading screen). */
     gameCreation: number
 
@@ -51,7 +51,7 @@ export namespace MatchV5DTOs {
     tournamentCode: string
   }
 
-  interface ParticipantDto {
+  export interface ParticipantDto {
     assists: number
     baronKills: number
     bountyLevel: number
@@ -167,43 +167,43 @@ export namespace MatchV5DTOs {
     win: boolean
   }
 
-  interface PerksDto {
+  export interface PerksDto {
     statPerks: PerkStatsDto
     styles: PerkStyleDto[]
   }
 
-  interface PerkStatsDto {
+  export interface PerkStatsDto {
     defense: number
     flex: number
     offense: number
   }
 
-  interface PerkStyleDto {
+  export interface PerkStyleDto {
     description: Description
     selections: PerkStyleSelectionDto[]
     style: number
   }
 
-  interface PerkStyleSelectionDto {
+  export interface PerkStyleSelectionDto {
     perk: number
     var1: number
     var2: number
     var3: number
   }
 
-  interface TeamDto {
+  export interface TeamDto {
     bans: BanDto[]
     objectives: ObjectivesDto
     teamId: number
     win: boolean
   }
 
-  interface BanDto {
+  export interface BanDto {
     championId: number
     pickTurn: number
   }
 
-  interface ObjectivesDto {
+  export interface ObjectivesDto {
     baron: ObjectiveDto
     champion: ObjectiveDto
     dragon: ObjectiveDto
@@ -212,15 +212,15 @@ export namespace MatchV5DTOs {
     tower: ObjectiveDto
   }
 
-  interface ObjectiveDto {
+  export interface ObjectiveDto {
     first: boolean
     kills: number
   }
 
-  type Description = 'primaryStyle' | 'subStyle'
+  export type Description = 'primaryStyle' | 'subStyle'
 
   // TODO: Revisit the possible values once https://github.com/RiotGames/developer-relations/issues/541 is fixed
-  type Position = '' | 'Invalid' | 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM' | 'UTILITY'
-  type Role = 'SOLO' | 'NONE' | 'CARRY' | 'SUPPORT'
-  type Lane = 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM'
+  export type Position = '' | 'Invalid' | 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM' | 'UTILITY'
+  export type Role = 'SOLO' | 'NONE' | 'CARRY' | 'SUPPORT'
+  export type Lane = 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM'
 }

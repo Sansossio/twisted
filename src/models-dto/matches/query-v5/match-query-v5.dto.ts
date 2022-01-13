@@ -3,4 +3,6 @@ export class MatchQueryV5DTO {
   queue?: number
   start?: number
   type?: string
+  startTime?: number
+  endTime?: number
 }

@@ -7,12 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to npm
     - uses: actions/setup-node@v1
       with:
         node-version: '13.x'
         registry-url: 'https://registry.npmjs.org'
-        scope: '@octocat' # Defaults to the user or organization that owns the workflow file
+        scope: '@octocat'
     - run: yarn
   publish-npm:
     runs-on: ubuntu-latest

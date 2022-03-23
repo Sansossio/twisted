@@ -7,33 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    # Setup .npmrc file to publish to npm
     - uses: actions/setup-node@v1
       with:
         node-version: '13.x'
         registry-url: 'https://registry.npmjs.org'
-        scope: '@octocat'
+        scope: '@octocat' # Defaults to the user or organization that owns the workflow file
     - run: yarn
-  publish-npm:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '13.x'
-        registry-url: 'https://registry.npmjs.org'
-        scope: '@octocat'
     - run: yarn publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  publish-github:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '13.x'
-        registry-url: 'https://npm.pkg.github.com'
-        scope: '@octocat'
-    - run: yarn publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

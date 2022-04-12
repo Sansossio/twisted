@@ -23,7 +23,7 @@ export class ClashApi extends BaseApiLol {
    * @param teamId Team id
    */
   getTeamById (teamId: string, region: Regions) {
-    return this.request<ClashTeamDto>(region, endpointsClashV1.GetTean, { teamId })
+    return this.request<ClashTeamDto>(region, endpointsClashV1.GetTeam, { teamId })
   }
   /**
    * Returns a list of active and upcoming tournaments.

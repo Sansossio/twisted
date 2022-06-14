@@ -4,7 +4,7 @@ import { LolStatusUpdateDTO } from "./lol-status-update.dto";
 /**
  * Lol Status response
  */
-export class LolStatusDTO {
+export class LolStatusStatusDTO {
   /**
    * Lol server (ID of incident)
    */

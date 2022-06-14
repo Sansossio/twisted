@@ -1,9 +1,9 @@
-import { LolStatusDTO } from "../lol-status.dto";
+import { LolStatusStatusDTO } from './lol-status-status.dto';
 
 /**
  * Lol Status Content dto
  */
-export class LolStatusContentDTO {
+export class LolStatusPlatformDataDTO {
   /**
    * Lol Server (e.g. EUW1)
    */
@@ -19,9 +19,9 @@ export class LolStatusContentDTO {
   /**
    * 
    */
-  maintenances: LolStatusDTO;
+  maintenances: LolStatusStatusDTO;
   /**
    * 
    */
-  incidents: LolStatusDTO;
+  incidents: LolStatusStatusDTO;
 }

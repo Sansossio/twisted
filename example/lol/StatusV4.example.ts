@@ -1,5 +1,5 @@
 import { LolApi } from "../../src/apis/lol/lol";
-import { Regions, RegionGroups } from "../../src/constants";
+import { Regions } from "../../src/constants";
 
 export async function statusV4Example() {
   const api = new LolApi();
@@ -7,3 +7,5 @@ export async function statusV4Example() {
   const status = (await api.StatusV4.get(Regions.EU_WEST)).response;
   console.log(status);
 }
+
+statusV4Example();

@@ -2,20 +2,23 @@ import { LolStatusContentDTO } from "./lol-status-content.dto";
 import { LolStatusUpdateDTO } from "./lol-status-update.dto";
 
 /**
- * Lol Status response
+ * Lol Status dto
  */
 export class LolStatusStatusDTO {
   /**
-   * Lol server (ID of incident)
+   * Lol incident ID
+   * (e.g. `7919`)
    */
   id: number;
   /**
-   * Status of the service (scheduled, in_progress, complete)
+   * Status of the service
+   * (e.g. `scheduled`, `in_progress`, `complete`)
    */
   // tslint:disable:variable-name
   maintenance_status: string;
   /**
-   * Severity of the service (info, warning, critical)
+   * Severity of the service
+   * (e.g. `info`, `warning`, `critical`)
    */
   incident_severity: string;
   /**
@@ -24,25 +27,28 @@ export class LolStatusStatusDTO {
    */
   titles: LolStatusContentDTO;
   /**
-   * Updates of the incident
-   * e.g. "At 06/14/2022 20:00 PDT the game will be unavailable until 06/14/2022 22:00 PDT."
-   * WIP
+   * Updates of the incident or maintenance
+   * (e.g. `publish_locations`, `author`...)
    */
   updates: LolStatusUpdateDTO;
   /**
    * When was the incident created
+   * (e.g. `2022-06-15T05:05:22.317047+00:00`)
    */
   created_at: string;
   /**
-   * When was the incident created
+   * When was the incident archived
+   * (e.g. `2022-06-14T04:49:00+00:00`)
    */
   archive_at: string;
   /**
-   * When was the incident created
+   * When was the incident last updated
+   * (e.g. `2022-06-14T04:49:00+00:00`)
    */
   updated_at: string;
   /**
-   * When was the incident created
+   * Which platforms are affected
+   * (e.g. `windows`, `macos`)
    */
   platforms: string[];
 }

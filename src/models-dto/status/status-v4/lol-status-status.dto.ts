@@ -22,8 +22,8 @@ export class LolStatusStatusDTO {
    */
   incident_severity: string;
   /**
-   * Title of the service in locale language (e.g. "Maintenance Notification")
-   * WIP
+   * Title of the service in locale language 
+   * (e.g. `Maintenance Notification`)
    */
   titles: LolStatusContentDTO;
   /**

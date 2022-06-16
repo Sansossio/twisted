@@ -47,7 +47,7 @@ export class LolApi extends BaseApiLol {
   public readonly Spectator = new SpectatorApi(this.getParam())
   /**
    * Status methods
-   * @deprecated use v4 instead
+   * @deprecated Use StatusV4 instead
    */
   public readonly Status = new StatusApi(this.getParam())
   /**

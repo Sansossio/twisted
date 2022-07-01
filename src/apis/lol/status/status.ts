@@ -7,6 +7,7 @@ export class StatusApi extends BaseApiLol {
   /**
    * Lol status by server
    * @param region Riot region
+   * @deprecated
    */
   public async get (region: Regions) {
     return this.request<LolStatusDTO>(region, endpointsV3.LolStatus)

@@ -10,6 +10,7 @@ import { SeedApi } from './seed/seed'
 import { BaseApiLol } from './base/base.api.lol'
 import { ClashApi } from './clash/clash.api.lol'
 import { MatchV5Api } from './match/match-v5'
+import { StatusV4Api } from './status/status-v4'
 
 /**
  * Classic league of legends api
@@ -46,8 +47,13 @@ export class LolApi extends BaseApiLol {
   public readonly Spectator = new SpectatorApi(this.getParam())
   /**
    * Status methods
+   * @deprecated Use StatusV4 instead
    */
   public readonly Status = new StatusApi(this.getParam())
+  /**
+   * StatusV4 methods
+   */
+  public readonly StatusV4 = new StatusV4Api(this.getParam())
   /**
    * Clash methods
    */

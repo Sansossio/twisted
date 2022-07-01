@@ -27,6 +27,11 @@ export const endpointsV5: IEndpoints = {
 }
 
 export const endpointsV4: IEndpoints = {
+  LolStatus: {
+    path: 'platform-data',
+    prefix: 'status',
+    version: 4
+  },
   Summoner: {
     path: 'summoners/$(by)/$(summonerName)',
     prefix: 'summoner',

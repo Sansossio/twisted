@@ -116,6 +116,8 @@ Everything should be in the same order as in the official docs.
 - [x] `Get match timeline by match ID.`
 - [x] `Get match IDs by tournament code.`
 - [x] `Get match by match ID and tournament code.`
+## LOL-STATUS-V4
+- [x] `Get League of Legends status for the given platform.`
 ## SPECTATOR-V4
 - [x] `Get current game information for the given summoner ID.`
 - [x] `Get list of featured games.`

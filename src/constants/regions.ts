@@ -48,7 +48,7 @@ export function regionToRegionGroup (region: Regions): RegionGroups {
       return RegionGroups.ASIA
     // Sea
     case Regions.OCEANIA:
-      return RegionsGroup.SEA
+      return RegionGroups.SEA
   }
   throw new Error(`Unexpected region: ${region}`)
 }

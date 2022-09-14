@@ -20,7 +20,7 @@ describe('Regions', () => {
       expect(regionToRegionGroup(Regions.JAPAN)).toEqual(RegionGroups.ASIA)
       expect(regionToRegionGroup(Regions.KOREA)).toEqual(RegionGroups.ASIA)
     })
-    
+
     it('should match sea', () => {
       expect(regionToRegionGroup(Regions.OCEANIA)).toEqual(RegionGroups.SEA)
     })

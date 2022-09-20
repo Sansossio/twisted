@@ -71,6 +71,7 @@ export namespace MatchV5DTOs {
     detectorWardsPlaced: number
     doubleKills: number
     dragonKills: number
+    eligibleForProgression: boolean
     firstBloodAssist: boolean
     firstBloodKill: boolean
     firstTowerAssist: boolean

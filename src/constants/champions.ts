@@ -211,5 +211,11 @@ export function getChampionNameCapital (champ: number | string): string {
   let name = typeof champ === 'number' ? getChampionName(champ) : champ
   name = CamelCase(name.toLowerCase())
   name = name.charAt(0).toUpperCase() + name.slice(1)
+  switch (name) {
+    case 'Reksai':
+      return 'RekSai'
+    case 'JarvanIv':
+      return 'JarvanIV'
+  }
   return name
 }

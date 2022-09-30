@@ -15,15 +15,17 @@ export enum Regions {
 
 /**
  * As per RIOT Api:
- * - The AMERICAS routing value serves NA, BR, LAN, LAS, and OCE.
+ * - The AMERICAS routing value serves NA, BR, LAN and LAS.
  * - The ASIA routing value serves KR and JP
  * - The EUROPE routing value serves EUNE, EUW, TR, and RU.
+ * - The SEA routing value serves OCE
  * Use regionToRegionGroup() to convert them.
  */
 export enum RegionGroups {
   ASIA = 'ASIA',
   AMERICAS = 'AMERICAS',
-  EUROPE = 'EUROPE'
+  EUROPE = 'EUROPE',
+  SEA = 'SEA'
 }
 
 export function regionToRegionGroup (region: Regions): RegionGroups {
@@ -33,7 +35,6 @@ export function regionToRegionGroup (region: Regions): RegionGroups {
     case Regions.BRAZIL:
     case Regions.LAT_NORTH:
     case Regions.LAT_SOUTH:
-    case Regions.OCEANIA:
       return RegionGroups.AMERICAS
     // Europe
     case Regions.EU_EAST:
@@ -45,6 +46,9 @@ export function regionToRegionGroup (region: Regions): RegionGroups {
     case Regions.JAPAN:
     case Regions.KOREA:
       return RegionGroups.ASIA
+    // Sea
+    case Regions.OCEANIA:
+      return RegionGroups.SEA
   }
   throw new Error(`Unexpected region: ${region}`)
 }

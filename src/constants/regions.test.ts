@@ -7,7 +7,6 @@ describe('Regions', () => {
       expect(regionToRegionGroup(Regions.BRAZIL)).toEqual(RegionGroups.AMERICAS)
       expect(regionToRegionGroup(Regions.LAT_NORTH)).toEqual(RegionGroups.AMERICAS)
       expect(regionToRegionGroup(Regions.LAT_SOUTH)).toEqual(RegionGroups.AMERICAS)
-      expect(regionToRegionGroup(Regions.OCEANIA)).toEqual(RegionGroups.AMERICAS)
     })
 
     it('should match europe', () => {
@@ -20,6 +19,10 @@ describe('Regions', () => {
     it('should match asia', () => {
       expect(regionToRegionGroup(Regions.JAPAN)).toEqual(RegionGroups.ASIA)
       expect(regionToRegionGroup(Regions.KOREA)).toEqual(RegionGroups.ASIA)
+    })
+
+    it('should match sea', () => {
+      expect(regionToRegionGroup(Regions.OCEANIA)).toEqual(RegionGroups.SEA)
     })
 
     it('should throw error when the region does not exists', () => {

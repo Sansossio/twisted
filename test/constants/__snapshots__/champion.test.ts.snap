@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Champions Constant getChampionNameCapital should return custom name for reksai and jarvanIv 1`] = `"RekSai"`;
+
+exports[`Champions Constant getChampionNameCapital should return custom name for reksai and jarvanIv 2`] = `"Jarvaniv"`;

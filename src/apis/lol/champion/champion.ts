@@ -39,6 +39,22 @@ export class ChampionApi extends BaseApiLol {
     return this.request<ChampionMasteryDTO>(region, endpointsV4.ChampionMasteryBySummonerChampion, params)
   }
   /**
+   * Top count of champion mastery by summoner
+   * @param encryptedSummonerId
+   * @param count
+   * @param region
+   */
+  public async topMasteryBySummoner (encryptedSummonerId: string, count: number, region: Regions) {
+    const params = {
+      encryptedSummonerId
+    }
+    const queryParams = {
+      count
+    }
+
+    return this.request<ChampionMasteryDTO>(region, endpointsV4.TopChampionMasteryBySummoner, params, undefined, queryParams)
+  }
+  /**
    * Champions mastery score
    * @param encryptedSummonerId
    * @param region

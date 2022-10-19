@@ -84,6 +84,7 @@ Everything should be in the same order as in the official docs.
 ## CHAMPION-MASTERY-V4
 - [x] `Get all champion mastery entries sorted by number of champion points descending.`
 - [x] `Get a champion mastery by player ID and champion ID.`
+- [x] `Get specified number of top champion mastery entries sorted by number of champion points descending.`
 - [x] `Get a player's total champion mastery score, which is the sum of individual champion mastery levels.`
 ## CHAMPION-V3
 - [x] `Retrieve all champions.`

@@ -102,6 +102,11 @@ export const endpointsV4: IEndpoints = {
     prefix: 'champion-mastery',
     version: 4
   },
+  TopChampionMasteryBySummoner: {
+    path: 'champion-masteries/by-summoner/$(encryptedSummonerId)/top',
+    prefix: 'champion-mastery',
+    version: 4    
+  },
   ChampionsScore: {
     path: 'scores/by-summoner/$(encryptedSummonerId)',
     prefix: 'champion-mastery',

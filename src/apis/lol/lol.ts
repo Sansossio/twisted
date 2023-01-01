@@ -1,6 +1,7 @@
 import { MatchApi } from './match/match'
 import { LeagueApi } from './league/league'
 import { SummonerApi } from './summoner/summoner'
+import { ChallengesApi } from './challenges/challenges'
 import { ThirdPartyCode } from './thirdPartyCode/thirdPartyCode'
 import { ChampionApi } from './champion/champion'
 import { SpectatorApi } from './spectator/spectator'
@@ -33,6 +34,10 @@ export class LolApi extends BaseApiLol {
    * Summoner methods
    */
   public readonly Summoner = new SummonerApi(this.getParam())
+  /**
+   * Challenges methods
+   */
+  public readonly Challenges = new ChallengesApi(this.getParam())
   /**
    * Third Party methods
    */

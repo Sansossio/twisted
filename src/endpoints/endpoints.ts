@@ -207,3 +207,36 @@ export const endpointsClashV1: IEndpoints = {
     version: 1
   }
 }
+
+export const endpointsChallengesV1: IEndpoints = {
+  GetConfig: {
+    path: 'challenges/config',
+    prefix: 'challenges',
+    version: 1
+  },
+  GetPercentiles: {
+    path: 'challenges/percentiles',
+    prefix: 'challenges',
+    version: 1
+  },
+  GetChallengeConfig: {
+    path: 'challenges/$(challengeId)/config',
+    prefix: 'challenges',
+    version: 1
+  },
+  GetLeaderboardsByLevel: {
+    path: 'challenges/$(challengeId)/leaderboards/by-level/$(level)',
+    prefix: 'challenges',
+    version: 1
+  },
+  GetChallengePercentiles: {
+    path: 'challenges/$(challengeId)/percentiles',
+    prefix: 'challenges',
+    version: 1
+  },
+  GetPlayerData: {
+    path: 'player-data/$(puuid)',
+    prefix: 'challenges',
+    version: 1
+  }
+}

@@ -1,5 +1,6 @@
 /**
- * Tiers
+ * Levels
+ * Options from riot dev portal. Unclear which are acceptable. Options are the same as in the dropdown on the website.
  */
 export enum Levels {
   NONE = 'NONE',

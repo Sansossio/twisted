@@ -12,14 +12,14 @@ export class ChallengesApi extends BaseApiLol {
   /**
    * Get config
    */
-  public async getConfig(region: Regions) {
+  public async getConfig (region: Regions) {
     return this.request<ChallengeConfigV1DTO[]>(region, endpointsChallengesV1.GetConfig)
   }
 
   /**
    * Get percentiles
    */
-  public async getPercentiles(region: Regions) {
+  public async getPercentiles (region: Regions) {
     return this.request<PercentilesV1DTO[]>(region, endpointsChallengesV1.GetPercentiles)
   }
 
@@ -27,7 +27,7 @@ export class ChallengesApi extends BaseApiLol {
    * Get getChallengePercentile by challengeId
    * @param challengeId
    */
-  public async getChallengeConfig(challengeId: number, region: Regions) {
+  public async getChallengeConfig (challengeId: number, region: Regions) {
     const params = {
       challengeId
     }
@@ -39,7 +39,7 @@ export class ChallengesApi extends BaseApiLol {
    * @param challengeId
    * @param level rank tier
    */
-  public async getLeaderboardsByLevel(challengeId: number, level: Levels, region: Regions) {
+  public async getLeaderboardsByLevel (challengeId: number, level: Levels, region: Regions) {
     const params = {
       challengeId, level
     }
@@ -50,7 +50,7 @@ export class ChallengesApi extends BaseApiLol {
    * Get Challenge Percentiles
    * @param challengeId
    */
-  public async getChallengePercentiles(challengeId: number, region: Regions) {
+  public async getChallengePercentiles (challengeId: number, region: Regions) {
     const params = {
       challengeId
     }
@@ -61,7 +61,7 @@ export class ChallengesApi extends BaseApiLol {
    * Get player data
    * @param puuid
    */
-  public async getPlayerData(puuid: string, region: Regions) {
+  public async getPlayerData (puuid: string, region: Regions) {
     const params = {
       puuid
     }

@@ -110,6 +110,14 @@ Everything should be in the same order as in the official docs.
 - [x] `Get the queues that have positional ranks enabled.` (deprecated June 17th and in `v0.9.10`)
 - [x] `Get league positions in all queues for a given summoner ID.` (deprecated June 17th and in `v0.9.10`)
 - [x] `Get all the positional league entries.` (deprecated June 17th and in `v0.9.10`)
+## LOL-CHALLENGES-V1 
+Types might (read: will) be incomplete, not fully tested. appriciate any PR with updated types.
+- [x] `Get list of all basic challenge configuration information`
+- [x] `Get map of level to percentile of players who have achieved it`
+- [x] `Get challenge configuration (REST)`
+- [x] `Get top players for each level`
+- [x] `Get map of level to percentile of players who have achieved it`
+- [x] `Get player information with list of all progressed challenges (REST)`
 ## LOL-STATUS-V3
 - [x] `Get League of Legends status for the given shard.`
 - [x] `Get matchlist for games played on given account ID and platform ID and filtered using given filter parameters, if any.`

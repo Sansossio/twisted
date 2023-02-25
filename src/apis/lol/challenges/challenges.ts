@@ -11,20 +11,20 @@ import { PlayerDTO } from '../../../models-dto/challenges/player.dto'
 export class ChallengesV1Api extends BaseApiLol {
 
    /** 
-    * Get Config
+    * Get all challenge configurations.
     */
    public async Configs (region: Regions) {
       return this.request<ConfigDTO.Config[]>(region, endpointsV1.Config)
    }
    /**
-    * Get Percentiles
+    * Get all challenge percentile distributions.
     */
    public async Percentiles (region: Regions) {
       return this.request<PercentilesDTO.Percentiles>(region, endpointsV1.Percentiles)
    }
 
    /**
-    * Get Challenge Config
+    * Get a challenge configuration.
     */
    public async ChallengeConfig (challengeId: number, region: Regions) {
       const params = {
@@ -34,7 +34,7 @@ export class ChallengesV1Api extends BaseApiLol {
    }
    
    /**
-    * Get Challenge Config
+    * Get Leaderboards for a challenge (Chall, GM, Masters).
     */
    public async Leaderboards (challengeId: number, level: Levels, region: Regions, query?: {limit: number}) {
       const params = {
@@ -45,7 +45,7 @@ export class ChallengesV1Api extends BaseApiLol {
    }
 
    /**
-    * Get Challenge Percentiles
+    * Get a challenge percentile distribution.
     */
    public async ChallengePercentiles (challengeId: number, region: Regions) {
       const params = {
@@ -55,7 +55,7 @@ export class ChallengesV1Api extends BaseApiLol {
    }
 
    /**
-    * Get Player Challenges
+    * Get player challenge information.
     */
    public async PlayerChallenges (puuid: string, region: Regions) {
       const params = {

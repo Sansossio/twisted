@@ -1,6 +1,3 @@
-/** 
- * Challenges
- */
 export namespace ConfigDTO {
    export interface Config {
       /** Capstone & challenge id */

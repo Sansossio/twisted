@@ -146,7 +146,6 @@ Everything should be in the same order as in the official docs.
 - [ ] `Creates a tournament provider and returns its ID.`
 - [ ] `Creates a tournament and returns its ID.`
 
-
 # TFT Endpoints
 ## TFT-SUMMONER-V1
 - [x] `Get a summoner by account ID.`

@@ -27,8 +27,6 @@ export class SummonerApi extends BaseApiLol {
   }
   /**
    * Get by name
-   * @param summonerName Summoner name
-   * @param region Riot region
    */
   public async getByName (summonerName: string, region: Regions) {
     return this.genericRequest(FindSummonerBy.NAME, summonerName, region)

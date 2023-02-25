@@ -1,29 +1,26 @@
 import { LolApi } from '../../src/apis/lol/lol'
-import { Regions } from '../../src/constants'
-import { Levels } from '../../src/constants/levels'
+import { configARAM } from '../config/config'
 
 export async function challengesV1Example() {
    const api = new LolApi()
 
-   const puuid = 'KGN0ZR8dNoUTFk57zZEsnmevV5mBiVc0Kpzn5IbMbiCM3BvrqWAXcrEj73tHS71YYSOmVz7SH75aDg'
-   const challengeId = 101000
-   const rank = Levels.CHALLENGER
+   const { response: { puuid } } = await api.Summoner.getByName(configARAM.summonerName, configARAM.region)
 
-   const playerChallenges = (await api.Challenge.PlayerChallenges(puuid, Regions.AMERICA_NORTH)).response
-   console.log('Player Challenges', playerChallenges)
+   const playerChallenges = (await api.Challenges.PlayerChallenges(puuid, configARAM.region)).response
+   console.log('Found total challenge points:', playerChallenges.totalPoints)
 
-   const config = (await api.Challenge.Config(Regions.AMERICA_NORTH)).response
-   console.log("Config for all basic challenges:", config)
+   const leaderboards = (await api.Challenges.Leaderboards(configARAM.challengeId, configARAM.level, configARAM.region, { limit: 5 })).response
+   console.log(`Top 5 ${configARAM.level} for ARAM Eradication for `, leaderboards)
 
-   const percentiles = (await api.Challenge.Percentiles(Regions.AMERICA_NORTH)).response
-   console.log("Percentile of players who have acheived challenges:", percentiles)
+   const configs = (await api.Challenges.Configs(configARAM.region)).response
+   console.log("Config thresholds for the first of all basic challenges:", configs[0])
 
-   const challengeConfig = (await api.Challenge.ChallengeConfig(challengeId, Regions.AMERICA_NORTH)).response
-   console.log(`Challenge Configuration for ${challengeId}:`, challengeConfig)
+   const config = (await api.Challenges.ChallengeConfig(configARAM.challengeId, configARAM.region)).response
+   console.log('Challenge Configuration for ARAM Eradication', config)
 
-   const challengeLeaderboards = (await api.Challenge.ChallengeLeaderboards(challengeId, rank, Regions.AMERICA_NORTH)).response
-   console.log(`Leaderboard for ${challengeId} for ${rank}`, challengeLeaderboards)
+   const distributions = (await api.Challenges.Percentiles(configARAM.region)).response
+   console.log("Distribution for ARAM Eradication:", distributions[configARAM.challengeId])
 
-   const ChallengePercentiles = (await api.Challenge.ChallengePercentiles(challengeId, Regions.AMERICA_NORTH)).response
-   console.log(`Percentile for ${challengeId}`, ChallengePercentiles)
+   const distribution = (await api.Challenges.ChallengePercentiles(configARAM.challengeId, configARAM.region)).response
+   console.log("Distribution for ARAM Eradication:", distribution)
 }

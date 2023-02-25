@@ -18,9 +18,9 @@ import { ChallengesV1Api } from './challenges/challenges'
  */
 export class LolApi extends BaseApiLol {
   /**
-   * ChallengeV1 methods
+   * ChallengesV1 methods
    */
-  public readonly Challenge = new ChallengesV1Api(this.getParam()) 
+  public readonly Challenges = new ChallengesV1Api(this.getParam()) 
   /**
    * Match methods
    * @deprecated use v5 instead

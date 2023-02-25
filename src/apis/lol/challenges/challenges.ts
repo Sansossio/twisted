@@ -2,7 +2,7 @@ import { Regions } from '../../../constants'
 import { Levels } from '../../../constants/levels'
 import { endpointsV1 } from '../../../endpoints/endpoints'
 import { BaseApiLol } from '../base/base.api.lol'
-import { ChallengeConfigDTO } from '../../../models-dto/challenges/challenges-config.dto'
+import { ConfigDTO } from '../../../models-dto/challenges/config.dto'
 import { LeaderboardDTO } from '../../../models-dto/challenges/leaderboard.dto'
 import { PercentilesDTO } from '../../../models-dto/challenges/percentiles.dto'
 import { ChallengePercentilesDTO } from '../../../models-dto/challenges/challenge-percentiles.dto'
@@ -13,10 +13,9 @@ export class ChallengesV1Api extends BaseApiLol {
    /** 
     * Get Config
     */
-   public async Config (region: Regions) {
-      return this.request<ChallengeConfigDTO.Config>(region, endpointsV1.Config)
+   public async Configs (region: Regions) {
+      return this.request<ConfigDTO.Config[]>(region, endpointsV1.Config)
    }
-
    /**
     * Get Percentiles
     */
@@ -31,18 +30,18 @@ export class ChallengesV1Api extends BaseApiLol {
       const params = {
          challengeId
       }
-      return this.request<ChallengeConfigDTO.Config>(region, endpointsV1.Config, params)
+      return this.request<ConfigDTO.Config>(region, endpointsV1.ChallengeConfig, params)
    }
    
    /**
     * Get Challenge Config
     */
-   public async ChallengeLeaderboards (challengeId: number, level: Levels, region: Regions, query?: number) {
+   public async Leaderboards (challengeId: number, level: Levels, region: Regions, query?: {limit: number}) {
       const params = {
          challengeId,
          level
       }
-      return this.request<LeaderboardDTO.Leaderboard>(region, endpointsV1.Leaderboards, params, false, query) 
+      return this.request<LeaderboardDTO.Leaderboard[]>(region, endpointsV1.Leaderboards, params, false, query) 
    }
 
    /**

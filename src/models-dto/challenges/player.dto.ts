@@ -1,8 +1,14 @@
 export namespace PlayerDTO {
    export interface Player {
+      /** All challenges for a player. */
       challenges: Challenge[]
-      preferences: Preference
+
+      preferences: Preferences
+
+      /** Summed points. */
       totalPoints: TotalPoints
+
+      /** Information for each category. */
       categoryPoints: CategoryPoints
    }
 
@@ -14,7 +20,7 @@ export namespace PlayerDTO {
       achievedTime: number
    }
 
-   export interface Preference {
+   export interface Preferences {
       bannerAccent: string,
       title: string,
       challengeIds: number[]
@@ -24,7 +30,7 @@ export namespace PlayerDTO {
       level: string,
       current: number,
       max: number,
-      percentile: number
+      percentile?: number
    }
 
    export interface CategoryPoints {

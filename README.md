@@ -126,6 +126,13 @@ Everything should be in the same order as in the official docs.
 - [x] `Get a summoner by summoner name.`
 - [x] `Get a summoner by PUUID.`
 - [x] `Get a summoner by summoner ID.`
+## CHALLENGES-V1
+- [x] `Get all challenge configurations.`
+- [x] `Get all challenge percentile distributions.`
+- [x] `Get a specific challenge configuration.`
+- [x] `Get challenge leaderboards (Challenger, Grandmaster, Masters).`
+- [x] `Get a specific challenge percentile distribution.`
+- [x] `Get challenge information by PUUID.`
 ## TOURNAMENT-STUB-V4
 - [ ] `Create a mock tournament code for the given tournament.`
 - [ ] `Gets a mock list of lobby events by tournament code.`
@@ -138,6 +145,7 @@ Everything should be in the same order as in the official docs.
 - [ ] `Gets a list of lobby events by tournament code.`
 - [ ] `Creates a tournament provider and returns its ID.`
 - [ ] `Creates a tournament and returns its ID.`
+
 
 # TFT Endpoints
 ## TFT-SUMMONER-V1

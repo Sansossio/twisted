@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Inferno Hex",
+        "description": "Gain attack speed for the duration of combat."
+    },
+    {
+        "name": "Mountain Hex",
+        "description": "Gain permanent health that stacks between rounds and remains even if the champion is moved off the Elemental Hex."
+    },
+    {
+        "name": "Ocean Hex",
+        "description": "Start combat with additional mana."
+    },
+    {
+        "name": "Cloud Hex",
+        "description": "Gain dodge chance for the duration of combat."
+    }
+]

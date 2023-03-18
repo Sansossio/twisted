@@ -165,6 +165,7 @@ export enum Champions {
   GWEN = 887,
   AKSHAN = 166,
   VEX = 711,
+  ZERI = 221,
   RENATA_GLASC = 888,
   BELVETH = 200,
   NILAH = 895,

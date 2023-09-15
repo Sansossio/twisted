@@ -6,6 +6,7 @@ export declare enum Tiers {
     GRANDMASTER = "GRANDMASTER",
     MASTER = "MASTER",
     DIAMOND = "DIAMOND",
+    EMERALD = "EMERALD",
     PLATINUM = "PLATINUM",
     GOLD = "GOLD",
     SILVER = "SILVER",

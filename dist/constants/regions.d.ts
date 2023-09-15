@@ -10,6 +10,11 @@ export declare enum Regions {
     TURKEY = "TR1",
     RUSSIA = "RU",
     JAPAN = "JP1",
+    VIETNAM = "VN2",
+    TAIWAN = "TW2",
+    THAILAND = "TH2",
+    SINGAPORE = "SG2",
+    PHILIPPINES = "PH2",
     PBE = "PBE1"
 }
 /**

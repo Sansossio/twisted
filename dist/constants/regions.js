@@ -14,6 +14,11 @@ var Regions;
     Regions["TURKEY"] = "TR1";
     Regions["RUSSIA"] = "RU";
     Regions["JAPAN"] = "JP1";
+    Regions["VIETNAM"] = "VN2";
+    Regions["TAIWAN"] = "TW2";
+    Regions["THAILAND"] = "TH2";
+    Regions["SINGAPORE"] = "SG2";
+    Regions["PHILIPPINES"] = "PH2";
     Regions["PBE"] = "PBE1";
 })(Regions = exports.Regions || (exports.Regions = {}));
 /**
@@ -51,6 +56,11 @@ function regionToRegionGroup(region) {
             return RegionGroups.ASIA;
         // Sea
         case Regions.OCEANIA:
+        case Regions.PHILIPPINES:
+        case Regions.SINGAPORE:
+        case Regions.THAILAND:
+        case Regions.TAIWAN:
+        case Regions.VIETNAM:
             return RegionGroups.SEA;
     }
     throw new Error(`Unexpected region: ${region}`);

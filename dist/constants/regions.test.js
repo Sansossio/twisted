@@ -21,6 +21,11 @@ describe('Regions', () => {
         });
         it('should match sea', () => {
             expect(_1.regionToRegionGroup(_1.Regions.OCEANIA)).toEqual(_1.RegionGroups.SEA);
+            expect(_1.regionToRegionGroup(_1.Regions.PHILIPPINES)).toEqual(_1.RegionGroups.SEA);
+            expect(_1.regionToRegionGroup(_1.Regions.SINGAPORE)).toEqual(_1.RegionGroups.SEA);
+            expect(_1.regionToRegionGroup(_1.Regions.THAILAND)).toEqual(_1.RegionGroups.SEA);
+            expect(_1.regionToRegionGroup(_1.Regions.TAIWAN)).toEqual(_1.RegionGroups.SEA);
+            expect(_1.regionToRegionGroup(_1.Regions.VIETNAM)).toEqual(_1.RegionGroups.SEA);
         });
         it('should throw error when the region does not exists', () => {
             expect(() => _1.regionToRegionGroup('not a region')).toThrowError();

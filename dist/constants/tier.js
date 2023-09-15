@@ -10,6 +10,7 @@ var Tiers;
     Tiers["GRANDMASTER"] = "GRANDMASTER";
     Tiers["MASTER"] = "MASTER";
     Tiers["DIAMOND"] = "DIAMOND";
+    Tiers["EMERALD"] = "EMERALD";
     Tiers["PLATINUM"] = "PLATINUM";
     Tiers["GOLD"] = "GOLD";
     Tiers["SILVER"] = "SILVER";

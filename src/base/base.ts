@@ -148,7 +148,7 @@ export class BaseApi<Region extends string> {
       throw baseError
     }
     const forceError = true
-    for (let i = 0; i < this.rateLimitRetryAttempts; i++) {
+    for (let i = 0; i <= this.rateLimitRetryAttempts; i++) {
       try {
         const response = await this.request<T>(region, endpoint, params, forceError)
         return response

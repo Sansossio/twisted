@@ -170,7 +170,7 @@ export namespace MatchV5DTOs {
   }
 
   export interface ChallengesDto {
-    "12AssistStreakCount": number
+    '12AssistStreakCount': number
     abilityUses: number
     acesBefore15Minutes: number
     alliedJungleMonsterKills: number

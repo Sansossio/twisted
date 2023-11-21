@@ -1,7 +1,7 @@
 ### See original docs [here](https://github.com/Sansossio/twisted#twisted)
 
 #### Differences (to my knowledge)
-- Added account-v1 [get by puuid](https://developer.riotgames.com/apis#account-v1/GET_getByPuuid) and [get by riot id](https://developer.riotgames.com/apis#account-v1/GET_getByRiotId) endpoints. [Active shard](https://developer.riotgames.com/apis#account-v1/GET_getActiveShard) and [access token](https://developer.riotgames.com/apis#account-v1/GET_getByAccessToken) are not implemented. 
+- Added account-v1 [get by puuid](https://developer.riotgames.com/apis#account-v1/GET_getByPuuid) and [get by riot id](https://developer.riotgames.com/apis#account-v1/GET_getByRiotId) endpoints. [Active shard](https://developer.riotgames.com/apis#account-v1/GET_getActiveShard) and [access token](https://developer.riotgames.com/apis#account-v1/GET_getByAccessToken) are not implemented. The summoner endpoint, although still functional as of 23/11/21, is [deprecated](https://www.riotgames.com/en/DevRel/summoner-names-to-riot-id).
 - Added OCE regions (vn, tw, th, sg, ph)
 - Fixed 429 retry attempts
 - Added ChallengeV1 Endpoints

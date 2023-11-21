@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.endpointsV1 = exports.endpointsClashV1 = exports.endpointsTFTV1 = exports.endpointsV3 = exports.endpointsV4 = exports.endpointsV5 = void 0;
+exports.endpointsV1 = exports.endpointsRiotV1 = exports.endpointsClashV1 = exports.endpointsTFTV1 = exports.endpointsV3 = exports.endpointsV4 = exports.endpointsV5 = void 0;
 exports.endpointsV5 = {
     MatchListing: {
         path: 'matches/by-puuid/$(summonerPUUID)/ids',
@@ -186,6 +186,28 @@ exports.endpointsClashV1 = {
         version: 1
     }
 };
+exports.endpointsRiotV1 = {
+    AccountPUUID: {
+        path: 'accounts/by-puuid/$(summonerPUUID)',
+        prefix: 'account',
+        version: 1,
+    },
+    RiotId: {
+        path: 'accounts/by-riot-id/$(gameName)/$(tagLine)',
+        prefix: 'account',
+        version: 1,
+    },
+    ActiveShard: {
+        path: 'active-shards/by-game/$(game)/by-puuid/$(summonerPUUID)',
+        prefix: 'account',
+        version: 1,
+    },
+    AccessToken: {
+        path: 'accounts/me',
+        prefix: 'account',
+        version: 1,
+    },
+};
 exports.endpointsV1 = {
     Config: {
         path: 'challenges/config',
@@ -216,5 +238,5 @@ exports.endpointsV1 = {
         path: 'player-data/$(summonerPUUID)',
         prefix: 'challenges',
         version: 1,
-    }
+    },
 };

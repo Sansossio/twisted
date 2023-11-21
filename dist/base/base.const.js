@@ -13,4 +13,5 @@ var BaseApiGames;
 (function (BaseApiGames) {
     BaseApiGames["LOL"] = "lol";
     BaseApiGames["TFT"] = "tft";
+    BaseApiGames["RIOT"] = "riot"; // "Games"
 })(BaseApiGames = exports.BaseApiGames || (exports.BaseApiGames = {}));

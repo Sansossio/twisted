@@ -40,6 +40,7 @@ class LolApi extends base_api_lol_1.BaseApiLol {
         this.League = new league_1.LeagueApi(this.getParam());
         /**
          * Summoner methods
+         * @deprecated use Account v1 instead
          */
         this.Summoner = new summoner_1.SummonerApi(this.getParam());
         /**

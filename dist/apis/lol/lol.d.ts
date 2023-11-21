@@ -35,6 +35,7 @@ export declare class LolApi extends BaseApiLol {
     readonly League: LeagueApi;
     /**
      * Summoner methods
+     * @deprecated use Account v1 instead
      */
     readonly Summoner: SummonerApi;
     /**

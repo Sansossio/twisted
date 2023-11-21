@@ -208,6 +208,29 @@ export const endpointsClashV1: IEndpoints = {
   }
 }
 
+export const endpointsRiotV1: IEndpoints = {
+  AccountPUUID: {
+    path: 'accounts/by-puuid/$(summonerPUUID)',
+    prefix: 'account',
+    version: 1,
+  },
+  RiotId: {
+    path: 'accounts/by-riot-id/$(gameName)/$(tagLine)',
+    prefix: 'account',
+    version: 1,
+  },
+  ActiveShard: {
+    path: 'active-shards/by-game/$(game)/by-puuid/$(summonerPUUID)',
+    prefix: 'account',
+    version: 1,
+  },
+  AccessToken: {
+    path: 'accounts/me',
+    prefix: 'account',
+    version: 1,
+  },
+}
+
 export const endpointsV1: IEndpoints = {
   Config: {
     path: 'challenges/config',
@@ -238,5 +261,5 @@ export const endpointsV1: IEndpoints = {
     path: 'player-data/$(summonerPUUID)',
     prefix: 'challenges',
     version: 1,
-  }
+  },
 }

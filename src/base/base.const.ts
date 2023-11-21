@@ -8,5 +8,6 @@ export enum BaseConstants {
 
 export enum BaseApiGames {
   LOL = 'lol',
-  TFT = 'tft'
+  TFT = 'tft',
+  RIOT = 'riot' // "Games"
 }

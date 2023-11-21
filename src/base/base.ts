@@ -109,7 +109,6 @@ export class BaseApi<Region extends string> {
       re.lastIndex = 0
     }
     return base
-    // return 'riot/account/v1/accounts/by-riot-id/night%20owl/na1'
   }
 
   private isRateLimitError (e: any) {

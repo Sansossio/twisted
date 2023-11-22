@@ -5,12 +5,12 @@ npm i github:rleaf/twisted
 ```
 
 #### What's in this fork
-- Partially implemented account-v1. `getBySummonerName` in summoner-v4 and tft-summoner-v1, although still functional as of 23/11/21, is [deprecated](https://www.riotgames.com/en/DevRel/summoner-names-to-riot-id).
+- Partially implemented account-v1. [EXAMPLES](https://github.com/rleaf/twisted/blob/master/example/riot/Account.examples.ts) `getBySummonerName` in summoner-v4 and tft-summoner-v1, although still functional as of 23/11/21, is [deprecated](https://www.riotgames.com/en/DevRel/summoner-names-to-riot-id).
   - [x] [get by puuid](https://developer.riotgames.com/apis#account-v1/GET_getByPuuid)
   - [x] [get by riot id](https://developer.riotgames.com/apis#account-v1/GET_getByRiotId)
   - [ ] [active shard](https://developer.riotgames.com/apis#account-v1/GET_getActiveShard)
   - [ ] [access token](https://developer.riotgames.com/apis#account-v1/GET_getByAccessToken)
-- Added lol-challenges-v1.
+- Added lol-challenges-v1 [EXAMPLES](https://github.com/rleaf/twisted/blob/master/example/lol/Challenges.example.ts).
   - [x] [config](https://developer.riotgames.com/apis#lol-challenges-v1/GET_getAllChallengeConfigs)
   - [x] [percentiles](https://developer.riotgames.com/apis#lol-challenges-v1/GET_getAllChallengePercentiles)
   - [x] [challenge config](https://developer.riotgames.com/apis#lol-challenges-v1/GET_getChallengeConfigs)

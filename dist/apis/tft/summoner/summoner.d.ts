@@ -11,6 +11,7 @@ export declare class SummonerTftApi extends BaseApiTft {
      * Get by name
      * @param summonerName Summoner name
      * @param region Riot region
+     * @deprecated use Account v1 instead
      */
     getByName(summonerName: string, region: Regions): Promise<import("../../../models-dto").ApiResponseDTO<SummonerV4DTO>>;
     /**

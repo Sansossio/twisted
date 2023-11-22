@@ -57,6 +57,7 @@ class SummonerTftApi extends base_api_tft_1.BaseApiTft {
      * Get by name
      * @param summonerName Summoner name
      * @param region Riot region
+     * @deprecated use Account v1 instead
      */
     getByName(summonerName, region) {
         return __awaiter(this, void 0, void 0, function* () {

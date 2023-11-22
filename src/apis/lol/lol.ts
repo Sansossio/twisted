@@ -36,7 +36,7 @@ export class LolApi extends BaseApiLol {
   public readonly League = new LeagueApi(this.getParam())
   /**
    * Summoner methods
-   * @deprecated use Account v1 instead
+   * 
    */
   public readonly Summoner = new SummonerApi(this.getParam())
   /**

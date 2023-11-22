@@ -57,6 +57,7 @@ class SummonerApi extends base_api_lol_1.BaseApiLol {
      * Get by name
      * @param summonerName Summoner name
      * @param region Riot region
+     * @deprecated use Account v1 instead
      */
     getByName(summonerName, region) {
         return __awaiter(this, void 0, void 0, function* () {

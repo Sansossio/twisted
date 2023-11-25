@@ -1,4 +1,3 @@
-import * as _ from 'lodash'
 import { IErrors } from '.'
 import { RateLimitDto } from '../models-dto/rate-limit/rate-limit.dto'
 import * as Axios from 'axios'

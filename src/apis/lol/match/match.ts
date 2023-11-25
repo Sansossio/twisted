@@ -59,10 +59,10 @@ export class MatchApi extends BaseApiLol {
     try {
       return await this.request<MatchListingDto>(region, endpointsV4.MatchListing, params, false, query)
     } catch (e) {
-      if (e.status !== NOT_FOUND) {
+      if (typeof e === 'object' && e !== null && 'status' in e && e.status !== NOT_FOUND) {
         throw e
       }
-      return this.generateResponse(e)
+      return this.generateResponse(e as GenericError)
     }
   }
 

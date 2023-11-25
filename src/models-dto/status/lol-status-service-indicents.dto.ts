@@ -10,7 +10,6 @@ export class LolStatusServiceStatusIncident {
   /**
    * Indicent creation date
    */
-  // tslint:disable:variable-name
   created_at: string
   /**
    * Indicent id

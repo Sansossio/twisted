@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace MatchV5DTOs {
   export interface MatchDto {
     metadata: MetadataDto

@@ -1,8 +1,8 @@
 import Axios, { AxiosRequestConfig } from 'axios'
-import Queue from 'promise-queue'
+import PromiseQueue from 'promise-queue'
 
 export class RequestBase {
-  static queue: Queue
+  static queue: PromiseQueue
 
   private static sendRequest (options: AxiosRequestConfig) {
     return new Promise((resolve, reject) => {
@@ -14,13 +14,13 @@ export class RequestBase {
 
   private static getQueue () {
     if (!RequestBase.queue) {
-      RequestBase.queue = new Queue(Infinity, Infinity)
+      RequestBase.queue = new PromiseQueue(Infinity, Infinity)
     }
     return RequestBase.queue
   }
 
   static setConcurrency (concurrency: number) {
-    RequestBase.queue = new Queue(concurrency, Infinity)
+    RequestBase.queue = new PromiseQueue(concurrency, Infinity)
   }
 
   static request<T> (options: AxiosRequestConfig): Promise<T> {

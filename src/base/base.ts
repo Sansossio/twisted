@@ -98,10 +98,10 @@ export class BaseApi<Region extends string> {
       path
     } = endpoint
     const basePath = `${prefix}/v${version}/${path}`
-    const re = /\$\(([^\)]+)?\)/g
+    const re = /\$\(([^)]+)?\)/g
     let base = `${this.getBaseUrl()}/${basePath}`
     let match
-    // tslint:disable:no-conditional-assignment
+    // eslint-disable-next-line no-cond-assign
     while (match = re.exec(base)) {
       const [key] = match
       const value = encodeURI(String(params[match[1]]))
@@ -142,7 +142,7 @@ export class BaseApi<Region extends string> {
   }
 
   private async retryRateLimit<T> (region: Region | RegionGroups, endpoint: IEndpoint, params?: IParams, e?: any): Promise<ApiResponseDTO<T>> {
-    let baseError = this.getError(e)
+    const baseError = this.getError(e)
     const isRateLimitError = this.isRateLimitError(e) || this.isServiceUnavailableError(e)
     if (!this.rateLimitRetry || !isRateLimitError || this.rateLimitRetryAttempts < 1) {
       throw baseError

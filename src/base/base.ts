@@ -208,7 +208,6 @@ export class BaseApi<Region extends string> {
       url,
       method: 'GET',
       headers: {
-        Origin: null,
         'X-Riot-Token': this.key
       },
       params: queryParams

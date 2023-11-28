@@ -23,13 +23,13 @@ async function runExamples () {
       continue
     }
     console.time(key)
-    let error = false
+    let error: boolean | Error = false
     try {
       const response = await method()
       if (filter) {
         console.log(JSON.stringify(response))
       }
-    } catch (e) {
+    } catch (e: any) {
       error = e
     } finally {
       console.error(`Method ${key}: ${error ? 'FAIL' : 'OK'}`)

@@ -15,7 +15,7 @@
       ],
       "sourceMaps": true,
       "cwd": "${workspaceRoot}",
-      "protocol": "inspector",
+      "envFile": "${workspaceFolder}/.env"
     },
     {
       "type": "node",

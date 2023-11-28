@@ -11,7 +11,6 @@ export class LolStatusDTO {
   /**
    * Server lol key
    */
-  // tslint:disable:variable-name
   region_tag: string
   /**
    * Hostname

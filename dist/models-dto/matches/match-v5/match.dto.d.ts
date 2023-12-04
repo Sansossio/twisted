@@ -102,7 +102,8 @@ export declare namespace MatchV5DTOs {
         profileIcon: number;
         puuid: string;
         quadraKills: number;
-        riotIdName: string;
+        riotIdName?: string;
+        riotIdGameName?: string;
         riotIdTagline: string;
         role: Role;
         sightWardsBoughtInGame: number;

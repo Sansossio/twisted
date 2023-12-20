@@ -169,7 +169,8 @@ export enum Champions {
   BELVETH = 200,
   NILAH = 895,
   KSANTE = 897,
-  MILIO = 902
+  MILIO = 902,
+  HWEI = 910,
 }
 
 const championIdMap = invert(Champions)

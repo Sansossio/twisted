@@ -1,4 +1,3 @@
-import * as _ from 'lodash'
 import { IErrors } from '.'
 import { SERVICE_UNAVAILABLE } from 'http-status-codes'
 import { RateLimitDto } from '../models-dto/rate-limit/rate-limit.dto'

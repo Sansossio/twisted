@@ -2,8 +2,8 @@ import { Constants } from '../../src'
 import { Levels } from '../../src/constants/levels'
 
 export const config = {
-  summonerName: 'Hide on Bush',
-  region: Constants.Regions.KOREA
+  summonerName: 'Sansossio',
+  region: Constants.Regions.LAT_NORTH
 }
 
 // ARAM specific

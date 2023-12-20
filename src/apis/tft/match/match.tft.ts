@@ -34,9 +34,6 @@ export class MatchTFTApi extends BaseApiTft {
    * Get match listing (with details)
    */
   public async listWithDetails (summonerPUUID: string, region: RegionGroups, query?: MatchTFTQueryDTO) {
-    const params = {
-      summonerPUUID
-    }
     const response: MatchTFTDTO[] = []
     // Match list
     const {

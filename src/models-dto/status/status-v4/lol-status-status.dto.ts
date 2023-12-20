@@ -14,7 +14,6 @@ export class LolStatusStatusDTO {
    * Status of the service
    * (e.g. `scheduled`, `in_progress`, `complete`)
    */
-  // tslint:disable:variable-name
   maintenance_status: string
   /**
    * Severity of the service

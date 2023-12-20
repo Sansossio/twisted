@@ -1,7 +1,6 @@
 import { invert } from 'lodash'
 import Axios from 'axios'
-// Untyped modules
-const { CamelCase } = require('camelcasejs')
+import _ from 'lodash'
 
 /**
  * Champions - Used as fallback
@@ -162,7 +161,15 @@ export enum Champions {
   SERAPHINE = 147,
   RELL = 526,
   VIEGO = 234,
-  GWEN = 887
+  GWEN = 887,
+  AKSHAN = 166,
+  VEX = 711,
+  ZERI = 221,
+  RENATA_GLASC = 888,
+  BELVETH = 200,
+  NILAH = 895,
+  KSANTE = 897,
+  MILIO = 902
 }
 
 const championIdMap = invert(Champions)
@@ -209,7 +216,7 @@ export function getChampionName (champ: number): string {
  */
 export function getChampionNameCapital (champ: number | string): string {
   let name = typeof champ === 'number' ? getChampionName(champ) : champ
-  name = CamelCase(name.toLowerCase())
+  name = _.camelCase(name.toLowerCase())
   name = name.charAt(0).toUpperCase() + name.slice(1)
   switch (name) {
     case 'Reksai':

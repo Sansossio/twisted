@@ -3,14 +3,26 @@ League of legends api wrapper <br>
 ![https://www.npmjs.com/package/twisted](https://nodei.co/npm/twisted.png)
 
 # Simple example
+RIOT:
+```js
+import { RiotApi, Constants } from 'twisted'
+
+const api = new RiotApi()
+
+export async function getAccount () {
+  // Recommended to use the nearest routing value to your server: americas, asia, europe
+  return (await api.Account.getByRiotId("Hide on bush", "KR1", Constants.RegionGroups.AMERICAS)).response
+}
+```
 LOL:
 ```js
 import { LolApi, Constants } from 'twisted'
 
 const api = new LolApi()
 
-export async function summonerByNameExample () {
-  return await api.Summoner.getByName('Hide on bush', Constants.Regions.KOREA)
+export async function getSummoner () {
+  const user = await getAccount()
+  return await api.Summoner.getByPUUID(user.puuid, Constants.Regions.KOREA)
 }
 ```
 TFT:
@@ -20,12 +32,8 @@ import { TftApi, Constants } from 'twisted'
 const api = new TftApi()
 
 export async function matchListTft () {
-  const {
-    response: {
-      puuid
-    }
-  } = await api.Summoner.getByName('Maxii', Constants.Regions.LAT_NORTH)
-  return api.Match.list(puuid, Constants.RegionGroups.AMERICAS)
+  const user = await getAccount()
+  return api.Match.list(user.puuid, Constants.RegionGroups.KOREA)
 }
 
 ```
@@ -75,11 +83,15 @@ const api = new LolApi({
 
 # Endpoints 
 Everything should be in the same order as in the official docs.
+
+# Riot Endpoints
 ## ACCOUNT-V1
 - [x] `Get account by puuid`
 - [x] `Get account by riot id`
 - [ ] `Get active shard for a player`
 - [ ] `Get account by access token`
+
+# LOL Endpoints
 ## CHAMPION-MASTERY-V4
 - [x] `Get all champion mastery entries sorted by number of champion points descending.`
 - [x] `Get a champion mastery by player ID and champion ID.`
@@ -133,8 +145,8 @@ Everything should be in the same order as in the official docs.
 - [x] `Get list of featured games.`
 ## SUMMONER-V4
 - [x] `Get a summoner by account ID.`
-- [x] `Get a summoner by summoner name.`
-- [x] `Get a summoner by PUUID.`
+- [x] `Get a summoner by summoner name.` (deprecated Oct 16th, 2023)
+- [x] `Get a summoner by PUUID.` 
 - [x] `Get a summoner by summoner ID.`
 ## TOURNAMENT-STUB-V4
 - [ ] `Create a mock tournament code for the given tournament.`
@@ -152,7 +164,7 @@ Everything should be in the same order as in the official docs.
 # TFT Endpoints
 ## TFT-SUMMONER-V1
 - [x] `Get a summoner by account ID.`
-- [x] `Get a summoner by summoner name.`
+- [x] `Get a summoner by summoner name.` (deprecated Oct 16th, 2023)
 - [x] `Get a summoner by PUUID.`
 - [x] `Get a summoner by summoner ID.`
 ## TFT-MATCH-V1

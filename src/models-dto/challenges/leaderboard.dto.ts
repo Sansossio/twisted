@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace LeaderboardDTO {
    export interface Leaderboard {
       /** Summoner puuid. */

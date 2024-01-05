@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace PlayerDTO {
    export interface Player {
       /** All challenges for a player. */

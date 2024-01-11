@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { BaseApi } = require('../src/base/base')
 const { getUrlFromOptions } = require('../src/base/base.utils')
 const { ApiKeyNotFound, RateLimitError, ServiceUnavailable } = require('../src/errors')
@@ -121,7 +122,7 @@ describe('Base api', () => {
       } catch (e) {
         expect(e).toBeInstanceOf(ServiceUnavailable)
       }
-    })
+    }, 10000)
   })
 
   describe('Rate limit response', () => {

@@ -1,3 +1,4 @@
+export * from './Challenges.example'
 export * from './ChampionRotation.example'
 export * from './SummonerByAccountID.example'
 export * from './SummonerById.example'

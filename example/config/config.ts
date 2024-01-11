@@ -2,7 +2,8 @@ import { Constants } from '../../src'
 
 export const config = {
   summonerName: 'Sansossio',
-  region: Constants.Regions.LAT_NORTH
+  region: Constants.Regions.LAT_NORTH,
+  tagLine: 'LAN'
 }
 
 export const configTft = {

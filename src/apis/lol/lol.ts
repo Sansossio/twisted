@@ -11,11 +11,16 @@ import { BaseApiLol } from './base/base.api.lol'
 import { ClashApi } from './clash/clash.api.lol'
 import { MatchV5Api } from './match/match-v5'
 import { StatusV4Api } from './status/status-v4'
+import { ChallengesV1Api } from './challenges/challenges'
 
 /**
  * Classic league of legends api
  */
 export class LolApi extends BaseApiLol {
+  /**
+   * ChallengesV1 methods
+   */
+  public readonly Challenges = new ChallengesV1Api(this.getParam()) 
   /**
    * Match methods
    * @deprecated use v5 instead
@@ -31,6 +36,7 @@ export class LolApi extends BaseApiLol {
   public readonly League = new LeagueApi(this.getParam())
   /**
    * Summoner methods
+   * 
    */
   public readonly Summoner = new SummonerApi(this.getParam())
   /**

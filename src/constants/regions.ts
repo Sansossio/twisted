@@ -10,7 +10,12 @@ export enum Regions {
   TURKEY = 'TR1',
   RUSSIA = 'RU',
   JAPAN = 'JP1',
-  PBE = 'PBE1'
+  VIETNAM = 'VN2',
+  TAIWAN = 'TW2',
+  THAILAND = 'TH2',
+  SINGAPORE = 'SG2', 
+  PHILIPPINES = 'PH2',
+  PBE = 'PBE1',
 }
 
 /**
@@ -48,6 +53,11 @@ export function regionToRegionGroup (region: Regions): RegionGroups {
       return RegionGroups.ASIA
     // Sea
     case Regions.OCEANIA:
+    case Regions.PHILIPPINES:
+    case Regions.SINGAPORE:
+    case Regions.THAILAND:
+    case Regions.TAIWAN:
+    case Regions.VIETNAM:
       return RegionGroups.SEA
   }
   throw new Error(`Unexpected region: ${region}`)

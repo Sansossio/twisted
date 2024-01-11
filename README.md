@@ -3,14 +3,26 @@ League of legends api wrapper <br>
 ![https://www.npmjs.com/package/twisted](https://nodei.co/npm/twisted.png)
 
 # Simple example
+RIOT:
+```js
+import { RiotApi, Constants } from 'twisted'
+
+const api = new RiotApi()
+
+export async function getAccount () {
+  // Recommended to use the nearest routing value to your server: americas, asia, europe
+  return (await api.Account.getByRiotId("Hide on bush", "KR1", Constants.RegionGroups.AMERICAS)).response
+}
+```
 LOL:
 ```js
 import { LolApi, Constants } from 'twisted'
 
 const api = new LolApi()
 
-export async function summonerByNameExample () {
-  return await api.Summoner.getByName('Hide on bush', Constants.Regions.KOREA)
+export async function getSummoner () {
+  const user = await getAccount()
+  return await api.Summoner.getByPUUID(user.puuid, Constants.Regions.KOREA)
 }
 ```
 TFT:
@@ -20,12 +32,8 @@ import { TftApi, Constants } from 'twisted'
 const api = new TftApi()
 
 export async function matchListTft () {
-  const {
-    response: {
-      puuid
-    }
-  } = await api.Summoner.getByName('Maxii', Constants.Regions.LAT_NORTH)
-  return api.Match.list(puuid, Constants.RegionGroups.AMERICAS)
+  const user = await getAccount()
+  return api.Match.list(user.puuid, Constants.RegionGroups.KOREA)
 }
 
 ```
@@ -75,12 +83,15 @@ const api = new LolApi({
 
 # Endpoints 
 Everything should be in the same order as in the official docs.
-## CLASH
-- [x] `Get players by summoner id`
-- [x] `Get team`
-- [x] `Get tournaments`
-- [x] `Get tournaments by team id`
-- [x] `Get tournament by id`
+
+# Riot Endpoints
+## ACCOUNT-V1
+- [x] `Get account by puuid`
+- [x] `Get account by riot id`
+- [ ] `Get active shard for a player`
+- [ ] `Get account by access token`
+
+# LOL Endpoints
 ## CHAMPION-MASTERY-V4
 - [x] `Get all champion mastery entries sorted by number of champion points descending.`
 - [x] `Get a champion mastery by player ID and champion ID.`
@@ -88,12 +99,16 @@ Everything should be in the same order as in the official docs.
 ## CHAMPION-V3
 - [x] `Retrieve all champions.`
 - [x] `Retrieve champion by ID.`
-
+## CLASH
+- [x] `Get players by summoner id`
+- [x] `Get team`
+- [x] `Get tournaments`
+- [x] `Get tournaments by team id`
+- [x] `Get tournament by id`
 ## MATCH-V5
 - [x] `Get match by id`
 - [x] `Get matches by summoner id`
 - [x] `Get match timeline by id`
-
 ## MATCH-V4 (deprecated)
 - [x] `Get matches id by tournament code`
 - [x] `Get match by id`
@@ -110,6 +125,13 @@ Everything should be in the same order as in the official docs.
 - [x] `Get the queues that have positional ranks enabled.` (deprecated June 17th and in `v0.9.10`)
 - [x] `Get league positions in all queues for a given summoner ID.` (deprecated June 17th and in `v0.9.10`)
 - [x] `Get all the positional league entries.` (deprecated June 17th and in `v0.9.10`)
+## LOL-CHALLENGES-V1
+- [x] `Get all challenge configurations.`
+- [x] `Get all challenge percentile distributions.`
+- [x] `Get a challenge configuration.`
+- [x] `Get Leaderboards for a challenge (Chall, GM, Masters).`
+- [x] `Get a challenge percentile distribution.`
+- [x] `Get player challenge information.`
 ## LOL-STATUS-V3
 - [x] `Get League of Legends status for the given shard.`
 - [x] `Get matchlist for games played on given account ID and platform ID and filtered using given filter parameters, if any.`
@@ -123,8 +145,8 @@ Everything should be in the same order as in the official docs.
 - [x] `Get list of featured games.`
 ## SUMMONER-V4
 - [x] `Get a summoner by account ID.`
-- [x] `Get a summoner by summoner name.`
-- [x] `Get a summoner by PUUID.`
+- [x] `Get a summoner by summoner name.` (deprecated Oct 16th, 2023)
+- [x] `Get a summoner by PUUID.` 
 - [x] `Get a summoner by summoner ID.`
 ## TOURNAMENT-STUB-V4
 - [ ] `Create a mock tournament code for the given tournament.`
@@ -142,7 +164,7 @@ Everything should be in the same order as in the official docs.
 # TFT Endpoints
 ## TFT-SUMMONER-V1
 - [x] `Get a summoner by account ID.`
-- [x] `Get a summoner by summoner name.`
+- [x] `Get a summoner by summoner name.` (deprecated Oct 16th, 2023)
 - [x] `Get a summoner by PUUID.`
 - [x] `Get a summoner by summoner ID.`
 ## TFT-MATCH-V1
@@ -189,4 +211,3 @@ This library has an option to fetch an actual version of champion IDs regularly.
 gets added, while the application runs. E.g. data crawlers, or services which aren't supposed to be restarted regularly.
 
 Set the value to ```true``` or ```1``` to enable this feature. 
-

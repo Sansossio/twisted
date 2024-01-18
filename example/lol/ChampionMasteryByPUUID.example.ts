@@ -3,12 +3,12 @@ import { config } from '../config/config'
 
 const api = new LolApi()
 
-export async function championMasteryBySummoner () {
+export async function championMasteryByPUUID () {
   const { region } = config
   const {
     response: {
       id
     }
   } = await api.Summoner.getByName(config.summonerName, region)
-  return await api.Champion.masteryBySummoner(id, region)
+  return await api.Champion.masteryByPUUID(id, region)
 }

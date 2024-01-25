@@ -1,345 +1,385 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace MatchV5DTOs {
   export interface MatchDto {
-    metadata: MetadataDto
-    info: InfoDto
+    metadata: MetadataDto;
+    info: InfoDto;
   }
 
   export interface MetadataDto {
     /** Match data version. */
-    dataVersion: string
+    dataVersion: string;
 
     /** Match id. */
-    matchId: string
+    matchId: string;
 
     /** A list of participant PUUIDs */
-    participants: string[]
+    participants: string[];
   }
 
   export interface InfoDto {
     /** Unix timestamp for when the game is created(i.e., the loading screen). */
-    gameCreation: number
+    gameCreation: number;
 
     /** Game length in milliseconds. */
-    gameDuration: number
+    gameDuration: number;
 
-    gameId: number
+    gameId: number;
 
     /** Refer to the Game Constants documentation. */
-    gameMode: string
-    gameName: string
+    gameMode: string;
+    gameName: string;
 
     /** Unix timestamp for when match actually starts. */
-    gameStartTimestamp: number
-    gameType: string
+    gameStartTimestamp: number;
+    gameType: string;
 
     /** The first two parts can be used to determine the patch a game was played on. */
-    gameVersion: string
+    gameVersion: string;
 
     /** Refer to the Game Constants documentation. */
-    mapId: number
-    participants: ParticipantDto[]
+    mapId: number;
+    participants: ParticipantDto[];
 
     /** Platform where the match was played. */
-    platformId: string
+    platformId: string;
 
     /** Refer to the Game Constants documentation. */
-    queueId: number
+    queueId: number;
 
-    teams: TeamDto[]
+    teams: TeamDto[];
 
     /** Tournament code used to generate the match. */
-    tournamentCode: string
+    tournamentCode: string;
   }
 
   export interface ParticipantDto {
-    assists: number
-    baronKills: number
-    bountyLevel: number
-    challenges: ChallengesDto
-    champExperience: number
-    champLevel: number
-    championId: number
-    championName: string
+    allInPings: number;
+    assistMePings: number;
+    assists: number;
+    baitPings: number;
+    baronKills: number;
+    basicPings: number;
+    bountyLevel: number;
+    challenges: ChallengesDto;
+    champExperience: number;
+    champLevel: number;
+    championId: number;
+    championName: string;
 
     /** This field is currently only utilized for Kayn's transformations. (Legal values: 0 - None, 1 - Slayer, 2 - Assassin) */
-    championTransform: number
-    consumablesPurchased: number
-    damageDealtToBuildings: number
-    damageDealtToObjectives: number
-    damageDealtToTurrets: number
-    damageSelfMitigated: number
-    deaths: number
-    detectorWardsPlaced: number
-    doubleKills: number
-    dragonKills: number
-    eligibleForProgression: boolean
-    firstBloodAssist: boolean
-    firstBloodKill: boolean
-    firstTowerAssist: boolean
-    firstTowerKill: boolean
-    gameEndedInEarlySurrender: boolean
-    gameEndedInSurrender: boolean
-    goldEarned: number
-    goldSpent: number
+    championTransform: number;
+
+    commandPings: number;
+    consumablesPurchased: number;
+    damageDealtToBuildings: number;
+    damageDealtToObjectives: number;
+    damageDealtToTurrets: number;
+    damageSelfMitigated: number;
+    dangerPings: number;
+    deaths: number;
+    detectorWardsPlaced: number;
+    doubleKills: number;
+    dragonKills: number;
+    eligibleForProgression: boolean;
+    enemyMissingPings: number;
+    enemyVisionPings: number;
+    firstBloodAssist: boolean;
+    firstBloodKill: boolean;
+    firstTowerAssist: boolean;
+    firstTowerKill: boolean;
+    gameEndedInEarlySurrender: boolean;
+    gameEndedInSurrender: boolean;
+    getBackPings: number;
+    goldEarned: number;
+    goldSpent: number;
+    holdPings: number;
 
     /** Both individualPosition and teamPosition are computed by the game server and are different versions of the most likely position played by a player. The individualPosition is the best guess for which position the player actually played in isolation of anything else. The teamPosition is the best guess for which position the player actually played if we add the constraint that each team must have one top player, one jungle, one middle, etc. Generally the recommendation is to use the teamPosition field over the individualPosition field. */
-    individualPosition: Position
+    individualPosition: Position;
 
-    inhibitorKills: number
-    inhibitorTakedowns: number
-    inhibitorsLost: number
-    item0: number
-    item1: number
-    item2: number
-    item3: number
-    item4: number
-    item5: number
-    item6: number
-    itemsPurchased: number
-    killingSprees: number
-    kills: number
-    lane: Lane
-    largestCriticalStrike: number
-    largestKillingSpree: number
-    largestMultiKill: number
-    longestTimeSpentLiving: number
-    magicDamageDealt: number
-    magicDamageDealtToChampions: number
-    magicDamageTaken: number
-    neutralMinionsKilled: number
-    nexusKills: number
-    nexusTakedowns: number
-    nexusLost: number
-    objectivesStolen: number
-    objectivesStolenAssists: number
-    participantId: number
-    pentaKills: number
-    perks: PerksDto
-    physicalDamageDealt: number
-    physicalDamageDealtToChampions: number
-    physicalDamageTaken: number
-    profileIcon: number
-    puuid: string
-    quadraKills: number
-    riotIdName?: string
-    riotIdGameName?: string
-    riotIdTagline: string
-    role: Role
-    sightWardsBoughtInGame: number
-    spell1Casts: number
-    spell2Casts: number
-    spell3Casts: number
-    spell4Casts: number
-    summoner1Casts: number
-    summoner1Id: number
-    summoner2Casts: number
-    summoner2Id: number
-    summonerId: string
-    summonerLevel: number
-    summonerName: string
-    teamEarlySurrendered: boolean
-    teamId: number
+    inhibitorKills: number;
+    inhibitorTakedowns: number;
+    inhibitorsLost: number;
+    item0: number;
+    item1: number;
+    item2: number;
+    item3: number;
+    item4: number;
+    item5: number;
+    item6: number;
+    itemsPurchased: number;
+    killingSprees: number;
+    kills: number;
+    lane: Lane;
+    largestCriticalStrike: number;
+    largestKillingSpree: number;
+    largestMultiKill: number;
+    longestTimeSpentLiving: number;
+    magicDamageDealt: number;
+    magicDamageDealtToChampions: number;
+    magicDamageTaken: number;
+
+    /** New interface */
+    missions: MissionsDto;
+
+    needVisionPings: number;
+    neutralMinionsKilled: number;
+    nexusKills: number;
+    nexusLost: number;
+    nexusTakedowns: number;
+    objectivesStolen: number;
+    objectivesStolenAssists: number;
+    onMyWayPings: number;
+    participantId: number;
+    pentaKills: number;
+    perks: PerksDto;
+    physicalDamageDealt: number;
+    physicalDamageDealtToChampions: number;
+    physicalDamageTaken: number;
+    profileIcon: number;
+    pushPings: number;
+    puuid: string;
+    quadraKills: number;
+    riotIdName?: string;
+    riotIdGameName?: string;
+    riotIdTagline: string;
+    role: Role;
+    sightWardsBoughtInGame: number;
+    spell1Casts: number;
+    spell2Casts: number;
+    spell3Casts: number;
+    spell4Casts: number;
+    summoner1Casts: number;
+    summoner1Id: number;
+    summoner2Casts: number;
+    summoner2Id: number;
+    summonerId: string;
+    summonerLevel: number;
+    summonerName: string;
+    teamEarlySurrendered: boolean;
+    teamId: number;
 
     /** Both individualPosition and teamPosition are computed by the game server and are different versions of the most likely position played by a player. The individualPosition is the best guess for which position the player actually played in isolation of anything else. The teamPosition is the best guess for which position the player actually played if we add the constraint that each team must have one top player, one jungle, one middle, etc. Generally the recommendation is to use the teamPosition field over the individualPosition field. */
-    teamPosition: Position
+    teamPosition: Position;
 
-    timeCCingOthers: number
-    timePlayed: number
-    totalDamageDealt: number
-    totalDamageDealtToChampions: number
-    totalDamageShieldedOnTeammates: number
-    totalDamageTaken: number
-    totalHeal: number
-    totalHealsOnTeammates: number
-    totalMinionsKilled: number
-    totalTimeCCDealt: number
-    totalTimeSpentDead: number
-    totalUnitsHealed: number
-    tripleKills: number
-    trueDamageDealt: number
-    trueDamageDealtToChampions: number
-    trueDamageTaken: number
-    turretKills: number
-    turretTakedowns: number
-    turretsLost: number
-    unrealKills: number
-    visionScore: number
-    visionWardsBoughtInGame: number
-    wardsKilled: number
-    wardsPlaced: number
-    win: boolean
+    timeCCingOthers: number;
+    timePlayed: number;
+    totalAllyJungleMinionsKilled: number;
+    totalDamageDealt: number;
+    totalDamageDealtToChampions: number;
+    totalDamageShieldedOnTeammates: number;
+    totalDamageTaken: number;
+    totalEnemyJungleMinionsKilled: number;
+    totalHeal: number;
+    totalHealsOnTeammates: number;
+    totalMinionsKilled: number;
+    totalTimeCCDealt: number;
+    totalTimeSpentDead: number;
+    totalUnitsHealed: number;
+    tripleKills: number;
+    trueDamageDealt: number;
+    trueDamageDealtToChampions: number;
+    trueDamageTaken: number;
+    turretKills: number;
+    turretTakedowns: number;
+    turretsLost: number;
+    unrealKills: number;
+    visionScore: number;
+    visionWardsBoughtInGame: number;
+    wardsKilled: number;
+    wardsPlaced: number;
+    win: boolean;
   }
 
   export interface ChallengesDto {
-    '12AssistStreakCount': number
-    abilityUses: number
-    acesBefore15Minutes: number
-    alliedJungleMonsterKills: number
-    baronTakedowns: number
-    blastConeOppositeOpponentCount: number
-    bountyGold: number
-    buffsStolen: number
-    completeSupportQuestInTime: number
-    controlWardsPlaced: number
-    damagePerMinute: number
-    damageTakenOnTeamPercentage: number
-    dancedWithRiftHerald: number
-    deathsByEnemyChamps: number
-    dodgeSkillShotsSmallWindow: number
-    doubleAces: number
-    dragonTakedowns: number
-    earlyLaningPhaseGoldExpAdvantage: number
-    effectiveHealAndShielding: number
-    elderDragonKillsWithOpposingSoul: number
-    elderDragonMultikills: number
-    enemyChampionImmobilizations: number
-    enemyJungleMonsterKills: number
-    epicMonsterKillsNearEnemyJungler: number
-    epicMonsterKillsWithin30SecondsOfSpawn: number
-    epicMonsterSteals: number
-    epicMonsterStolenWithoutSmite: number
-    firstTurretKilled: number
-    firstTurretKilledTime: number
-    flawlessAces: number
-    fullTeamTakedown: number
-    gameLength: number
-    goldPerMinute: number
-    hadOpenNexus: number
-    immobilizeAndKillWithAlly: number
-    initialBuffCount: number
-    initialCrabCount: number
-    jungleCsBefore10Minutes: number
-    junglerKillsEarlyJungle: number
-    junglerTakedownsNearDamagedEpicMonster: number
-    kTurretsDestroyedBeforePlatesFall: number
-    kda: number
-    killAfterHiddenWithAlly: number
-    killParticipation: number
-    killedChampTookFullTeamDamageSurvived: number
-    killingSprees: number
-    killsNearEnemyTurret: number
-    killsOnLanersEarlyJungleAsJungler: number
-    killsOnRecentlyHealedByAramPack: number
-    killsUnderOwnTurret: number
-    killsWithHelpFromEpicMonster: number
-    knockEnemyIntoTeamAndKill: number
-    landSkillShotsEarlyGame: number
-    laneMinionsFirst10Minutes: number
-    laningPhaseGoldExpAdvantage: number
-    legendaryCount: number
-    lostAnInhibitor: number
-    maxCsAdvantageOnLaneOpponent: number
-    maxKillDeficit: number
-    maxLevelLeadLaneOpponent: number
-    mejaisFullStackInTime: number
-    moreEnemyJungleThanOpponent: number
-    multiKillOneSpell: number
-    multiTurretRiftHeraldCount: number
-    multikills: number
-    multikillsAfterAggressiveFlash: number
-    mythicItemUsed: number
-    outerTurretExecutesBefore10Minutes: number
-    outnumberedKills: number
-    outnumberedNexusKill: number
-    perfectDragonSoulsTaken: number
-    perfectGame: number
-    pickKillWithAlly: number
-    playedChampSelectPosition: number
-    poroExplosions: number
-    quickCleanse: number
-    quickFirstTurret: number
-    quickSoloKills: number
-    riftHeraldTakedowns: number
-    saveAllyFromDeath: number
-    scuttleCrabKills: number
-    skillshotsDodged: number
-    skillshotsHit: number
-    snowballsHit: number
-    soloBaronKills: number
-    soloKills: number
-    stealthWardsPlaced: number
-    survivedSingleDigitHpCount: number
-    survivedThreeImmobilizesInFight: number
-    takedownOnFirstTurret: number
-    takedowns: number
-    takedownsAfterGainingLevelAdvantage: number
-    takedownsBeforeJungleMinionSpawn: number
-    takedownsFirstXMinutes: number
-    takedownsInAlcove: number
-    takedownsInEnemyFountain: number
-    teamBaronKills: number
-    teamDamagePercentage: number
-    teamElderDragonKills: number
-    teamRiftHeraldKills: number
-    tookLargeDamageSurvived: number
-    turretPlatesTaken: number
-    turretTakedowns: number
-    turretsTakenWithRiftHerald: number
-    twentyMinionsIn3SecondsCount: number
-    twoWardsOneSweeperCount: number
-    unseenRecalls: number
-    visionScoreAdvantageLaneOpponent: number
-    visionScorePerMinute: number
-    wardTakedowns: number
-    wardTakedownsBefore20M: number
-    wardsGuarded: number
+    "12AssistStreakCount": number;
+    abilityUses: number;
+    acesBefore15Minutes: number;
+    alliedJungleMonsterKills: number;
+    baronbBuffGoldAdvantageOverThreshold: number;
+    baronTakedowns: number;
+    blastConeOppositeOpponentCount: number;
+    bountyGold: number;
+    buffsStolen: number;
+    completeSupportQuestInTime: number;
+    controlWardsPlaced: number;
+    damagePerMinute: number;
+    damageTakenOnTeamPercentage: number;
+    dancedWithRiftHerald: number;
+    deathsByEnemyChamps: number;
+    dodgeSkillShotsSmallWindow: number;
+    doubleAces: number;
+    dragonTakedowns: number;
+    earliestBaron: number;
+    earlyLaningPhaseGoldExpAdvantage: number;
+    effectiveHealAndShielding: number;
+    elderDragonKillsWithOpposingSoul: number;
+    elderDragonMultikills: number;
+    enemyChampionImmobilizations: number;
+    enemyJungleMonsterKills: number;
+    epicMonsterKillsNearEnemyJungler: number;
+    epicMonsterKillsWithin30SecondsOfSpawn: number;
+    epicMonsterSteals: number;
+    epicMonsterStolenWithoutSmite: number;
+    firstTurretKilled: number;
+    firstTurretKilledTime: number;
+    flawlessAces: number;
+    fullTeamTakedown: number;
+    gameLength: number;
+    getTakedownsInAllLanesEarlyJungleAsLaner: number;
+    goldPerMinute: number;
+    hadOpenNexus: number;
+    highestCrowdControlScore: number;
+    immobilizeAndKillWithAlly: number;
+    initialBuffCount: number;
+    initialCrabCount: number;
+    jungleCsBefore10Minutes: number;
+    junglerTakedownsNearDamagedEpicMonster: number;
+    junglerKillsEarlyJungle: number;
+    kTurretsDestroyedBeforePlatesFall: number;
+    kda: number;
+    killAfterHiddenWithAlly: number;
+    killParticipation: number;
+    killedChampTookFullTeamDamageSurvived: number;
+    killingSprees: number;
+    killsNearEnemyTurret: number;
+    killsOnLanersEarlyJungleAsJungler: number;
+    killsOnRecentlyHealedByAramPack: number;
+    killsUnderOwnTurret: number;
+    killsWithHelpFromEpicMonster: number;
+    knockEnemyIntoTeamAndKill: number;
+    landSkillShotsEarlyGame: number;
+    laneMinionsFirst10Minutes: number;
+    laningPhaseGoldExpAdvantage: number;
+    legendaryCount: number;
+    lostAnInhibitor: number;
+    maxCsAdvantageOnLaneOpponent: number;
+    maxKillDeficit: number;
+    maxLevelLeadLaneOpponent: number;
+    mejaisFullStackInTime: number;
+    moreEnemyJungleThanOpponent: number;
+    multiKillOneSpell: number;
+    multiTurretRiftHeraldCount: number;
+    multikills: number;
+    multikillsAfterAggressiveFlash: number;
+    mythicItemUsed: number;
+    outerTurretExecutesBefore10Minutes: number;
+    outnumberedKills: number;
+    outnumberedNexusKill: number;
+    perfectDragonSoulsTaken: number;
+    perfectGame: number;
+    pickKillWithAlly: number;
+    playedChampSelectPosition: number;
+    poroExplosions: number;
+    quickCleanse: number;
+    quickFirstTurret: number;
+    quickSoloKills: number;
+    riftHeraldTakedowns: number;
+    saveAllyFromDeath: number;
+    scuttleCrabKills: number;
+    shortestTimeToAceFromFirstTaledown: number;
+    skillshotsDodged: number;
+    skillshotsHit: number;
+    snowballsHit: number;
+    soloBaronKills: number;
+    soloKills: number;
+    stealthWardsPlaced: number;
+    survivedSingleDigitHpCount: number;
+    survivedThreeImmobilizesInFight: number;
+    takedownOnFirstTurret: number;
+    takedowns: number;
+    takedownsAfterGainingLevelAdvantage: number;
+    takedownsBeforeJungleMinionSpawn: number;
+    takedownsFirstXMinutes: number;
+    takedownsInAlcove: number;
+    takedownsInEnemyFountain: number;
+    teamBaronKills: number;
+    teamDamagePercentage: number;
+    teamElderDragonKills: number;
+    teamRiftHeraldKills: number;
+    threeWardsOneSweeperCount: number;
+    tookLargeDamageSurvived: number;
+    turretPlatesTaken: number;
+    turretTakedowns: number;
+    turretsTakenWithRiftHerald: number;
+    twentyMinionsIn3SecondsCount: number;
+    twoWardsOneSweeperCount: number;
+    unseenRecalls: number;
+    visionScoreAdvantageLaneOpponent: number;
+    visionScorePerMinute: number;
+    wardTakedowns: number;
+    wardTakedownsBefore20M: number;
+    wardsGuarded: number;
+  }
+
+  /** Not sure what this is about */
+  export interface MissionsDto {
+    playerScore0: number;
+    playerScore1: number;
+    playerScore2: number;
+    playerScore3: number;
+    playerScore4: number;
+    playerScore5: number;
+    playerScore6: number;
+    playerScore7: number;
+    playerScore8: number;
+    playerScore9: number;
   }
 
   export interface PerksDto {
-    statPerks: PerkStatsDto
-    styles: PerkStyleDto[]
+    statPerks: PerkStatsDto;
+    styles: PerkStyleDto[];
   }
 
   export interface PerkStatsDto {
-    defense: number
-    flex: number
-    offense: number
+    defense: number;
+    flex: number;
+    offense: number;
   }
 
   export interface PerkStyleDto {
-    description: Description
-    selections: PerkStyleSelectionDto[]
-    style: number
+    description: Description;
+    selections: PerkStyleSelectionDto[];
+    style: number;
   }
 
   export interface PerkStyleSelectionDto {
-    perk: number
-    var1: number
-    var2: number
-    var3: number
+    perk: number;
+    var1: number;
+    var2: number;
+    var3: number;
   }
 
   export interface TeamDto {
-    bans: BanDto[]
-    objectives: ObjectivesDto
-    teamId: number
-    win: boolean
+    bans: BanDto[];
+    objectives: ObjectivesDto;
+    teamId: number;
+    win: boolean;
   }
 
   export interface BanDto {
-    championId: number
-    pickTurn: number
+    championId: number;
+    pickTurn: number;
   }
 
   export interface ObjectivesDto {
-    baron: ObjectiveDto
-    champion: ObjectiveDto
-    dragon: ObjectiveDto
-    inhibitor: ObjectiveDto
-    riftHerald: ObjectiveDto
-    tower: ObjectiveDto
+    baron: ObjectiveDto;
+    champion: ObjectiveDto;
+    dragon: ObjectiveDto;
+    inhibitor: ObjectiveDto;
+    riftHerald: ObjectiveDto;
+    tower: ObjectiveDto;
   }
 
   export interface ObjectiveDto {
-    first: boolean
-    kills: number
+    first: boolean;
+    kills: number;
   }
 
-  export type Description = 'primaryStyle' | 'subStyle'
+  export type Description = "primaryStyle" | "subStyle";
 
   // TODO: Revisit the possible values once https://github.com/RiotGames/developer-relations/issues/541 is fixed
-  export type Position = '' | 'Invalid' | 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM' | 'UTILITY'
-  export type Role = 'SOLO' | 'NONE' | 'CARRY' | 'SUPPORT'
-  export type Lane = 'TOP' | 'JUNGLE' | 'MIDDLE' | 'BOTTOM'
+  export type Position = "" | "Invalid" | "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
+  export type Role = "SOLO" | "NONE" | "CARRY" | "SUPPORT";
+  export type Lane = "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM";
 }

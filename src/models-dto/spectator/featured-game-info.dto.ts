@@ -8,10 +8,6 @@ export class FeaturedGameInfo {
    */
   gameId: number
   /**
-   * The game start time represented in epoch milliseconds
-   */
-  gameStartTime: number
-  /**
    * The ID of the platform on which the game is being played
    */
   platformId: string

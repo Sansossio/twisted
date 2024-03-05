@@ -23,6 +23,16 @@ export const endpointsV5: IEndpoints = {
     path: 'matches/$(matchId)/timeline',
     prefix: 'match',
     version: 5
+  },
+  SpectatorFeaturedGames: {
+    path: 'featured-games',
+    prefix: 'spectator',
+    version: 5
+  },
+  SpectatorSummoner: {
+    path: 'active-games/by-summoner/$(summonerPUUID)',
+    prefix: 'spectator',
+    version: 5
   }
 }
 

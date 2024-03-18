@@ -9,7 +9,7 @@ export class LeagueEntryDTO {
   readonly rank: string
   readonly leaguePoints: number
   readonly wins: number
-  readonly loses: number
+  readonly losses: number
   readonly hotstreak: boolean
   readonly veteran: boolean
   readonly freshBlood: boolean

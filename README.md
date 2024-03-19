@@ -165,6 +165,9 @@ Everything should be in the same order as in the official docs.
 - [ ] `Creates a tournament and returns its ID.`
 
 # TFT Endpoints
+## TFT-SPECTATOR-V5
+- [x] `Get current game information for the given puuid.`
+- [x] `Get list of featured games.`
 ## TFT-SUMMONER-V1
 - [x] `Get a summoner by account ID.`
 - [x] `Get a summoner by summoner name.` (deprecated Oct 16th, 2023)

@@ -7,5 +7,3 @@ export async function leagueEntriesExample () {
 
   return entries;
 }
-
-leagueEntriesExample()

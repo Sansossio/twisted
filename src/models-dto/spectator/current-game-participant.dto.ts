@@ -42,4 +42,8 @@ export class CurrentGameParticipantDTO {
    * The encrypted summoner ID of this participant
    */
   summonerId: string
+  /**
+   * The encrypted puuid of this participant
+   */
+  puuid: string
 }

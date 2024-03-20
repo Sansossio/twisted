@@ -27,4 +27,12 @@ export class ParticipantDTO {
    * The ID of the first summoner spell used by this participant
    */
   spell1Id: number
+  /**
+   * Encrypted summoner ID of this participant
+   */
+  summonerId: string
+  /**
+   * The encrypted puuid of this participant
+   */
+  puuid: string
 }

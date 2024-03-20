@@ -4,6 +4,7 @@ import { SummonerApi } from './summoner/summoner'
 import { ThirdPartyCode } from './thirdPartyCode/thirdPartyCode'
 import { ChampionApi } from './champion/champion'
 import { SpectatorApi } from './spectator/spectator'
+import { SpectatorV5Api } from './spectator/spectator-v5'
 import { StatusApi } from './status/status'
 import { DataDragonService } from './dataDragon/DataDragonService'
 import { SeedApi } from './seed/seed'
@@ -49,6 +50,11 @@ export class LolApi extends BaseApiLol {
   public readonly Champion = new ChampionApi(this.getParam())
   /**
    * Spectator methods
+   */
+  public readonly SpectatorV5 = new SpectatorV5Api(this.getParam())
+  /**
+   * Spectator methods
+   * @deprecated Use SpectatorV5 instead
    */
   public readonly Spectator = new SpectatorApi(this.getParam())
   /**

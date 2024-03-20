@@ -23,6 +23,16 @@ export const endpointsV5: IEndpoints = {
     path: 'matches/$(matchId)/timeline',
     prefix: 'match',
     version: 5
+  },
+  SpectatorFeaturedGames: {
+    path: 'featured-games',
+    prefix: 'spectator',
+    version: 5
+  },
+  SpectatorSummoner: {
+    path: 'active-games/by-puuid/$(summonerPUUID)',
+    prefix: 'spectator',
+    version: 5
   }
 }
 
@@ -129,6 +139,19 @@ export const endpointsV3: IEndpoints = {
     path: 'shard-data',
     prefix: 'status',
     version: 3
+  }
+}
+
+export const endpointsTFTV5: IEndpoints = {
+  SpectateSummoner: {
+    path: 'active-games/by-puuid/$(encryptedPUUID)',
+    prefix: 'spectator/tft',
+    version: 5
+  },
+  SpectatorFeaturedGames: {
+    path: 'featured-games',
+    prefix: 'spectator/tft',
+    version: 5
   }
 }
 

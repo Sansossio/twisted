@@ -30,7 +30,7 @@ export const endpointsV5: IEndpoints = {
     version: 5
   },
   SpectatorSummoner: {
-    path: 'active-games/by-puuid/$(summonerPUUID)',
+    path: 'active-games/by-summoner/$(summonerPUUID)',
     prefix: 'spectator',
     version: 5
   }

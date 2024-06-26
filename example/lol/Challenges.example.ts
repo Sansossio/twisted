@@ -1,35 +1,28 @@
+import { RiotApi } from '../../src'
 import { LolApi } from '../../src/apis/lol/lol'
-import { Constants } from '../../src'
-import { Levels } from '../../src/constants/levels'
+import { configChallenges } from '../config/config'
 
 export async function challengesV1Example() {
+   const rApi = new RiotApi()
    const api = new LolApi()
 
-   // ARAM specific
-   const user = {
-      summonerName: 'Night Owl',
-      region: Constants.Regions.AMERICA_NORTH,
-      challengeId: 101106, // ARAM Eradication
-      level: Levels.CHALLENGER
-   }
+   const { response: { puuid } } = await rApi.Account.getByRiotId(configChallenges.summonerName, configChallenges.tagLine, configChallenges.regionGroup)
 
-   const { response: { puuid } } = await api.Summoner.getByName(user.summonerName, user.region)
-
-   const playerChallenges = (await api.Challenges.PlayerChallenges(puuid, user.region)).response
+   const playerChallenges = (await api.Challenges.PlayerChallenges(puuid, configChallenges.region)).response
    // console.log('Found total challenge points:', playerChallenges.totalPoints)
 
-   const leaderboards = (await api.Challenges.Leaderboards(user.challengeId, user.level, user.region, { limit: 5 })).response
-   // console.log(`Top 5 ${user.level} for ARAM Eradication for `, leaderboards)
+   const leaderboards = (await api.Challenges.Leaderboards(configChallenges.challengeId, configChallenges.level, configChallenges.region, { limit: 5 })).response
+   // console.log(`Top 5 ${configChallenges.level} for ARAM Eradication for `, leaderboards)
 
-   const configs = (await api.Challenges.Configs(user.region)).response
+   const configs = (await api.Challenges.Configs(configChallenges.region)).response
    // console.log("Config thresholds for the first of all basic challenges:", configs[0])
 
-   const config = (await api.Challenges.ChallengeConfig(user.challengeId, user.region)).response
+   const config = (await api.Challenges.ChallengeConfig(configChallenges.challengeId, configChallenges.region)).response
    // console.log('Challenge Configuration for ARAM Eradication', config)
 
-   const distributions = (await api.Challenges.Percentiles(user.region)).response
-   // console.log("Distribution for ARAM Eradication:", distributions[user.challengeId])
+   const distributions = (await api.Challenges.Percentiles(configChallenges.region)).response
+   // console.log("Distribution for ARAM Eradication:", distributions[configChallenges.challengeId])
 
-   const distribution = (await api.Challenges.ChallengePercentiles(user.challengeId, user.region)).response
+   const distribution = (await api.Challenges.ChallengePercentiles(configChallenges.challengeId, configChallenges.region)).response
    // console.log("Distribution for ARAM Eradication:", distribution)
 }

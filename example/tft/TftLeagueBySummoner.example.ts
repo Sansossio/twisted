@@ -1,11 +1,12 @@
+import { RiotApi } from '../../src'
 import { TftApi } from '../../src'
 import { configTft } from '../config/config'
-import { getSummonerTft } from './SummonerTFT.example'
 
+const rApi = new RiotApi()
 const api = new TftApi()
 
 export async function TftLeagueBySummoner () {
-  const {response} = await getSummonerTft()
-  const league = await api.League.get(response.id, configTft.region)
-  console.log(league)
+  const { response: { puuid } } = await rApi.Account.getByRiotId(configTft.summonerName, configTft.region, configTft.regionGroup)
+  const { response: { id } } = await api.Summoner.getByPUUID(puuid, configTft.region)
+  const league = await api.League.get(id, configTft.region)
 }

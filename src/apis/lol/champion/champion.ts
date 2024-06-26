@@ -22,7 +22,7 @@ export class ChampionApi extends BaseApiLol {
    */
   public async masteryByPUUID (puuid: string, region: Regions) {
     const params = {
-      puuid
+      summonerPUUID: puuid
     }
     return this.request<ChampionMasteryDTO[]>(region, endpointsV4.ChampionMasteryByPUUID, params)
   }
@@ -33,7 +33,7 @@ export class ChampionApi extends BaseApiLol {
    */
   public async masteryByPUUIDChampion (puuid: string, championId: number, region: Regions) {
     const params = {
-      puuid,
+      summonerPUUID: puuid,
       championId
     }
     return this.request<ChampionMasteryDTO>(region, endpointsV4.ChampionMasteryByPUUIDChampion, params)
@@ -45,7 +45,7 @@ export class ChampionApi extends BaseApiLol {
    */
   public async championsScore (puuid: string, region: Regions): Promise<ChampionsScoreDTO> {
     const params = {
-      puuid
+      summonerPUUID: puuid
     }
     let {
       response: score

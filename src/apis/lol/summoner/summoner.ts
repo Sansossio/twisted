@@ -26,15 +26,6 @@ export class SummonerApi extends BaseApiLol {
     return this.request<SummonerV4DTO>(region, endpoint, params)
   }
   /**
-   * Get by name
-   * @param summonerName Summoner name
-   * @param region Riot region
-   * @deprecated use Account v1 instead
-   */
-  public async getByName (summonerName: string, region: Regions) {
-    return this.genericRequest(FindSummonerBy.NAME, summonerName, region)
-  }
-  /**
    * Get by id
    * @param id Summoner id
    * @param region Riot region

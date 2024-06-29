@@ -1,7 +1,6 @@
 import { MatchApi } from './match/match'
 import { LeagueApi } from './league/league'
 import { SummonerApi } from './summoner/summoner'
-import { ThirdPartyCode } from './thirdPartyCode/thirdPartyCode'
 import { ChampionApi } from './champion/champion'
 import { SpectatorApi } from './spectator/spectator'
 import { SpectatorV5Api } from './spectator/spectator-v5'
@@ -40,10 +39,6 @@ export class LolApi extends BaseApiLol {
    * 
    */
   public readonly Summoner = new SummonerApi(this.getParam())
-  /**
-   * Third Party methods
-   */
-  public readonly ThirdPartyCode = new ThirdPartyCode(this.getParam())
   /**
    * Champion mastery
    */

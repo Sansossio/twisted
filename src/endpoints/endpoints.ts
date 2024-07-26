@@ -196,6 +196,12 @@ export const endpointsTFTV1: IEndpoints = {
     path: 'entries/by-summoner/$(encryptedSummonerId)',
     prefix: 'league',
     version: 1
+  },
+
+  LeagueByTierDivision: {
+    path: 'entries/$(tier)/$(division)',
+    prefix: 'league',
+    version: 1
   }
 }
 

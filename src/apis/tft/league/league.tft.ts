@@ -43,15 +43,15 @@ export class LeagueTFTApi extends BaseApiTft {
    * @param region
    * @param tier
    * @param division
-   * @param queue defaults to RANKED_TFT
    * @param page defaults to 1
+   * @param queue defaults to RANKED_TFT
    */
   public async getByTierDivision (
     region: Regions,
     tier: Tiers,
     division: Divisions,
+    page: number = 1,
     queue: string = 'RANKED_TFT',
-    page: number = 1
   ) {
     const params = {
       tier,

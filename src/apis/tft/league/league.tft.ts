@@ -1,4 +1,4 @@
-import { Regions } from '../../../constants'
+import { Regions, Tiers, Divisions } from '../../../constants'
 import { BaseApiTft } from '../base/base.api.tft'
 import { endpointsTFTV1 } from '../../../endpoints'
 import { LeagueEntryDTO } from '../../../models-dto/league/tft-league'
@@ -38,5 +38,31 @@ export class LeagueTFTApi extends BaseApiTft {
   public async getChallengerLeague (region: Regions) {
     return this.request<LeagueListDTO>(region, endpointsTFTV1.LeagueChallenger)
   }
-
+  /**
+   * Get league entries for given tier and division
+   * @param region
+   * @param tier
+   * @param division
+   * @param page defaults to 1
+   * @param queue defaults to RANKED_TFT
+   */
+  public async getByTierDivision (
+    region: Regions,
+    tier: Tiers,
+    division: Divisions,
+    page: number = 1,
+    queue: string = 'RANKED_TFT',
+  ) {
+    const params = {
+      tier,
+      division
+    }
+    return this.request<LeagueEntryDTO[]>(
+      region,
+      endpointsTFTV1.LeagueByTierDivision,
+      params,
+      false,
+      { queue, page }
+    )
+  }
 }

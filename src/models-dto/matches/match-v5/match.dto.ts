@@ -385,14 +385,7 @@ export namespace MatchV5DTOs {
   export type Description = "primaryStyle" | "subStyle";
 
   // TODO: Revisit the possible values once https://github.com/RiotGames/developer-relations/issues/541 is fixed
-  export type Position =
-    | ""
-    | "Invalid"
-    | "TOP"
-    | "JUNGLE"
-    | "MIDDLE"
-    | "BOTTOM"
-    | "UTILITY";
+  export type Position = "" | "Invalid" | "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM" | "UTILITY";
   export type Role = "SOLO" | "NONE" | "CARRY" | "SUPPORT";
   export type Lane = "TOP" | "JUNGLE" | "MIDDLE" | "BOTTOM";
 }

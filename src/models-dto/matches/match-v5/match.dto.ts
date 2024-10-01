@@ -17,11 +17,17 @@ export namespace MatchV5DTOs {
   }
 
   export interface InfoDto {
+    /** Refer to indicate if the game ended in termination. */
+    endOfGameResult: string;
+
     /** Unix timestamp for when the game is created(i.e., the loading screen). */
     gameCreation: number;
 
     /** Game length in milliseconds. */
     gameDuration: number;
+
+    /** Unix timestamp for when match ends on the game server. This timestamp can occasionally be significantly longer than when the match "ends". The most reliable way of determining the timestamp for the end of the match would be to add the max time played of any participant to the gameStartTimestamp. This field was added to match-v5 in patch 11.20 on Oct 5th, 2021. */
+    gameEndTimestamp: number;
 
     gameId: number;
 

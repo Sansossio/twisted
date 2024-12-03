@@ -7,10 +7,6 @@ export class SummonerV4DTO {
    */
   public readonly profileIconId: number
   /**
-   * Summoner name
-   */
-  public readonly name: string
-  /**
    * Encrypted PUUID. Exact length of 78 characters.
    */
   public readonly puuid: string

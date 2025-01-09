@@ -12,9 +12,7 @@ export enum Regions {
   JAPAN = 'JP1',
   VIETNAM = 'VN2',
   TAIWAN = 'TW2',
-  THAILAND = 'TH2',
   SINGAPORE = 'SG2', 
-  PHILIPPINES = 'PH2',
   MIDDLE_EAST = 'ME1',
   PBE = 'PBE1',
 }
@@ -55,9 +53,7 @@ export function regionToRegionGroup (region: Regions): RegionGroups {
       return RegionGroups.ASIA
     // Sea
     case Regions.OCEANIA:
-    case Regions.PHILIPPINES:
     case Regions.SINGAPORE:
-    case Regions.THAILAND:
     case Regions.TAIWAN:
     case Regions.VIETNAM:
       return RegionGroups.SEA

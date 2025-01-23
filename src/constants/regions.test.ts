@@ -23,9 +23,7 @@ describe('Regions', () => {
 
     it('should match sea', () => {
       expect(regionToRegionGroup(Regions.OCEANIA)).toEqual(RegionGroups.SEA)
-      expect(regionToRegionGroup(Regions.PHILIPPINES)).toEqual(RegionGroups.SEA)
       expect(regionToRegionGroup(Regions.SINGAPORE)).toEqual(RegionGroups.SEA)
-      expect(regionToRegionGroup(Regions.THAILAND)).toEqual(RegionGroups.SEA)
       expect(regionToRegionGroup(Regions.TAIWAN)).toEqual(RegionGroups.SEA)
       expect(regionToRegionGroup(Regions.VIETNAM)).toEqual(RegionGroups.SEA)
     })

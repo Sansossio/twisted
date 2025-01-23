@@ -1,7 +1,4 @@
-node_modules
-example
-.github
-.vscode
-.env
-src
-runExamples.ts
+*
+!package.json
+!yarn.lock
+!dist/

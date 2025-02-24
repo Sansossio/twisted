@@ -3,7 +3,7 @@ import { Levels } from '../../src/constants/levels'
 
 export const config = {
   summonerName: 'Thebausffs',
-  tagLine: 'EUW',
+  tagLine: 'COOL',
   region: Constants.Regions.EU_WEST,
   regionGroup: Constants.RegionGroups.AMERICAS,
 }
@@ -19,7 +19,7 @@ export const configTft = {
 // Used for challengeID
 export const configChallenges = {
   summonerName: 'Night Owl',
-  tagLine: 'NA1',
+  tagLine: 'ryi',
   region: Constants.Regions.AMERICA_NORTH,
   regionGroup: Constants.RegionGroups.AMERICAS,
   challengeId: 101106, // ARAM Eradication

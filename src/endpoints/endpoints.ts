@@ -47,6 +47,11 @@ export const endpointsV4: IEndpoints = {
     prefix: 'summoner',
     version: 4
   },
+  LeagueByPUUID: {
+    path: 'entries/by-puuid/$(summonerPUUID)',
+    prefix: 'league',
+    version: 4
+  },
   SummonerLeague: {
     path: 'entries/by-summoner/$(encryptedSummonerId)',
     prefix: 'league',

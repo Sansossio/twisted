@@ -117,6 +117,7 @@ Everything should be in the same order as in the official docs.
 - [x] `Get match timeline by id`
 ## LEAGUE-V4
 - [x] `Get the challenger league for given queue.`
+- [x] `Get league entries in all queues by PUUID.`
 - [x] `Get league entries in all queues for a given summoner ID.`
 - [x] `Get all the league entries.`
 - [x] `Get the grandmaster league of a specific queue.`

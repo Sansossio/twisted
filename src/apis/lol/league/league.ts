@@ -10,6 +10,17 @@ import { BaseApiLol } from '../base/base.api.lol'
  */
 export class LeagueApi extends BaseApiLol {
   /**
+   * Get summoner leagues by PUUID
+   * @param puuid
+   * @param region
+   */
+  public async byPUUID (puuid: string, region: Regions) {
+    const params = {
+      summonerPUUID: puuid
+    }
+    return this.request<SummonerLeagueDto[]>(region, endpointsV4.LeagueByPUUID, params)
+  }
+  /**
    * Get summoner leagues
    * @param encryptedSummonerId Encrypted summoner ID. Max length 63 characters.
    * @param region

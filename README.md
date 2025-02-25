@@ -62,6 +62,12 @@ const api = new LolApi({
    */
   key: '',
   /**
+   * BaseURL for a rate limiting proxy (default: "https://$(region).api.riotgames.com/:game")
+   * Using this field is for a very advanced use case and in most cases not necessary
+   * ${region} and :game are expected but not required variables
+   */
+  baseURL: "http://localhost:8080/${region}/:game",
+  /**
    * Debug methods
    */
   debug: {

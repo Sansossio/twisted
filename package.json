@@ -1,6 +1,6 @@
 {
   "name": "twisted",
-  "version": "1.63.0",
+  "version": "1.63.1",
   "description": "Fetching riot games api data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,7 +39,7 @@
   "bugs": {
     "url": "https://github.com/Sansossio/twisted/issues"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.3.11",
     "@types/dotenv": "^6.1.1",

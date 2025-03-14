@@ -19,7 +19,7 @@ config()
 
 export class BaseApi<Region extends string> {
   protected readonly game: BaseApiGames = BaseApiGames.LOL
-  private readonly baseUrl = BaseConstants.BASE_URL
+  private baseUrl: string = BaseConstants.BASE_URL
   private key: string
   private concurrency: number | undefined
   private rateLimitRetry: boolean = true
@@ -66,6 +66,9 @@ export class BaseApi<Region extends string> {
       if (typeof param.debug.logRatelimits !== 'undefined') {
         _.set(this.debug, 'logRatelimits', param.debug.logRatelimits)
       }
+    }
+    if(typeof param.baseURL !== 'undefined') {
+      this.baseUrl = param.baseURL
     }
     this.concurrency = param.concurrency
     if (typeof param.concurrency !== 'undefined') {
@@ -187,6 +190,7 @@ export class BaseApi<Region extends string> {
       rateLimitRetry: this.rateLimitRetry,
       rateLimitRetryAttempts: this.rateLimitRetryAttempts,
       concurrency: this.concurrency,
+      baseURL: this.baseUrl,
       debug: this.debug
     }
   }

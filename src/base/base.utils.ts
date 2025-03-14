@@ -24,6 +24,11 @@ export interface IBaseApiParams {
    */
   concurrency?: number,
   /**
+   * BaseURL for a rate limiting proxy (default: "https://$(region).api.riotgames.com/:game")
+   * ${region} and :game are expected but not required variables
+   */
+  baseURL?: string
+  /**
    * Debug methods
    */
   debug?: {

@@ -1,3 +1,4 @@
+import { BaseConstants } from './../src/base/base.const';
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { BaseApi } = require('../src/base/base')
 const { getUrlFromOptions } = require('../src/base/base.utils')
@@ -47,6 +48,7 @@ describe('Base api', () => {
       const exp = {
         concurrency: undefined,
         key,
+        baseURL: BaseConstants.BASE_URL,
         rateLimitRetry: true,
         rateLimitRetryAttempts: 1,
         debug: {
@@ -56,6 +58,16 @@ describe('Base api', () => {
         }
       }
       expect(api.getParam()).toEqual(exp)
+    })
+
+    it('should return new base path if set', () => {
+      const newBaseURL = "${region}/:game"
+      const api = new BaseApi({
+        key: key,
+        baseURL: newBaseURL
+      });
+
+      expect(api.getParam().baseURL).toBe(newBaseURL)
     })
   })
 

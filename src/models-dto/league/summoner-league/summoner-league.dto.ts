@@ -16,6 +16,7 @@ export class SummonerLeagueDto {
   losses: number
   rank: string
   leagueId: string
+  puuid: string
   inactive: boolean
   freshBlood: boolean
   tier: string

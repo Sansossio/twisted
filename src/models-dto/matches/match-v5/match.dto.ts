@@ -59,8 +59,6 @@ export namespace MatchV5DTOs {
   }
 
   export interface ParticipantDto {
-    allInPings: number;
-    assistMePings: number;
     assists: number;
     baitPings: number;
     baronKills: number;
@@ -75,7 +73,11 @@ export namespace MatchV5DTOs {
     /** This field is currently only utilized for Kayn's transformations. (Legal values: 0 - None, 1 - Slayer, 2 - Assassin) */
     championTransform: number;
 
+    allInPings: number;
+    assistMePings: number;
     commandPings: number;
+    retreatPings:                   number;
+    visionClearedPings:             number;
     consumablesPurchased: number;
     damageDealtToBuildings: number;
     damageDealtToObjectives: number;
@@ -195,19 +197,56 @@ export namespace MatchV5DTOs {
     wardsKilled: number;
     wardsPlaced: number;
     win: boolean;
+
+    /** Arena only values (is otherwise set to 0)*/
+    PlayerScore0:                   number;
+    PlayerScore1:                   number;
+    PlayerScore2:                   number;
+    PlayerScore3:                   number;
+    PlayerScore4:                   number;
+    PlayerScore5:                   number;
+    PlayerScore6:                   number;
+    PlayerScore7:                   number;
+    PlayerScore8:                   number;
+    PlayerScore9:                   number;
+    PlayerScore10:                  number;
+    PlayerScore11:                  number;
+    playerAugment1:                 number;
+    playerAugment2:                 number;
+    playerAugment3:                 number;
+    playerAugment4:                 number;
+    playerAugment5:                 number;
+    playerAugment6:                 number;
+    placement: number;
+    subteamPlacement:               number;
+
+    
   }
 
   export interface ChallengesDto {
     "12AssistStreakCount": number;
+    HealFromMapSources: number;
+    InfernalScalePickup: number;
+    SWARM_DefeatAatrox: number;
+    SWARM_DefeatBriar: number;
+    SWARM_DefeatMiniBosses: number;
+    SWARM_EvolveWeapon: number;
+    SWARM_Have3Passives: number;
+    SWARM_KillEnemy: number;
+    SWARM_PickupGold: number;
+    SWARM_ReachLevel50: number;
+    SWARM_Survive15Min: number;
+    SWARM_WinWith5EvolvedWeapons: number;
     abilityUses: number;
     acesBefore15Minutes: number;
     alliedJungleMonsterKills: number;
-    baronbBuffGoldAdvantageOverThreshold: number;
+    baronBuffGoldAdvantageOverThreshold?: number;
     baronTakedowns: number;
     blastConeOppositeOpponentCount: number;
     bountyGold: number;
     buffsStolen: number;
     completeSupportQuestInTime: number;
+    controlWardTimeCoverageInRiverOrEnemyHalf?: number;
     controlWardsPlaced: number;
     damagePerMinute: number;
     damageTakenOnTeamPercentage: number;
@@ -216,8 +255,9 @@ export namespace MatchV5DTOs {
     dodgeSkillShotsSmallWindow: number;
     doubleAces: number;
     dragonTakedowns: number;
-    earliestBaron: number;
-    earlyLaningPhaseGoldExpAdvantage: number;
+    earliestBaron?: number;
+    earliestDragonTakedown?: number;
+    earlyLaningPhaseGoldExpAdvantage?: number;
     effectiveHealAndShielding: number;
     elderDragonKillsWithOpposingSoul: number;
     elderDragonMultikills: number;
@@ -228,40 +268,42 @@ export namespace MatchV5DTOs {
     epicMonsterSteals: number;
     epicMonsterStolenWithoutSmite: number;
     firstTurretKilled: number;
-    firstTurretKilledTime: number;
+    firstTurretKilledTime?: number;
+    fistBumpParticipation: number;
     flawlessAces: number;
     fullTeamTakedown: number;
     gameLength: number;
-    getTakedownsInAllLanesEarlyJungleAsLaner: number;
+    getTakedownsInAllLanesEarlyJungleAsLaner?: number;
     goldPerMinute: number;
     hadOpenNexus: number;
-    highestCrowdControlScore: number;
+    highestCrowdControlScore?: number;
     immobilizeAndKillWithAlly: number;
     initialBuffCount: number;
     initialCrabCount: number;
     jungleCsBefore10Minutes: number;
     junglerTakedownsNearDamagedEpicMonster: number;
-    junglerKillsEarlyJungle: number;
+    junglerKillsEarlyJungle?: number;
     kTurretsDestroyedBeforePlatesFall: number;
     kda: number;
     killAfterHiddenWithAlly: number;
-    killParticipation: number;
+    killParticipation?: number;
     killedChampTookFullTeamDamageSurvived: number;
     killingSprees: number;
     killsNearEnemyTurret: number;
-    killsOnLanersEarlyJungleAsJungler: number;
+    killsOnOtherLanesEarlyJungleAsLaner?: number;
     killsOnRecentlyHealedByAramPack: number;
     killsUnderOwnTurret: number;
     killsWithHelpFromEpicMonster: number;
     knockEnemyIntoTeamAndKill: number;
     landSkillShotsEarlyGame: number;
     laneMinionsFirst10Minutes: number;
-    laningPhaseGoldExpAdvantage: number;
+    laningPhaseGoldExpAdvantage?: number;
     legendaryCount: number;
+    legendaryItemUsed: number[];
     lostAnInhibitor: number;
-    maxCsAdvantageOnLaneOpponent: number;
+    maxCsAdvantageOnLaneOpponent?: number;
     maxKillDeficit: number;
-    maxLevelLeadLaneOpponent: number;
+    maxLevelLeadLaneOpponent?: number;
     mejaisFullStackInTime: number;
     moreEnemyJungleThanOpponent: number;
     multiKillOneSpell: number;
@@ -275,7 +317,7 @@ export namespace MatchV5DTOs {
     perfectDragonSoulsTaken: number;
     perfectGame: number;
     pickKillWithAlly: number;
-    playedChampSelectPosition: number;
+    playedChampSelectPosition?: number;
     poroExplosions: number;
     quickCleanse: number;
     quickFirstTurret: number;
@@ -283,7 +325,7 @@ export namespace MatchV5DTOs {
     riftHeraldTakedowns: number;
     saveAllyFromDeath: number;
     scuttleCrabKills: number;
-    shortestTimeToAceFromFirstTaledown: number;
+    shortestTimeToAceFromFirstTakedown?: number;
     skillshotsDodged: number;
     skillshotsHit: number;
     snowballsHit: number;
@@ -313,12 +355,22 @@ export namespace MatchV5DTOs {
     unseenRecalls: number;
     visionScoreAdvantageLaneOpponent: number;
     visionScorePerMinute: number;
+    voidMonsterKill: number;
     wardTakedowns: number;
     wardTakedownsBefore20M: number;
     wardsGuarded: number;
+    fastestLegendary?: number;
+    highestChampionDamage?: number;
+    killsOnLanersEarlyJungleAsJungler?: number;
+    highestWardKills?: number;
+    soloTurretsLategame?: number;
+    fasterSupportQuestCompletion?: number;
+    hadAfkTeammate?: number;
+    earliestElderDragon?: number;
   }
 
   /** Not sure what this is about */
+  /** Value is only set in arena games**/
   export interface MissionsDto {
     playerScore0: number;
     playerScore1: number;
@@ -359,6 +411,7 @@ export namespace MatchV5DTOs {
   export interface TeamDto {
     bans: BanDto[];
     objectives: ObjectivesDto;
+    feats: FeatsDto;
     teamId: number;
     win: boolean;
   }
@@ -375,11 +428,23 @@ export namespace MatchV5DTOs {
     inhibitor: ObjectiveDto;
     riftHerald: ObjectiveDto;
     tower: ObjectiveDto;
+    horde: ObjectiveDto;
+    atakhan: ObjectiveDto;
   }
 
   export interface ObjectiveDto {
     first: boolean;
     kills: number;
+  }
+
+  export interface FeatsDto {
+    EPIC_MONSTER_KILL: EpicMonsterKillDto;
+    FIRST_BLOOD:       EpicMonsterKillDto;
+    FIRST_TURRET:      EpicMonsterKillDto;
+  }
+
+  export interface EpicMonsterKillDto {
+    featState: number
   }
 
   export type Description = "primaryStyle" | "subStyle";

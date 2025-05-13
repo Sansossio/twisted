@@ -263,6 +263,11 @@ export const endpointsRiotV1: IEndpoints = {
     prefix: 'account',
     version: 1,
   },
+  ActiveRegion: {
+    path: 'region/by-game/$(game)/by-puuid/$(summonerPUUID)',
+    prefix: 'account',
+    version: 1
+  }
 }
 
 export const endpointsV1: IEndpoints = {

@@ -93,9 +93,13 @@ Everything should be in the same order as in the official docs.
 # Riot Endpoints
 ## ACCOUNT-V1
 - [x] `Get account by puuid`
+- [ ] `Get account by puuid - ESPORTS`
 - [x] `Get account by riot id`
+- [ ] `Get account by riot id - ESPORTS`
 - [ ] `Get active shard for a player`
+- [x] `Get active region (lol and tft)`
 - [ ] `Get account by access token`
+- [ ] `Get account by access token - ESPORTS`
 
 # LOL Endpoints
 ## CHAMPION-MASTERY-V4

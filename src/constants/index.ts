@@ -1,6 +1,7 @@
 export * from './division'
 export * from './gameModes'
 export * from './gameTypes'
+export * from './games'
 export * from './queues'
 export * from './seasons'
 export * from './tier'

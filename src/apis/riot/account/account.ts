@@ -1,7 +1,8 @@
-import { RegionGroups } from "../../../constants";
+import { RegionGroups, Games } from "../../../constants";
 import { endpointsRiotV1 } from "../../../endpoints/endpoints";
 import { BaseApiRiot } from "../base/base.api.riot";
 import { AccountDto } from "../../../models-dto/account/account.dto";
+import { AccountRegionDto } from "../../../models-dto/account/account-region.dto";
 
 export class AccountV1Api extends BaseApiRiot {
   /**
@@ -13,12 +14,9 @@ export class AccountV1Api extends BaseApiRiot {
     const params = {
       summonerPUUID: puuid,
     };
-    return this.request<AccountDto>(
-      region,
-      endpointsRiotV1.AccountPUUID,
-      params
-    );
+    return this.request<AccountDto>(region, endpointsRiotV1.AccountPUUID, params);
   }
+
   /**
    * Get by RiotId
    * @param gameName
@@ -26,15 +24,26 @@ export class AccountV1Api extends BaseApiRiot {
    * @param region
    *
    */
-  public async getByRiotId(
-    gameName: string,
-    tagLine: string,
-    region: RegionGroups
-  ) {
+  public async getByRiotId(gameName: string, tagLine: string, region: RegionGroups) {
     const params = {
       gameName,
       tagLine,
     };
     return this.request<AccountDto>(region, endpointsRiotV1.RiotId, params);
+  }
+
+  /**
+   * Get active region of a PUUID
+   * @param puuid
+   * @param game
+   * @param region
+   *
+   */
+  public async getActiveRegion(puuid: string, game: Games, region: RegionGroups) {
+    const params = {
+      summonerPUUID: puuid,
+      game: game,
+    };
+    return this.request<AccountRegionDto>(region, endpointsRiotV1.ActiveRegion, params)
   }
 }

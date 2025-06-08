@@ -35,4 +35,8 @@ export class ParticipantDTO {
    * The encrypted puuid of this participant
    */
   puuid: string
+  /**
+   * The ID of the summoner icon used by this participant
+   */
+  riotId: string
 }

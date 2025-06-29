@@ -1,4 +1,4 @@
-import { RegionGroups, Games } from "../../../constants";
+import { AccountAPIRegionGroups, Games } from "../../../constants";
 import { endpointsRiotV1 } from "../../../endpoints/endpoints";
 import { BaseApiRiot } from "../base/base.api.riot";
 import { AccountDto } from "../../../models-dto/account/account.dto";
@@ -10,7 +10,7 @@ export class AccountV1Api extends BaseApiRiot {
    * @param puuid
    *
    */
-  public async getByPUUID(puuid: string, region: RegionGroups) {
+  public async getByPUUID(puuid: string, region: AccountAPIRegionGroups) {
     const params = {
       summonerPUUID: puuid,
     };
@@ -24,7 +24,7 @@ export class AccountV1Api extends BaseApiRiot {
    * @param region
    *
    */
-  public async getByRiotId(gameName: string, tagLine: string, region: RegionGroups) {
+  public async getByRiotId(gameName: string, tagLine: string, region: AccountAPIRegionGroups) {
     const params = {
       gameName,
       tagLine,
@@ -39,7 +39,7 @@ export class AccountV1Api extends BaseApiRiot {
    * @param region
    *
    */
-  public async getActiveRegion(puuid: string, game: Games, region: RegionGroups) {
+  public async getActiveRegion(puuid: string, game: Games, region: AccountAPIRegionGroups) {
     const params = {
       summonerPUUID: puuid,
       game: game,

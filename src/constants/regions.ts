@@ -32,6 +32,9 @@ export enum RegionGroups {
   SEA = 'SEA'
 }
 
+// See riot API: There are three routing values for account-v1; americas, asia, and europe. You can query for any account in any region. We recommend using the nearest cluster.
+export type AccountAPIRegionGroups = Exclude<RegionGroups, RegionGroups.SEA>;
+
 export function regionToRegionGroup (region: Regions): RegionGroups {
   switch (region) {
     // America
@@ -59,4 +62,12 @@ export function regionToRegionGroup (region: Regions): RegionGroups {
       return RegionGroups.SEA
   }
   throw new Error(`Unexpected region: ${region}`)
+}
+
+export function regionToRegionGroupForAccountAPI(region: Regions): AccountAPIRegionGroups {
+  const regionGroup = regionToRegionGroup(region);
+  if(regionGroup === RegionGroups.SEA){
+    return RegionGroups.ASIA;
+  }
+  return regionGroup;
 }

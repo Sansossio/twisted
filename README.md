@@ -1,5 +1,5 @@
 # Twisted
-League of legends api wrapper <br>
+League of Legends API Wrapper <br>
 ![https://www.npmjs.com/package/twisted](https://nodei.co/npm/twisted.png)
 
 # Simple example

@@ -19,10 +19,12 @@ export class SummonerV4DTO {
    */
   public readonly revisionDate: number
   /**
-   *  Encrypted summoner ID. Max length 63 characters.
+   * @deprecated use puuid instead
+   * Encrypted summoner ID. Max length 63 characters.
    */
   public readonly id: string
   /**
+   * @deprecated account ID is not present anymore
    * Encrypted account ID. Max length 56 characters.
    */
   public readonly accountId: string

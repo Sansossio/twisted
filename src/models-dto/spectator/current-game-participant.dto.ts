@@ -11,6 +11,7 @@ export class CurrentGameParticipantDTO {
    */
   championId: number
   /**
+   * @deprecated summoner name is not present anymore
    * The summoner name of this participant
    */
   summonerName: string
@@ -38,10 +39,6 @@ export class CurrentGameParticipantDTO {
    * The ID of the first summoner spell used by this participant
    */
   spell1Id: number
-  /**
-   * The encrypted summoner ID of this participant
-   */
-  summonerId: string
   /**
    * The encrypted puuid of this participant
    */

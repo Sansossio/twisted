@@ -1,3 +1,5 @@
+import { SeasonMilestone } from './milestone.dto'
+
 export class ChampionMasteryDTO {
   /**
    * Is chest granted for this champion or not in current season.
@@ -32,7 +34,15 @@ export class ChampionMasteryDTO {
    */
   championPointsSinceLastLevel: number
   /**
+   * @deprecated use puuid instead
    * Summoner ID for this entry. (Encrypted)
    */
   summonerId: string
+  /**
+   * Puuid for this entry. (Encrypted)
+   */
+  puuid: string
+  markRequiredForNextLevel: number
+  championSeasonMilestone: number
+  nextSeasonMilestone: SeasonMilestone
 }

@@ -1,6 +1,6 @@
-import { RiotApi } from '../../src'
-import { LolApi } from '../../src'
-import { config } from '../config/config'
+import { RiotApi } from '../../../src'
+import { LolApi } from '../../../src'
+import { config } from '../../config/config'
 
 const rApi = new RiotApi()
 const api = new LolApi()

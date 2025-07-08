@@ -7,6 +7,7 @@ import { LeagueListDTO } from '../../../models-dto'
 export class LeagueTFTApi extends BaseApiTft {
   // Public methods
   /**
+   * @deprecated Use getByPUUID instead
    * Get league entries for a given summoner ID
    * @param encryptedSummonerId
    * @param region
@@ -16,6 +17,17 @@ export class LeagueTFTApi extends BaseApiTft {
       encryptedSummonerId
     }
     return this.request<LeagueEntryDTO[]>(region, endpointsTFTV1.LeagueBySummoner, params)
+  }
+  /**
+   * Get league entries for a given puuid
+   * @param puuid
+   * @param region
+   */
+  public async getByPUUID (puuid: string, region: Regions) {
+    const params = {
+      puuid
+    }
+    return this.request<LeagueEntryDTO[]>(region, endpointsTFTV1.LeagueByPuuid, params)
   }
   /**
    * Get the master league

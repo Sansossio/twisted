@@ -6,6 +6,10 @@ import { CurrentGameInfoDTO } from '../../../models-dto/spectator/current-game-i
 import { SpectatorNotAvailableDTO } from '../../../models-dto/spectator/spectator-not-available.dto'
 import { BaseApiLol } from '../base/base.api.lol'
 
+/**
+ * @deprecated Use SpectatorV5Api instead
+ * Spectator methods
+ */
 export class SpectatorApi extends BaseApiLol {
   private errorHandler (e: any) {
     const { statusCode } = e.error || e

@@ -26,6 +26,7 @@ export class SummonerApi extends BaseApiLol {
     return this.request<SummonerV4DTO>(region, endpoint, params)
   }
   /**
+   * @deprecated use geetByPUUID instead
    * Get by id
    * @param id Summoner id
    * @param region Riot region
@@ -42,8 +43,9 @@ export class SummonerApi extends BaseApiLol {
     return this.genericRequest(FindSummonerBy.PUUID, puuid, region)
   }
   /**
-   * Get by PUUID
-   * @param puuid
+   * @deprecated Use getByPUUID instead
+   * Get by account ID
+   * @param accountId
    * @param region Riot region
    */
   public async getByAccountID (accountId: string, region: Regions) {

@@ -161,8 +161,10 @@ export namespace MatchV5DTOs {
     summoner1Id: number;
     summoner2Casts: number;
     summoner2Id: number;
+    /** @deprecated use puuid instead */
     summonerId: string;
     summonerLevel: number;
+    /** @deprecated use riotIdGameName and riotIdTagline instead */
     summonerName: string;
     teamEarlySurrendered: boolean;
     teamId: number;

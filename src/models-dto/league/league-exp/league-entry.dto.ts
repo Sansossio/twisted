@@ -20,8 +20,10 @@ export class LeagueEntryDTO {
   freshBlood: boolean
   tier: string
   /**
+   * @deprecated use puuid instead
    * Player's summonerId (Encrypted)
    */
   summonerId: string
+  puuid: string;
   leaguePoints: number
 }

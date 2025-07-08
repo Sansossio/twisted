@@ -1,6 +1,9 @@
 import { MiniSeriesDTO } from '../summoner-league/miniseries.dto'
 
 export class LeagueItemDTO {
+  /**
+   * @deprecated summoner name is not present anymore
+   */
   summonerName: string
   hotStreak: boolean
   miniSeries: MiniSeriesDTO
@@ -17,8 +20,10 @@ export class LeagueItemDTO {
   inactive: boolean
   rank: string
   /**
+   * @deprecated use puuid instead
    * Player's summonerId (Encrypted)
    */
   summonerId: string
+  puuid: string
   leaguePoints: number
 }

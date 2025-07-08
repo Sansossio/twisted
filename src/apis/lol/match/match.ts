@@ -10,6 +10,7 @@ import { ApiResponseDTO, MatchTeamsDto } from '../../../models-dto'
 import { BaseApiLol } from '../base/base.api.lol'
 
 /**
+ * @deprecated Use MatchV5Api instead
  * Match methods
  */
 export class MatchApi extends BaseApiLol {

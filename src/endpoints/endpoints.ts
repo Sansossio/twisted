@@ -203,6 +203,12 @@ export const endpointsTFTV1: IEndpoints = {
     version: 1
   },
 
+  LeagueByPuuid: {
+    path: 'entries/by-puuid/$(puuid)',
+    prefix: 'league',
+    version: 1
+  },
+
   LeagueByTierDivision: {
     path: 'entries/$(tier)/$(division)',
     prefix: 'league',

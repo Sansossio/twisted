@@ -28,6 +28,7 @@ export class ParticipantDTO {
    */
   spell1Id: number
   /**
+   * @deprecated use puuid instead
    * Encrypted summoner ID of this participant
    */
   summonerId: string

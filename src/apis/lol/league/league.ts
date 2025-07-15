@@ -21,6 +21,7 @@ export class LeagueApi extends BaseApiLol {
     return this.request<SummonerLeagueDto[]>(region, endpointsV4.LeagueByPUUID, params)
   }
   /**
+   * @deprecated Use byPUUID instead
    * Get summoner leagues
    * @param encryptedSummonerId Encrypted summoner ID. Max length 63 characters.
    * @param region

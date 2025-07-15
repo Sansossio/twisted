@@ -1,8 +1,16 @@
 import { MiniSeriesDTO } from '../summoner-league'
 
 export class LeagueEntryDTO {
+  readonly puuid: string
   readonly leagueId: string
+  /**
+   * @deprecated use puuid instead
+   * Player's summonerId (Encrypted)
+   */
   readonly summonerId: string
+  /**
+   * @deprecated summoner name is not present anymore
+   */
   readonly summonerName: string
   readonly queueType: string
   readonly tier: string

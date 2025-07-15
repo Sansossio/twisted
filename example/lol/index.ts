@@ -1,7 +1,5 @@
 export * from './Challenges.example'
 export * from './ChampionRotation.example'
-export * from './SummonerByAccountID.example'
-export * from './SummonerById.example'
 export * from './SummonerByPUUID.example'
 export * from './SummonerLeague.example'
 export * from './LeagueExp.example'

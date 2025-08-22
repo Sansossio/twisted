@@ -198,13 +198,13 @@ export const endpointsTFTV1: IEndpoints = {
   },
 
   LeagueBySummoner: {
-    path: 'entries/by-summoner/$(encryptedSummonerId)',
+    path: 'by-summoner/$(encryptedSummonerId)',
     prefix: 'league',
     version: 1
   },
 
   LeagueByPuuid: {
-    path: 'entries/by-puuid/$(puuid)',
+    path: 'by-puuid/$(puuid)',
     prefix: 'league',
     version: 1
   },

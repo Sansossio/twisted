@@ -44,18 +44,27 @@ export class DataDragonService {
   /**
    * Runes reforged (perks)
    */
-  async getRunesReforged (): Promise<RunesReforgedDTO[]> {
+  async getRunesReforged (language?: string): Promise<RunesReforgedDTO[]> {
     const version = (await this.getVersions())[0]
-    const path = `cdn/${version}/data/${defaultLang}/runesReforged.json`
+    const lang = language || defaultLang;
+    const path = `cdn/${version}/data/${lang}/runesReforged.json`
+    return this.request(path)
+  }
+
+  async getChampionList (language?: string): Promise<ChampionsDataDragon> {
+    const version = (await this.getVersions())[0]
+    const lang = language || defaultLang
+    const path = `cdn/${version}/data/${lang}/champion.json`
     return this.request(path)
   }
 
   async getChampion (): Promise<ChampionsDataDragon>
-  async getChampion (champ: Champions | number): Promise<ChampionsDataDragonDetailsSolo>
-  async getChampion (champ?: Champions): Promise<ChampionsDataDragon | ChampionsDataDragonDetailsSolo> {
+  async getChampion (champ: Champions | number, language?: string ): Promise<ChampionsDataDragonDetailsSolo>
+  async getChampion (champ?: Champions, language?: string ): Promise<ChampionsDataDragon | ChampionsDataDragonDetailsSolo> {
     const version = (await this.getVersions())[0]
+    const lang = language || defaultLang
     let champName = ''
-    let path = `cdn/${version}/data/${defaultLang}/champion`
+    let path = `cdn/${version}/data/${lang}/champion`
     if (champ) {
       champName = getChampionNameCapital(champ)
       path += `/${champName}.json`

@@ -46,7 +46,7 @@ export class DataDragonService {
    */
   async getRunesReforged (language?: string): Promise<RunesReforgedDTO[]> {
     const version = (await this.getVersions())[0]
-    const lang = language || defaultLang;
+    const lang = language || defaultLang
     const path = `cdn/${version}/data/${lang}/runesReforged.json`
     return this.request(path)
   }

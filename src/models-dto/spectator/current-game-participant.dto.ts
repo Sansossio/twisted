@@ -43,4 +43,8 @@ export class CurrentGameParticipantDTO {
    * The encrypted puuid of this participant
    */
   puuid: string
+  /**
+   * The riot ID of this participant
+   */
+  riotId: string
 }

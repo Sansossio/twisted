@@ -2,9 +2,12 @@ export class RunesReforgedDTO {
   id: number
   key: string
   icon: string
-  slots: {
-    runes: RunesReforgedSlotsDTO[]
-  }
+  name: string
+  slots: [
+    {
+      runes: RunesReforgedSlotsDTO[]
+    }
+  ]
 }
 
 export class RunesReforgedSlotsDTO {

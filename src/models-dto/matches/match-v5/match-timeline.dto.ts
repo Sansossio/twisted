@@ -54,20 +54,20 @@ export namespace MatchV5TimelineDTOs {
     name?: string
   }
 
-  type BuildingType = 'INHIBITOR_BUILDING' | 'TOWER_BUILDING'
-  type KillType = 'KILL_ACE' | 'KILL_FIRST_BLOOD' | 'KILL_MULTI'
+  export type BuildingType = 'INHIBITOR_BUILDING' | 'TOWER_BUILDING'
+  export type KillType = 'KILL_ACE' | 'KILL_FIRST_BLOOD' | 'KILL_MULTI'
 
-  type LaneType = 'BOT_LANE' | 'MID_LANE' | 'TOP_LANE'
-  type LevelUpType = 'EVOLVE' | 'NORMAL'
+  export type LaneType = 'BOT_LANE' | 'MID_LANE' | 'TOP_LANE'
+  export type LevelUpType = 'EVOLVE' | 'NORMAL'
 
-  interface Position {
+  export interface Position {
     x: number
     y: number
   }
 
-  type TowerType = 'BASE_TURRET' | 'INNER_TURRET' | 'NEXUS_TURRET' | 'OUTER_TURRET'
+  export type TowerType = 'BASE_TURRET' | 'INNER_TURRET' | 'NEXUS_TURRET' | 'OUTER_TURRET'
 
-  type EventType =
+  export type EventType =
     | 'BUILDING_KILL'
     | 'CHAMPION_KILL'
     | 'CHAMPION_SPECIAL_KILL'
@@ -85,7 +85,7 @@ export namespace MatchV5TimelineDTOs {
     | 'WARD_KILL'
     | 'WARD_PLACED'
 
-  interface VictimDamage {
+  export interface VictimDamage {
     basic: boolean
     magicDamage: number
     name: Name
@@ -97,7 +97,7 @@ export namespace MatchV5TimelineDTOs {
     type: VictimDamageDealtType
   }
 
-  enum Name {
+  export enum Name {
     Ashe = 'Ashe',
     Braum = 'Braum',
     Darius = 'Darius',
@@ -143,14 +143,14 @@ export namespace MatchV5TimelineDTOs {
     Yone = 'Yone'
   }
 
-  enum VictimDamageDealtType {
+  export enum VictimDamageDealtType {
     Minion = 'MINION',
     Monster = 'MONSTER',
     Other = 'OTHER',
     Tower = 'TOWER'
   }
 
-  enum WardType {
+  export enum WardType {
     BlueTrinket = 'BLUE_TRINKET',
     ControlWard = 'CONTROL_WARD',
     SightWard = 'SIGHT_WARD',
@@ -158,7 +158,7 @@ export namespace MatchV5TimelineDTOs {
     YellowTrinket = 'YELLOW_TRINKET'
   }
 
-  interface ParticipantFrame {
+  export interface ParticipantFrame {
     championStats: { [key: string]: number }
     currentGold: number
     damageStats: { [key: string]: number }
@@ -173,12 +173,12 @@ export namespace MatchV5TimelineDTOs {
     xp: number
   }
 
-  interface Participant {
+  export interface Participant {
     participantId: number
     puuid: string
   }
 
-  interface Metadata {
+  export interface Metadata {
     dataVersion: string
     matchId: string
     participants: string[]

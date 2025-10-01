@@ -79,11 +79,20 @@ export class ChampionsDataDragonDetailsSolo extends ChampionsDataDragonDetails {
       key: string
     }[]
     costType: string
-    maxamo: string
+    maxammo: string
     range: number[]
     rangeBurn: string
+    image: {
+      full: string
+      sprite: string
+      group: string
+      x: number
+      y: number
+      w: number
+      h: number
+    }
     resource: string
-  }
+  }[]
   passive: {
     name: string
     description: string

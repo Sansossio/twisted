@@ -16,6 +16,7 @@ export class ThirdPartyCode extends BaseApiLol {
     }
   }
   /**
+   * NOTE: The third-party-code-v4 endpoint was sunset on March 11th, 2024 and is no longer available.
    * Valid codes must be no longer than 256 characters and only use valid characters: 0-9, a-z, A-Z, and -
    * @param encryptedSummonerId
    * @param region

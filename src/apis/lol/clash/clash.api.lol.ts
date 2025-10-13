@@ -10,12 +10,12 @@ import { TournamentClashDTO } from '../../../models-dto/clash/tournament/tournam
  */
 export class ClashApi extends BaseApiLol {
   /**
-   * This endpoint returns a list of active Clash players for a given summoner ID. If a summoner registers for multiple tournaments at the same time (e.g., Saturday and Sunday) then both registrations would appear in this list.
+   * This endpoint returns a list of active Clash players for a given summoner's PUUID. If a summoner registers for multiple tournaments at the same time (e.g., Saturday and Sunday) then both registrations would appear in this list.
    * @param region
-   * @param summonerId Encrypted summoner id
+   * @param puuid PUUID of the summoner
    */
-  playersList (encryptedSummonerId: string, region: Regions) {
-    return this.request<ClashPlayerDTO[]>(region, endpointsClashV1.GetPlayers, { encryptedSummonerId })
+  playersList (puuid: string, region: Regions) {
+    return this.request<ClashPlayerDTO[]>(region, endpointsClashV1.GetPlayers, { puuid })
   }
   /**
    * Get team by id

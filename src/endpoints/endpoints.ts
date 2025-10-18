@@ -218,7 +218,7 @@ export const endpointsTFTV1: IEndpoints = {
 
 export const endpointsClashV1: IEndpoints = {
   GetPlayers: {
-    path: 'players/by-summoner/$(encryptedSummonerId)',
+    path: 'players/by-puuid/$(puuid)',
     prefix: 'clash',
     version: 1
   },

@@ -7,7 +7,7 @@ import { SpectatorNotAvailableDTO } from '../../../models-dto/spectator/spectato
 import { BaseApiLol } from '../base/base.api.lol'
 
 export class SpectatorV5Api extends BaseApiLol {
-   private errorHandler(e: any) {
+   private errorHandler (e: any) {
       const { statusCode } = e.error || e
       if (statusCode !== StatusCodes.NOT_FOUND) {
          throw e
@@ -17,7 +17,7 @@ export class SpectatorV5Api extends BaseApiLol {
     * Get featured games
     * @param region
     */
-   public async featuredGames(region: Regions) {
+   public async featuredGames (region: Regions) {
       return this.request<FeaturedGamesDTO>(region, endpointsV5.SpectatorFeaturedGames)
    }
    /**
@@ -25,7 +25,7 @@ export class SpectatorV5Api extends BaseApiLol {
     * @param puuid
     * @param region
     */
-   public async activeGame(puuid: string, region: Regions) {
+   public async activeGame (puuid: string, region: Regions) {
       const params = {
          summonerPUUID: puuid
       }

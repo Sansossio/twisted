@@ -1,7 +1,7 @@
 import { NOT_FOUND } from 'http-status-codes'
 import { Regions } from '../../../constants'
 import { FeaturedGamesDTO } from '../../../models-dto/spectator/featured-games.dto'
-import { endpointsV4 } from '../../../endpoints/endpoints'
+import { endpointsV5 } from '../../../endpoints/endpoints'
 import { CurrentGameInfoDTO } from '../../../models-dto/spectator/current-game-info.dto'
 import { SpectatorNotAvailableDTO } from '../../../models-dto/spectator/spectator-not-available.dto'
 import { BaseApiLol } from '../base/base.api.lol'
@@ -22,19 +22,19 @@ export class SpectatorApi extends BaseApiLol {
    * @param region
    */
   public async featuredGames (region: Regions) {
-    return this.request<FeaturedGamesDTO>(region, endpointsV4.SpectatorFeaturedGames)
+    return this.request<FeaturedGamesDTO>(region, endpointsV5.SpectatorFeaturedGames)
   }
   /**
    * Get summoner active game
-   * @param encryptedSummonerId
+   * @param summonerPUUID
    * @param region
    */
-  public async activeGame (encryptedSummonerId: string, region: Regions) {
+  public async activeGame (summonerPUUID: string, region: Regions) {
     const params = {
-      encryptedSummonerId
+      summonerPUUID
     }
     try {
-      return await this.request<CurrentGameInfoDTO>(region, endpointsV4.SpectatorSummoner, params)
+      return await this.request<CurrentGameInfoDTO>(region, endpointsV5.SpectatorSummoner, params)
     } catch (e) {
       this.errorHandler(e)
       const message = 'No active game found'

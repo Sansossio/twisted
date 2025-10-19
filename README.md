@@ -151,10 +151,10 @@ Everything should be in the same order as in the official docs.
 - [x] `Get match by match ID and tournament code.`
 ## LOL-STATUS-V4
 - [x] `Get League of Legends status for the given platform.`
-## SPECTATOR-V5
+## SPECTATOR-V5 (deprecated [October 17, 2025](https://x.com/riotgamesdevrel/status/1979263978787246391))
 - [x] `Get current game information for the given summoner ID.`
 - [x] `Get list of featured games.`
-## SPECTATOR-V4 (deprecated [April 5](https://twitter.com/RiotGamesDevRel/status/1764780016640852222?t=pHB1GpVotgKnNYU-OH_1HQ&s=19))
+## SPECTATOR-V4 (deprecated [April 5, 2024](https://twitter.com/RiotGamesDevRel/status/1764780016640852222?t=pHB1GpVotgKnNYU-OH_1HQ&s=19))
 - [x] `Get current game information for the given summoner ID.`
 - [x] `Get list of featured games.`
 ## SUMMONER-V4
@@ -176,7 +176,7 @@ Everything should be in the same order as in the official docs.
 - [ ] `Creates a tournament and returns its ID.`
 
 # TFT Endpoints
-## TFT-SPECTATOR-V5
+## TFT-SPECTATOR-V5 (deprecated [October 17, 2025](https://x.com/riotgamesdevrel/status/1979263978787246391))
 - [x] `Get current game information for the given puuid.`
 - [x] `Get list of featured games.`
 ## TFT-SUMMONER-V1

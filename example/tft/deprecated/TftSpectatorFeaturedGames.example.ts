@@ -1,5 +1,5 @@
-import { TftApi } from '../../src'
-import { Regions } from '../../src/constants'
+import { TftApi } from '../../../src'
+import { Regions } from '../../../src/constants'
 
 export async function spectatorTFTV5FeaturedGames() {
    const api = new TftApi()

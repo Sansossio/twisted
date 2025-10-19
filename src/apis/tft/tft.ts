@@ -23,6 +23,7 @@ export class TftApi extends BaseApiTft {
   public readonly League = new LeagueTFTApi(this.getParam())
   /**
    * Spectator methods
+   * @deprecated
    */
   public readonly SpectatorV5 = new SpectatorTFTV5Api(this.getParam())
   /**

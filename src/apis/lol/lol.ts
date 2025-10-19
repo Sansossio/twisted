@@ -45,6 +45,7 @@ export class LolApi extends BaseApiLol {
   public readonly Champion = new ChampionApi(this.getParam())
   /**
    * Spectator methods
+   * @deprecated
    */
   public readonly SpectatorV5 = new SpectatorV5Api(this.getParam())
   /**

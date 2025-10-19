@@ -1,6 +1,6 @@
-import { RiotApi } from '../../src'
-import { TftApi } from '../../src'
-import { RegionGroups, Regions } from '../../src/constants'
+import { RiotApi } from '../../../src'
+import { TftApi } from '../../../src'
+import { RegionGroups, Regions } from '../../../src/constants'
 
 export async function tftSpectatorActiveGames () {
    const rApi = new RiotApi()

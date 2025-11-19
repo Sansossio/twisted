@@ -24,6 +24,11 @@ export const endpointsV5: IEndpoints = {
     prefix: 'match',
     version: 5
   },
+  MatchReplays: {
+    path: 'matches/by-puuid/$(puuid)/replays',
+    prefix: 'match',
+    version: 5
+  },
   SpectatorFeaturedGames: {
     path: 'featured-games',
     prefix: 'spectator',

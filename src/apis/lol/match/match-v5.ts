@@ -3,7 +3,7 @@ import { RegionGroups } from '../../../constants'
 import { endpointsV5 } from '../../../endpoints/endpoints'
 import { GenericError } from '../../../errors'
 import { ApiResponseDTO } from '../../../models-dto'
-import { MatchV5DTOs, MatchV5TimelineDTOs } from '../../../models-dto/matches/match-v5'
+import { MatchV5DTOs, MatchV5TimelineDTOs, MatchV5ReplaysDTOs } from '../../../models-dto/matches/match-v5'
 import { MatchQueryV5DTO } from '../../../models-dto/matches/query-v5'
 import { BaseApiLol } from '../base/base.api.lol'
 
@@ -55,5 +55,18 @@ export class MatchV5Api extends BaseApiLol {
       matchId
     }
     return this.request<MatchV5TimelineDTOs.MatchTimelineDto>(region, endpointsV5.MatchTimeline, params)
+  }
+
+  /**
+   * Get replays by puuid
+   * @param puuid Puuid
+   * @param region
+   * @returns Total number of replays and list of replay URLs
+   */
+  public async replays (puuid: string, region: RegionGroups) {
+    const params = {
+      puuid
+    }
+    return this.request<MatchV5ReplaysDTOs.MatchReplayDto>(region, endpointsV5.MatchReplays, params)
   }
 }

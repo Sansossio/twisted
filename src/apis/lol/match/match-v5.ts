@@ -58,7 +58,7 @@ export class MatchV5Api extends BaseApiLol {
   }
 
   /**
-   * Get replays by puuid
+   * Get available replays by puuid
    * @param puuid Puuid
    * @param region
    * @returns Total number of replays and list of replay URLs

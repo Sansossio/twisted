@@ -119,7 +119,7 @@ Everything should be in the same order as in the official docs.
 - [x] `Get match by id`
 - [x] `Get matches by summoner id`
 - [x] `Get match timeline by id`
-- [x] `Get match replays by PUUID.`
+- [x] `Get available match replays by PUUID.`
 ## MATCH-V4 (deprecated)
 - [x] `Get matches id by tournament code`
 - [x] `Get match by id`

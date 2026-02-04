@@ -19,7 +19,6 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - run: yarn install --frozen-lockfile
-
       - run: npm publish --provenance --access public
         env:
           npm_config_registry: https://registry.npmjs.org

@@ -22,4 +22,5 @@ jobs:
       - run: npm publish --provenance --access public --registry=https://registry.npmjs.org
         env:
           NODE_AUTH_TOKEN: ""
+          NPM_CONFIG_PROVENANCE: true
           NPM_TOKEN: ""

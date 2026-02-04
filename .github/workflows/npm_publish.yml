@@ -2,19 +2,24 @@ name: Deploy
 on:
   push:
     branches: [master]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
-    - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '20.x'
-        registry-url: 'https://registry.npmjs.org'
-        # No scope for unscoped package; do not set scope here
-    - run: yarn
-    - run: yarn publish --registry https://registry.npmjs.org
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        npm_config_registry: https://registry.npmjs.org
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - run: yarn install --frozen-lockfile
+
+      - run: npm publish --provenance --access public
+        env:
+          npm_config_registry: https://registry.npmjs.org
